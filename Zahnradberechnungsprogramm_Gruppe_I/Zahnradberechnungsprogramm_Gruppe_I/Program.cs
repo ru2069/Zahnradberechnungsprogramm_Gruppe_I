@@ -38,7 +38,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             Console.WriteLine("");
 
             Program prg = new Program();
-
+            
             //Ausgabe Geradverzahnung allgemein
             if (a == 1)
             {
@@ -60,6 +60,8 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                 {
                     double modul = prg.Modul_m(teilkreisdurchmesser, zähnezahl);
                     Console.WriteLine("Das TEST            m = " + modul + "mm");
+                    double teilung = prg.Teilung_p(Kreiszahl, modul);
+                    Console.WriteLine("Die Teilung p = " + teilung + "mm");
                 }
             }
 
@@ -82,6 +84,36 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
         {
             double teilung = Kreiszahl * modul;
             return teilung;
+        }
+        public double Zahnkopfhöhe_ha(double modul)
+        {
+            double zahnkopfhöhe = modul;
+            return zahnkopfhöhe;
+        }
+        public double Zahnfußhöhe_hf(double modul, double Kopfspiel)
+        {
+            double zahnfußhöhe = modul + Kopfspiel;
+            return zahnfußhöhe;
+        }
+        public double Zahnhöhe_h(double modul, double Kopfspiel)
+        {
+            double zahnhöhe = 2 * modul + Kopfspiel;
+            return zahnhöhe;
+        }
+        public double Kopfkreisdurchmesser_daa(double teilkreisdurchmesser, double modul)
+        {
+            double daa = teilkreisdurchmesser + 2 * modul;
+            return daa;
+        }
+        public double Fußkreisdurchmesser_dfa(double teilkreisdurchmesser, double modul, double Kopfspiel)
+        {
+            double dfa = teilkreisdurchmesser - 2 * (modul + Kopfspiel);
+            return dfa;
+        }
+        public double Kopfkreisdurchmesser_dai(double teilkreisdurchmesser, double modul)
+        {
+            double dai = teilkreisdurchmesser - 2 * modul;
+            return dai;
         }
 
     }
