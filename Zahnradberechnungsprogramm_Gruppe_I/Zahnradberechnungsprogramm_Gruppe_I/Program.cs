@@ -85,6 +85,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             double teilung = Kreiszahl * modul;
             return teilung;
         }
+<<<<<<< HEAD
         public double Zahnkopfhöhe_ha(double modul)
         {
             double zahnkopfhöhe = modul;
@@ -116,6 +117,8 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             return dai;
         }
 
+=======
+>>>>>>> 8d2c5146864fba3f2e423370dfd87183a3fba0f1
     }
 }
 
