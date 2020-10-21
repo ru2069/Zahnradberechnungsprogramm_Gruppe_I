@@ -83,7 +83,6 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             double teilung = Kreiszahl * modul;
             return teilung;
         }
-
     }
 }
 
