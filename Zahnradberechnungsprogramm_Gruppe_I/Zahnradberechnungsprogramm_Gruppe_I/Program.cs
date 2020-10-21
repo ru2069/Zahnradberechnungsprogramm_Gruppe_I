@@ -54,6 +54,8 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                 {
                     double modul = prg.Modul_m(teilkreisdurchmesser, zähnezahl);
                     Console.WriteLine("Das Modul            m = " + modul + "mm");
+                    double teilung = prg.Teilung_p(Kreiszahl, modul);
+                    Console.WriteLine("Die Teilung p = " + teilung + "mm");
                 }
                 else
                 {
@@ -77,7 +79,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             return modul;
         }
 
-        public double Teilung_p(double Kreiszahl, double m);
+        public double Teilung_p(double Kreiszahl, double modul);
         {
             double teilung = Kreiszahl * modul;
             return teilung;
