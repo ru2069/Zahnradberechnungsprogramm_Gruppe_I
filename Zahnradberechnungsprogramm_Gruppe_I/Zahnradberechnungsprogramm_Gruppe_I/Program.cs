@@ -10,12 +10,11 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
 {
     class Program
     {
-        //Global beständige Konstanten
-        const double Kopfspiel = 0.167;
-        const double Kreiszahl = 3.141;
-
         static void Main(string[] args)
         {
+            double Kreiszahl = 3.141;
+            double Kopfspiel = 0.167;
+
             //Begrüßung und Parametereingabe
             Console.WriteLine("Herzlich Willkommen zur pre-Alpha dieses Berechnungsprogramm zur Zahnraddimensionierung.");
             Console.WriteLine("Bitte geben Sie nun Ihre grundlegenden Werte [Angaben in mm] zur Berechnung ein.");
@@ -79,7 +78,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             return modul;
         }
 
-        public double Teilung_p(double Kreiszahl, double modul);
+        public double Teilung_p(double Kreiszahl, double modul)
         {
             double teilung = Kreiszahl * modul;
             return teilung;
