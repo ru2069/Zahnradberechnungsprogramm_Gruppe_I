@@ -38,8 +38,9 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             a = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("");
 
-            //Ausgabe Geradverzahnung allgemein
             Program prg = new Program();
+
+            //Ausgabe Geradverzahnung allgemein
             if (a == 1)
             {
                 //Berechnungsauswahl in Geradverzahnung
