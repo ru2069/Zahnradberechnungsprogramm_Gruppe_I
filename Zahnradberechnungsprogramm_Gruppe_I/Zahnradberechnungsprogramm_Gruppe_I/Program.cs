@@ -14,6 +14,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
         {
             double Kreiszahl = 3.141;
             double Kopfspiel = 0.167;
+            double Schrägungswinkel = 20;
 
             //Begrüßung und Parametereingabe
             Console.WriteLine("Herzlich Willkommen zur pre-Alpha dieses Berechnungsprogramm zur Zahnraddimensionierung.");
@@ -89,9 +90,17 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             //Ausgabe Schrägverzahnung
             else
             {
-                Console.WriteLine("jbvhjdn");
+                double stirnmodul = prg.Stirnmodul_mt(teilkreisdurchmesser,zähnezahl);
+                Console.WriteLine("Das Stirnmodul mt = " + stirnmodul + "mm");
+                double stirnteilung = prg.stirnteilung_pt(Kreiszahl, teilkreisdurchmesser, zähnezahl);
+                Console.WriteLine("Die Stirnteilung pt = " + stirnteilung + "mm");
+                double normalmodul = prg.normalmodul_mn(stirnmodul, Schrägungswinkel);
+                Console.WriteLine("Das Normalmodul mn = " + normalmodul + "mm");
+                double normalteilung = prg.normalteilung_pn(Kreiszahl, normalmodul);
+                Console.WriteLine("Die Normalteilung pn = " + normalteilung + "mm");
+                double kopfkreisdurchmesser = prg.Kopfkreisdurchmesser_da(teilkreisdurchmesser, normalmodul);
+                Console.WriteLine("Der Kopfkreisdurchmesser da = " + kopfkreisdurchmesser + "mm");
             }
-
             Console.ReadKey();
         }
 
@@ -139,6 +148,11 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
         {
             double dfi = teilkreisdurchmesser + 2 * (modul + Kopfspiel);
             return dfi;
+        }
+        public double Stirnmodul_mt(double teilkreisdurchmesser, double zähnezahl)
+        {
+            double mt = teilkreisdurchmesser / zähnezahl;
+            return mt;
         }
     }
 }
