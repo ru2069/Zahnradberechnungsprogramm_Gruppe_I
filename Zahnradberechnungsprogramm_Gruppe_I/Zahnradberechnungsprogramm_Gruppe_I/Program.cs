@@ -90,7 +90,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             //Ausgabe Schrägverzahnung
             else
             {
-                double stirnmodul = prg.Stirnmodul_mt(teilkreisdurchmesser,zähnezahl);
+                double stirnmodul = prg.stirnmodul_mt(teilkreisdurchmesser,zähnezahl);
                 Console.WriteLine("Das Stirnmodul mt = " + stirnmodul + "mm");
                 double stirnteilung = prg.stirnteilung_pt(Kreiszahl, teilkreisdurchmesser, zähnezahl);
                 Console.WriteLine("Die Stirnteilung pt = " + stirnteilung + "mm");
@@ -98,7 +98,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                 Console.WriteLine("Das Normalmodul mn = " + normalmodul + "mm");
                 double normalteilung = prg.normalteilung_pn(Kreiszahl, normalmodul);
                 Console.WriteLine("Die Normalteilung pn = " + normalteilung + "mm");
-                double kopfkreisdurchmesser = prg.Kopfkreisdurchmesser_da(teilkreisdurchmesser, normalmodul);
+                double kopfkreisdurchmesser = prg.kopfkreisdurchmesser_da(teilkreisdurchmesser, normalmodul);
                 Console.WriteLine("Der Kopfkreisdurchmesser da = " + kopfkreisdurchmesser + "mm");
             }
             Console.ReadKey();
@@ -149,11 +149,38 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             double dfi = teilkreisdurchmesser + 2 * (modul + Kopfspiel);
             return dfi;
         }
-        public double Stirnmodul_mt(double teilkreisdurchmesser, double zähnezahl)
+
+        public double stirnmodul_mt(double teilkreisdurchmesser, double zähnezahl)
         {
             double mt = teilkreisdurchmesser / zähnezahl;
             return mt;
         }
+
+        public double stirnteilung_pt(double kreiszahl, double teilkreidurchmesser,double zähnezahl)
+        {
+            double pt = (kreiszahl * teilkreidurchmesser) / zähnezahl;
+            return pt;
+        }
+
+        public double normalmodul_mn(double stirnmodul, double schrägungswinkel)
+        {
+            double mn = stirnmodul * Math.Cos(schrägungswinkel);
+            return mn;
+        }
+
+        public double normalteilung_pn(double kreiszahl, double normalmodul)
+        {
+            double pn = kreiszahl * normalmodul;
+            return pn;
+        }
+
+        public double kopfkreisdurchmesser_da(double teilkreisdurchmesser, double normalmodul)
+        {
+            double da = teilkreisdurchmesser + 2 * normalmodul;
+            return da;
+        }
+
+
     }
 }
 
