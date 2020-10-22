@@ -100,7 +100,6 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             double modul = teilkreisdurchmesser / zähnezahl;
             return modul;
         }
-
         public double Teilung_p(double Kreiszahl, double modul)
         {
             double teilung = Kreiszahl * modul;
