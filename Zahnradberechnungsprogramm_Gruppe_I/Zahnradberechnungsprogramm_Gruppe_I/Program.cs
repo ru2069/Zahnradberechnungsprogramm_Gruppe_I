@@ -13,77 +13,81 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
         static void Main(string[] args)
         {
             double Kreiszahl = 3.141;
-            double Kopfspiel = 0.167;
-            double Schrägungswinkel = 20;
+            double Kopfspielzahl = 0.167;
+            double Schrägungswinkel = 19.5;
+            int verzahnungsArt;
+            int innenAußen;
 
             //Begrüßung und Parametereingabe
             Console.WriteLine("Herzlich Willkommen zur pre-Alpha dieses Berechnungsprogramm zur Zahnraddimensionierung.");
-            Console.WriteLine("Bitte geben Sie nun Ihre grundlegenden Werte [Angaben in mm] zur Berechnung ein.");
+            Console.WriteLine("Bitte geben Sie nun Ihre grundlegenden Werte zur Berechnung ein.");
             Console.WriteLine("");
 
             Console.Write("Geben Sie die Zähnezahl ein: ");
             double zähnezahl = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Geben Sie den Teilkreisdurchmesser ein: ");
+            Console.Write("Geben Sie den Teilkreisdurchmesser [in mm] ein: ");
             double teilkreisdurchmesser = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Geben Sie die Breite ein: ");
+            Console.Write("Geben Sie die Breite [in mm] ein: ");
             double breite = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("");
 
             //Berechnungsauswahl
             Console.WriteLine("Nun haben Sie die Möglichkeit zwischen geradeverzahnten oder schrägverzahnten Stirnrädern zu wählen.");
             Console.Write("Bitte geben Sie '1' für Geradverzahnung oder '2' für Schrägverzahnung ein: ");
-            int a;
-            a = Convert.ToInt32(Console.ReadLine());
+            verzahnungsArt = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("");
 
             Program prg = new Program();
 
             //Ausgabe Geradverzahnung allgemein
-            if (a == 1)
+            if (verzahnungsArt == 1)
             {
                 //Berechnungsauswahl in Geradverzahnung
                 Console.WriteLine("Bitte wählen Sie zwischen Außen- oder Innenverzahnung.");
                 Console.Write("Bitte geben Sie '1' für Außenverzahnung oder '2' für Innenverzahnung ein: ");
-                int b;
-                b = Convert.ToInt32(Console.ReadLine());
+                innenAußen = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("");
 
-                if (b == 1)
+                if (innenAußen == 1)
                 {
                     double modul = prg.Modul_m(teilkreisdurchmesser, zähnezahl);
-                    Console.WriteLine("Das Modul m = " + modul + "mm");
+                    Console.WriteLine("Das Modul                    m = " + modul + "mm");
                     double teilung = prg.Teilung_p(Kreiszahl, modul);
-                    Console.WriteLine("Die Teilung p = " + teilung + "mm");
+                    Console.WriteLine("Die Teilung                  p = " + teilung + "mm");
+                    double Kopfspiel = prg.Kopfspiel_c(modul, Kopfspielzahl);
+                    Console.WriteLine("Das Kopfspiel                c = " + Kopfspiel + "mm");
                     double daa = prg.Kopfkreisdurchmesser_daa(teilkreisdurchmesser, modul);
-                    Console.WriteLine("Der Kopfkreisdurchmesser da = " + daa + "mm");
+                    Console.WriteLine("Der Kopfkreisdurchmesser     da = " + daa + "mm");
                     double dfa = prg.Fußkreisdurchmesser_dfa(teilkreisdurchmesser, modul, Kopfspiel);
-                    Console.WriteLine("Der Fußkreisdurchmesser df = " + dfa + "mm");
+                    Console.WriteLine("Der Fußkreisdurchmesser      df = " + dfa + "mm");
                     double zahnhöhe = prg.Zahnhöhe_h(modul, Kopfspiel);
-                    Console.WriteLine("Die Zahnhöhe h = " + zahnhöhe + "mm");
+                    Console.WriteLine("Die Zahnhöhe                 h = " + zahnhöhe + "mm");
                     double zahnkopfhöhe = prg.Zahnkopfhöhe_ha(modul);
-                    Console.WriteLine("Die Zahnkopfhöhe ha = " + zahnkopfhöhe + "mm");
+                    Console.WriteLine("Die Zahnkopfhöhe             ha = " + zahnkopfhöhe + "mm");
                     double zahnfüßhöhe = prg.Zahnfußhöhe_hf(modul, Kopfspiel);
-                    Console.WriteLine("Die Zahnfußhöhe hf = " + zahnfüßhöhe + "mm");
+                    Console.WriteLine("Die Zahnfußhöhe              hf = " + zahnfüßhöhe + "mm");
 
                 }
                 else
                 {
                     double modul = prg.Modul_m(teilkreisdurchmesser, zähnezahl);
-                    Console.WriteLine("Das Modul m = " + modul + "mm");
+                    Console.WriteLine("Das Modul                    m = " + modul + "mm");
                     double teilung = prg.Teilung_p(Kreiszahl, modul);
-                    Console.WriteLine("Die Teilung p = " + teilung + "mm");
+                    Console.WriteLine("Die Teilung                  p = " + teilung + "mm");
+                    double Kopfspiel = prg.Kopfspiel_c(modul, Kopfspielzahl);
+                    Console.WriteLine("Das Kopfspiel                c = " + Kopfspiel + "mm");
                     double dai = prg.Kopfkreisdurchmesser_dai(teilkreisdurchmesser, modul);
-                    Console.WriteLine("Der Kopfkreisdurchmesser da = " + dai + "mm");
+                    Console.WriteLine("Der Kopfkreisdurchmesser     da = " + dai + "mm");
                     double dfi = prg.Fußkreisdurchmesser_dfi(teilkreisdurchmesser, modul, Kopfspiel);
-                    Console.WriteLine("Der Fußkreisdurchmesser df = " + dfi + "mm");
+                    Console.WriteLine("Der Fußkreisdurchmesser      df = " + dfi + "mm");
                     double zahnhöhe = prg.Zahnhöhe_h(modul, Kopfspiel);
-                    Console.WriteLine("Die Zahnhöhe h = " + zahnhöhe + "mm");
+                    Console.WriteLine("Die Zahnhöhe                 h = " + zahnhöhe + "mm");
                     double zahnkopfhöhe = prg.Zahnkopfhöhe_ha(modul);
-                    Console.WriteLine("Die Zahnkopfhöhe ha = " + zahnkopfhöhe + "mm");
+                    Console.WriteLine("Die Zahnkopfhöhe             ha = " + zahnkopfhöhe + "mm");
                     double zahnfüßhöhe = prg.Zahnfußhöhe_hf(modul, Kopfspiel);
-                    Console.WriteLine("Die Zahnfußhöhe hf = " + zahnfüßhöhe + "mm");
+                    Console.WriteLine("Die Zahnfußhöhe              hf = " + zahnfüßhöhe + "mm");
                 }
             }
 
@@ -91,23 +95,28 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             else
             {
                 double stirnmodul = prg.stirnmodul_mt(teilkreisdurchmesser,zähnezahl);
-                Console.WriteLine("Das Stirnmodul mt = " + stirnmodul + "mm");
-                double stirnteilung = prg.stirnteilung_pt(Kreiszahl, teilkreisdurchmesser, zähnezahl);
-                Console.WriteLine("Die Stirnteilung pt = " + stirnteilung + "mm");
+                Console.WriteLine("Das Stirnmodul               mt = " + stirnmodul + "mm");
                 double normalmodul = prg.normalmodul_mn(stirnmodul, Schrägungswinkel);
-                Console.WriteLine("Das Normalmodul mn = " + normalmodul + "mm");
+                Console.WriteLine("Das Normalmodul              mn = " + normalmodul + "mm");
+                double Kopfspiel = prg.schrägKopfspiel_c(normalmodul, Kopfspielzahl);
+                Console.WriteLine("Das Kopfspiel                c = " + Kopfspiel + "mm");
+                double stirnteilung = prg.stirnteilung_pt(Kreiszahl, teilkreisdurchmesser, zähnezahl);
+                Console.WriteLine("Die Stirnteilung             pt = " + stirnteilung + "mm");
                 double normalteilung = prg.normalteilung_pn(Kreiszahl, normalmodul);
-                Console.WriteLine("Die Normalteilung pn = " + normalteilung + "mm");
+                Console.WriteLine("Die Normalteilung            pn = " + normalteilung + "mm");
                 double kopfkreisdurchmesser = prg.kopfkreisdurchmesser_da(teilkreisdurchmesser, normalmodul);
-                Console.WriteLine("Der Kopfkreisdurchmesser da = " + kopfkreisdurchmesser + "mm");
+                Console.WriteLine("Der Kopfkreisdurchmesser     da = " + kopfkreisdurchmesser + "mm");
+                double zahnhöhe = prg.schrägZahnhöhe_h(normalmodul, Kopfspiel);
+                Console.WriteLine("Die Zahnhöhe                 h = " + zahnhöhe + "mm");
             }
             Console.ReadKey();
         }
 
+        //Methoden Geradverzahnung
         public double Modul_m(double teilkreisdurchmesser, double zähnezahl)
         {
-            double modul = teilkreisdurchmesser / zähnezahl;
-            return modul;
+            double m = teilkreisdurchmesser / zähnezahl;
+            return m;
         }
         public double Teilung_p(double Kreiszahl, double modul)
         {
@@ -119,6 +128,11 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             double zahnkopfhöhe = modul;
             return zahnkopfhöhe;
         }
+        public double Kopfspiel_c(double modul, double Kopfspielzahl)
+        {
+            double Kopfspiel = Kopfspielzahl * modul;
+            return Kopfspiel;
+        }
         public double Zahnfußhöhe_hf(double modul, double Kopfspiel)
         {
             double zahnfußhöhe = modul + Kopfspiel;
@@ -126,7 +140,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
         }
         public double Zahnhöhe_h(double modul, double Kopfspiel)
         {
-            double zahnhöhe = 2 * modul + Kopfspiel;
+            double zahnhöhe = (2 * modul) + Kopfspiel;
             return zahnhöhe;
         }
         public double Kopfkreisdurchmesser_daa(double teilkreisdurchmesser, double modul)
@@ -150,37 +164,43 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             return dfi;
         }
 
+
+        //Methoden Schrägverzahnung
         public double stirnmodul_mt(double teilkreisdurchmesser, double zähnezahl)
         {
             double mt = teilkreisdurchmesser / zähnezahl;
             return mt;
         }
-
-        public double stirnteilung_pt(double kreiszahl, double teilkreidurchmesser,double zähnezahl)
+        public double normalmodul_mn(double stirnmodul, double Schrägungswinkel)
         {
-            double pt = (kreiszahl * teilkreidurchmesser) / zähnezahl;
-            return pt;
-        }
-
-        public double normalmodul_mn(double stirnmodul, double schrägungswinkel)
-        {
-            double mn = stirnmodul * Math.Cos(schrägungswinkel);
+            double mn = stirnmodul * Math.Cos(Schrägungswinkel);
             return mn;
         }
-
         public double normalteilung_pn(double kreiszahl, double normalmodul)
         {
             double pn = kreiszahl * normalmodul;
             return pn;
         }
-
+        public double stirnteilung_pt(double kreiszahl, double teilkreidurchmesser, double zähnezahl)
+        {
+            double pt = (kreiszahl * teilkreidurchmesser) / zähnezahl;
+            return pt;
+        }
         public double kopfkreisdurchmesser_da(double teilkreisdurchmesser, double normalmodul)
         {
             double da = teilkreisdurchmesser + 2 * normalmodul;
             return da;
         }
-
-
+        public double schrägKopfspiel_c(double normalmodul, double Kopfspielzahl)
+        {
+            double Kopfspiel = Kopfspielzahl * normalmodul;
+            return Kopfspiel;
+        }
+        public double schrägZahnhöhe_h(double normalmodul, double Kopfspiel)
+        {
+            double zahnhöhe = (2 * normalmodul) + Kopfspiel;
+            return zahnhöhe;
+        }
     }
 }
 
