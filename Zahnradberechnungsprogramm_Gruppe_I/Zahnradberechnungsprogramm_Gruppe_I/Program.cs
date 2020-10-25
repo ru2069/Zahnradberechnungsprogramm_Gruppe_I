@@ -58,10 +58,10 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                     Console.WriteLine("Die Teilung                  p = " + teilung + "mm");
                     double Kopfspiel = prg.Kopfspiel_c(modul, Kopfspielzahl);
                     Console.WriteLine("Das Kopfspiel                c = " + Kopfspiel + "mm");
-                    double daa = prg.Kopfkreisdurchmesser_daa(teilkreisdurchmesser, modul);
-                    Console.WriteLine("Der Kopfkreisdurchmesser     da = " + daa + "mm");
-                    double dfa = prg.Fußkreisdurchmesser_dfa(teilkreisdurchmesser, modul, Kopfspiel);
-                    Console.WriteLine("Der Fußkreisdurchmesser      df = " + dfa + "mm");
+                    double außenKopfkreisdurchmesser = prg.Kopfkreisdurchmesser_daa(teilkreisdurchmesser, modul);
+                    Console.WriteLine("Der Kopfkreisdurchmesser     da = " + außenKopfkreisdurchmesser + "mm");
+                    double außenFußkreisdurchmesser = prg.Fußkreisdurchmesser_dfa(teilkreisdurchmesser, modul, Kopfspiel);
+                    Console.WriteLine("Der Fußkreisdurchmesser      df = " + außenFußkreisdurchmesser + "mm");
                     double zahnhöhe = prg.Zahnhöhe_h(modul, Kopfspiel);
                     Console.WriteLine("Die Zahnhöhe                 h = " + zahnhöhe + "mm");
                     double zahnkopfhöhe = prg.Zahnkopfhöhe_ha(modul);
@@ -78,10 +78,10 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                     Console.WriteLine("Die Teilung                  p = " + teilung + "mm");
                     double Kopfspiel = prg.Kopfspiel_c(modul, Kopfspielzahl);
                     Console.WriteLine("Das Kopfspiel                c = " + Kopfspiel + "mm");
-                    double dai = prg.Kopfkreisdurchmesser_dai(teilkreisdurchmesser, modul);
-                    Console.WriteLine("Der Kopfkreisdurchmesser     da = " + dai + "mm");
-                    double dfi = prg.Fußkreisdurchmesser_dfi(teilkreisdurchmesser, modul, Kopfspiel);
-                    Console.WriteLine("Der Fußkreisdurchmesser      df = " + dfi + "mm");
+                    double innenKopfkreisdurchmesser = prg.Kopfkreisdurchmesser_dai(teilkreisdurchmesser, modul);
+                    Console.WriteLine("Der Kopfkreisdurchmesser     da = " + innenKopfkreisdurchmesser + "mm");
+                    double innenFußkreisdurchmesser = prg.Fußkreisdurchmesser_dfi(teilkreisdurchmesser, modul, Kopfspiel);
+                    Console.WriteLine("Der Fußkreisdurchmesser      df = " + innenFußkreisdurchmesser + "mm");
                     double zahnhöhe = prg.Zahnhöhe_h(modul, Kopfspiel);
                     Console.WriteLine("Die Zahnhöhe                 h = " + zahnhöhe + "mm");
                     double zahnkopfhöhe = prg.Zahnkopfhöhe_ha(modul);
@@ -145,23 +145,23 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
         }
         public double Kopfkreisdurchmesser_daa(double teilkreisdurchmesser, double modul)
         {
-            double daa = teilkreisdurchmesser + 2 * modul;
-            return daa;
+            double außenKopfkreisdurchmesser = teilkreisdurchmesser + 2 * modul;
+            return außenKopfkreisdurchmesser;
         }
         public double Fußkreisdurchmesser_dfa(double teilkreisdurchmesser, double modul, double Kopfspiel)
         {
-            double dfa = teilkreisdurchmesser - 2 * (modul + Kopfspiel);
-            return dfa;
+            double außenFußkreisdurchmesser = teilkreisdurchmesser - 2 * (modul + Kopfspiel);
+            return außenFußkreisdurchmesser;
         }
         public double Kopfkreisdurchmesser_dai(double teilkreisdurchmesser, double modul)
         {
-            double dai = teilkreisdurchmesser - 2 * modul;
-            return dai;
+            double innenKopfkreisdurchmesser = teilkreisdurchmesser - 2 * modul;
+            return innenKopfkreisdurchmesser;
         }
         public double Fußkreisdurchmesser_dfi(double teilkreisdurchmesser,double modul, double Kopfspiel)
         {
-            double dfi = teilkreisdurchmesser + 2 * (modul + Kopfspiel);
-            return dfi;
+            double innenFußkreisdurchmesser = teilkreisdurchmesser + 2 * (modul + Kopfspiel);
+            return innenFußkreisdurchmesser;
         }
 
 
