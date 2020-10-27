@@ -14,7 +14,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
         {
             double Kreiszahl = 3.141;
             double Kopfspielzahl = 0.167;
-            double Schrägungswinkel = 19.5 * 180 / Kreiszahl;
+            double Schrägungswinkel = 19.5 * Kreiszahl / 180;
             int verzahnungsArt;
             int innenAußen;
 
