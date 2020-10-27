@@ -12,7 +12,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
     {
         static void Main(string[] args)
         {
-            double Kreiszahl = 3.141;
+            double Kreiszahl = Math.PI;
             double Kopfspielzahl = 0.167;
             double Schrägungswinkel = 19.5 * Kreiszahl / 180;
             int verzahnungsArt;
@@ -68,6 +68,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                     Console.WriteLine("Die Zahnkopfhöhe             ha = " + zahnkopfhöhe + "mm");
                     double zahnfüßhöhe = prg.Zahnfußhöhe_hf(modul, kopfspiel);
                     Console.WriteLine("Die Zahnfußhöhe              hf = " + zahnfüßhöhe + "mm");
+                    Console.WriteLine("Die Breite                   b  = " + breite + "mm");
 
                 }
                 else
@@ -88,13 +89,13 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                     Console.WriteLine("Die Zahnkopfhöhe             ha = " + zahnkopfhöhe + "mm");
                     double zahnfüßhöhe = prg.Zahnfußhöhe_hf(modul, kopfspiel);
                     Console.WriteLine("Die Zahnfußhöhe              hf = " + zahnfüßhöhe + "mm");
+                    Console.WriteLine("Die Breite                   b  = " + breite + "mm");
                 }
             }
 
             //Ausgabe Schrägverzahnung
             else
             {
-                Console.WriteLine("Die Breite                   b  = " + breite + "mm");
                 double stirnmodul = prg.stirnmodul_mt(teilkreisdurchmesser,zähnezahl);
                 Console.WriteLine("Das Stirnmodul               mt = " + stirnmodul + "mm");
                 double normalmodul = prg.normalmodul_mn(stirnmodul, Schrägungswinkel);
@@ -115,6 +116,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                 Console.WriteLine("Die Zahnfußhöhe              hf = " + zahnfußhöhe + "mm");
                 double fußkreisdurchmesser = prg.schrägFußkreisdurchmesser_df(teilkreisdurchmesser, normalmodul, kopfspiel);
                 Console.WriteLine("Der Fußkreisurchmesser       df = " + fußkreisdurchmesser + "mm");
+                Console.WriteLine("Die Breite                   b  = " + breite + "mm");
             }
             Console.ReadKey();
         }
