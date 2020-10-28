@@ -14,6 +14,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
         {
             double Kreiszahl = Math.PI;
             double Kopfspielzahl = 0.167;
+            double normeingriffswinkel = 20 * Kreiszahl / 180;
             int verzahnungsArt;
             int innenAußen;
 
@@ -54,6 +55,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
 
                 if (innenAußen == 1)
                 {
+                    Console.WriteLine("Der Normeingriffswinkel wird mit 20° definiert.");
                     double modul = prg.Modul_m(teilkreisdurchmesser, zähnezahl);
                     Console.WriteLine("Das Modul                    m  = " + Math.Round(modul, round) + "mm");
                     double teilung = prg.Teilung_p(Kreiszahl, modul);
@@ -70,6 +72,8 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                     Console.WriteLine("Die Zahnkopfhöhe             ha = " + Math.Round(zahnkopfhöhe, round) + "mm");
                     double zahnfüßhöhe = prg.Zahnfußhöhe_hf(modul, kopfspiel);
                     Console.WriteLine("Die Zahnfußhöhe              hf = " + Math.Round(zahnfüßhöhe, round) + "mm");
+                    double grundkreisdurchmesser = prg.Grundkreisdurchmesser_db(teilkreisdurchmesser, normeingriffswinkel);
+                    Console.WriteLine("Der Grundkreisdurchmesser    db = " + Math.Round(grundkreisdurchmesser, round) + "mm");
                     Console.WriteLine("Die Breite                   b  = " + Math.Round(breite, round) + "mm");
 
                 }
@@ -178,6 +182,11 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
         {
             double innenFußkreisdurchmesser = teilkreisdurchmesser + 2 * (modul + kopfspiel);
             return innenFußkreisdurchmesser;
+        }
+        public double Grundkreisdurchmesser_db(double teilkreisdurchmesser, double normeingriffswinkel)
+        {
+            double db = teilkreisdurchmesser * Math.Cos(normeingriffswinkel);
+            return db;
         }
 
 
