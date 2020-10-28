@@ -31,6 +31,9 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
 
             Console.Write("Geben Sie die Breite [in mm] ein: ");
             double breite = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Auf wie Stellen nach dem Komma sollen Ihre Werte gerundet werden?: ");
+            int round = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("");
 
             //Berechnungsauswahl
@@ -53,43 +56,43 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                 if (innenAußen == 1)
                 {
                     double modul = prg.Modul_m(teilkreisdurchmesser, zähnezahl);
-                    Console.WriteLine("Das Modul                    m  = " + modul + "mm");
+                    Console.WriteLine("Das Modul                    m  = " + Math.Round(modul, round) + "mm");
                     double teilung = prg.Teilung_p(Kreiszahl, modul);
-                    Console.WriteLine("Die Teilung                  p  = " + teilung + "mm");
+                    Console.WriteLine("Die Teilung                  p  = " + Math.Round(teilung, round) + "mm");
                     double kopfspiel = prg.Kopfspiel_c(modul, Kopfspielzahl);
-                    Console.WriteLine("Das Kopfspiel                c  = " + kopfspiel + "mm");
+                    Console.WriteLine("Das Kopfspiel                c  = " + Math.Round(kopfspiel, round) + "mm");
                     double außenKopfkreisdurchmesser = prg.Kopfkreisdurchmesser_daa(teilkreisdurchmesser, modul);
-                    Console.WriteLine("Der Kopfkreisdurchmesser     da = " + außenKopfkreisdurchmesser + "mm");
+                    Console.WriteLine("Der Kopfkreisdurchmesser     da = " + Math.Round(außenKopfkreisdurchmesser, round) + "mm");
                     double außenFußkreisdurchmesser = prg.Fußkreisdurchmesser_dfa(teilkreisdurchmesser, modul, kopfspiel);
-                    Console.WriteLine("Der Fußkreisdurchmesser      df = " + außenFußkreisdurchmesser + "mm");
+                    Console.WriteLine("Der Fußkreisdurchmesser      df = " + Math.Round(außenFußkreisdurchmesser, round) + "mm");
                     double zahnhöhe = prg.Zahnhöhe_h(modul, kopfspiel);
-                    Console.WriteLine("Die Zahnhöhe                 h  = " + zahnhöhe + "mm");
+                    Console.WriteLine("Die Zahnhöhe                 h  = " + Math.Round(zahnhöhe, round) + "mm");
                     double zahnkopfhöhe = prg.Zahnkopfhöhe_ha(modul);
-                    Console.WriteLine("Die Zahnkopfhöhe             ha = " + zahnkopfhöhe + "mm");
+                    Console.WriteLine("Die Zahnkopfhöhe             ha = " + Math.Round(zahnkopfhöhe, round) + "mm");
                     double zahnfüßhöhe = prg.Zahnfußhöhe_hf(modul, kopfspiel);
-                    Console.WriteLine("Die Zahnfußhöhe              hf = " + zahnfüßhöhe + "mm");
-                    Console.WriteLine("Die Breite                   b  = " + breite + "mm");
+                    Console.WriteLine("Die Zahnfußhöhe              hf = " + Math.Round(zahnfüßhöhe, round) + "mm");
+                    Console.WriteLine("Die Breite                   b  = " + Math.Round(breite, round) + "mm");
 
                 }
                 else
                 {
                     double modul = prg.Modul_m(teilkreisdurchmesser, zähnezahl);
-                    Console.WriteLine("Das Modul                    m =  " + modul + "mm");
+                    Console.WriteLine("Das Modul                    m =  " + Math.Round(modul, round) + "mm");
                     double teilung = prg.Teilung_p(Kreiszahl, modul);
-                    Console.WriteLine("Die Teilung                  p =  " + teilung + "mm");
+                    Console.WriteLine("Die Teilung                  p =  " + Math.Round(teilung, round) + "mm");
                     double kopfspiel = prg.Kopfspiel_c(modul, Kopfspielzahl);
-                    Console.WriteLine("Das Kopfspiel                c =  " + kopfspiel + "mm");
+                    Console.WriteLine("Das Kopfspiel                c =  " + Math.Round(kopfspiel, round) + "mm");
                     double innenKopfkreisdurchmesser = prg.Kopfkreisdurchmesser_dai(teilkreisdurchmesser, modul);
-                    Console.WriteLine("Der Kopfkreisdurchmesser     da = " + innenKopfkreisdurchmesser + "mm");
+                    Console.WriteLine("Der Kopfkreisdurchmesser     da = " + Math.Round(innenKopfkreisdurchmesser, round) + "mm");
                     double innenFußkreisdurchmesser = prg.Fußkreisdurchmesser_dfi(teilkreisdurchmesser, modul, kopfspiel);
-                    Console.WriteLine("Der Fußkreisdurchmesser      df = " + innenFußkreisdurchmesser + "mm");
+                    Console.WriteLine("Der Fußkreisdurchmesser      df = " + Math.Round(innenFußkreisdurchmesser, round) + "mm");
                     double zahnhöhe = prg.Zahnhöhe_h(modul, kopfspiel);
-                    Console.WriteLine("Die Zahnhöhe                 h =  " + zahnhöhe + "mm");
+                    Console.WriteLine("Die Zahnhöhe                 h =  " + Math.Round(zahnhöhe, round) + "mm");
                     double zahnkopfhöhe = prg.Zahnkopfhöhe_ha(modul);
-                    Console.WriteLine("Die Zahnkopfhöhe             ha = " + zahnkopfhöhe + "mm");
+                    Console.WriteLine("Die Zahnkopfhöhe             ha = " + Math.Round(zahnkopfhöhe, round) + "mm");
                     double zahnfüßhöhe = prg.Zahnfußhöhe_hf(modul, kopfspiel);
-                    Console.WriteLine("Die Zahnfußhöhe              hf = " + zahnfüßhöhe + "mm");
-                    Console.WriteLine("Die Breite                   b  = " + breite + "mm");
+                    Console.WriteLine("Die Zahnfußhöhe              hf = " + Math.Round(zahnfüßhöhe, round) + "mm");
+                    Console.WriteLine("Die Breite                   b  = " + Math.Round(breite, round) + "mm");
                 }
             }
 
@@ -97,26 +100,26 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             else
             {
                 double stirnmodul = prg.stirnmodul_mt(teilkreisdurchmesser,zähnezahl);
-                Console.WriteLine("Das Stirnmodul               mt = " + stirnmodul + "mm");
+                Console.WriteLine("Das Stirnmodul               mt = " + Math.Round(stirnmodul, round) + "mm");
                 double normalmodul = prg.normalmodul_mn(stirnmodul, Schrägungswinkel);
-                Console.WriteLine("Das Normalmodul              mn = " + normalmodul + "mm");
+                Console.WriteLine("Das Normalmodul              mn = " + Math.Round(normalmodul, round) + "mm");
                 double kopfspiel = prg.schrägKopfspiel_c(normalmodul, Kopfspielzahl);
-                Console.WriteLine("Das Kopfspiel                c  = " + kopfspiel + "mm");
+                Console.WriteLine("Das Kopfspiel                c  = " + Math.Round(kopfspiel, round) + "mm");
                 double stirnteilung = prg.stirnteilung_pt(Kreiszahl, teilkreisdurchmesser, zähnezahl);
-                Console.WriteLine("Die Stirnteilung             pt = " + stirnteilung + "mm");
+                Console.WriteLine("Die Stirnteilung             pt = " + Math.Round(stirnteilung, round) + "mm");
                 double normalteilung = prg.normalteilung_pn(Kreiszahl, normalmodul);
-                Console.WriteLine("Die Normalteilung            pn = " + normalteilung + "mm");
+                Console.WriteLine("Die Normalteilung            pn = " + Math.Round(normalteilung, round) + "mm");
                 double kopfkreisdurchmesser = prg.kopfkreisdurchmesser_da(teilkreisdurchmesser, normalmodul);
-                Console.WriteLine("Der Kopfkreisdurchmesser     da = " + kopfkreisdurchmesser + "mm");
+                Console.WriteLine("Der Kopfkreisdurchmesser     da = " + Math.Round(kopfkreisdurchmesser, round) + "mm");
                 double zahnhöhe = prg.schrägZahnhöhe_h(normalmodul, kopfspiel);
-                Console.WriteLine("Die Zahnhöhe                 h  = " + zahnhöhe + "mm");
+                Console.WriteLine("Die Zahnhöhe                 h  = " + Math.Round(zahnhöhe, round) + "mm");
                 double zahnkopfhöhe = prg.schrägZahnkopfhöhe_ha(normalmodul);
-                Console.WriteLine("Die Zahnkopfhöhe             ha = " + zahnkopfhöhe + "mm");
+                Console.WriteLine("Die Zahnkopfhöhe             ha = " + Math.Round(zahnkopfhöhe, round) + "mm");
                 double zahnfußhöhe = prg.schrägZahnfußhöhe_hf(normalmodul, kopfspiel);
-                Console.WriteLine("Die Zahnfußhöhe              hf = " + zahnfußhöhe + "mm");
+                Console.WriteLine("Die Zahnfußhöhe              hf = " + Math.Round(zahnfußhöhe, round) + "mm");
                 double fußkreisdurchmesser = prg.schrägFußkreisdurchmesser_df(teilkreisdurchmesser, normalmodul, kopfspiel);
-                Console.WriteLine("Der Fußkreisurchmesser       df = " + fußkreisdurchmesser + "mm");
-                Console.WriteLine("Die Breite                   b  = " + breite + "mm");
+                Console.WriteLine("Der Fußkreisurchmesser       df = " + Math.Round(fußkreisdurchmesser, round) + "mm");
+                Console.WriteLine("Die Breite                   b  = " + Math.Round(breite, round) + "mm");
             }
             Console.ReadKey();
         }
