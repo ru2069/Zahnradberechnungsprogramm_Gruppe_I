@@ -14,7 +14,6 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
         {
             double Kreiszahl = Math.PI;
             double Kopfspielzahl = 0.167;
-            double Schrägungswinkel = 19.5 * Kreiszahl / 180;
             int verzahnungsArt;
             int innenAußen;
 
@@ -99,6 +98,11 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             //Ausgabe Schrägverzahnung
             else
             {
+                Console.Write("Bitte geben Sie zusätzlich den Schrägungswinkel an: ");
+                double degreeSchrägungswinkel = Convert.ToDouble(Console.ReadLine());
+                double Schrägungswinkel = degreeSchrägungswinkel * Kreiszahl / 180;
+                Console.WriteLine("");
+
                 double stirnmodul = prg.stirnmodul_mt(teilkreisdurchmesser,zähnezahl);
                 Console.WriteLine("Das Stirnmodul               mt = " + Math.Round(stirnmodul, round) + "mm");
                 double normalmodul = prg.normalmodul_mn(stirnmodul, Schrägungswinkel);
