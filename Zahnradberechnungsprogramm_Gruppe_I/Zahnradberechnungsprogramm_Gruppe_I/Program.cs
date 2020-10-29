@@ -21,6 +21,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             //Begrüßung und Parametereingabe
             Console.WriteLine("Herzlich Willkommen zur pre-Alpha dieses Berechnungsprogramm zur Zahnraddimensionierung.");
             Console.WriteLine("Mit der Nutzung dieser Software erklären Sie sich, die AGB und die Datenschutzrichtlinie akzeptiert zu haben.");
+            Console.WriteLine("");
             Console.WriteLine("Bitte geben Sie nun Ihre grundlegenden Werte zur Berechnung ein.");
             Console.WriteLine("");
 
