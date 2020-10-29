@@ -12,14 +12,15 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
     {
         static void Main(string[] args)
         {
-            double Kreiszahl = Math.PI;
-            double Kopfspielzahl = 0.167;
-            double normeingriffswinkel = 20 * Kreiszahl / 180;
+            const double Kreiszahl = Math.PI;
+            const double Kopfspielzahl = 0.167;
+            const double normeingriffswinkel = 20 * Kreiszahl / 180;
             int verzahnungsArt;
             int innenAußen;
 
             //Begrüßung und Parametereingabe
             Console.WriteLine("Herzlich Willkommen zur pre-Alpha dieses Berechnungsprogramm zur Zahnraddimensionierung.");
+            Console.WriteLine("Mit der Nutzung dieser Software erklären Sie sich, die AGB und die Datenschutzrichtlinie akzeptiert zu haben.");
             Console.WriteLine("Bitte geben Sie nun Ihre grundlegenden Werte zur Berechnung ein.");
             Console.WriteLine("");
 
@@ -102,7 +103,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             //Ausgabe Schrägverzahnung
             else
             {
-                Console.Write("Bitte geben Sie zusätzlich den Schrägungswinkel an: ");
+                Console.Write("Bitte geben Sie zusätzlich den Schrägungswinkel [in Grad] an: ");
                 double degreeSchrägungswinkel = Convert.ToDouble(Console.ReadLine());
                 double Schrägungswinkel = degreeSchrägungswinkel * Kreiszahl / 180;
                 Console.WriteLine("");
@@ -129,6 +130,10 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                 Console.WriteLine("Der Fußkreisurchmesser       df = " + Math.Round(fußkreisdurchmesser, round) + "mm");
                 Console.WriteLine("Die Breite                   b  = " + Math.Round(breite, round) + "mm");
             }
+            
+            //Beendigung
+            Console.WriteLine("");
+            Console.WriteLine("Vielen dank für die Nutzung dieser Software!");
             Console.ReadKey();
         }
 
