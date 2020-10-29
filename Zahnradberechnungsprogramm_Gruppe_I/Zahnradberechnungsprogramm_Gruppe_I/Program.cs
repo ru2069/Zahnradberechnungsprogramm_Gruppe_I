@@ -75,8 +75,8 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                     Console.WriteLine("Die Zahnfußhöhe              hf = " + Math.Round(zahnfüßhöhe, round) + "mm");
                     double grundkreisdurchmesser = prg.Grundkreisdurchmesser_db(teilkreisdurchmesser, normeingriffswinkel);
                     Console.WriteLine("Der Grundkreisdurchmesser    db = " + Math.Round(grundkreisdurchmesser, round) + "mm");
-                    Console.WriteLine("Die Breite                   b  = " + Math.Round(breite, round) + "mm");
-
+                    double volumen = prg.Volumen_v(außenKopfkreisdurchmesser, Kreiszahl, breite);
+                    Console.WriteLine("Das Volumen                  V  ≈ " + Math.Round(volumen, round) + "mm^3");
                 }
                 else
                 {
@@ -96,7 +96,6 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                     Console.WriteLine("Die Zahnkopfhöhe             ha = " + Math.Round(zahnkopfhöhe, round) + "mm");
                     double zahnfüßhöhe = prg.Zahnfußhöhe_hf(modul, kopfspiel);
                     Console.WriteLine("Die Zahnfußhöhe              hf = " + Math.Round(zahnfüßhöhe, round) + "mm");
-                    Console.WriteLine("Die Breite                   b  = " + Math.Round(breite, round) + "mm");
                 }
             }
 
@@ -108,7 +107,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                 double Schrägungswinkel = degreeSchrägungswinkel * Kreiszahl / 180;
                 Console.WriteLine("");
 
-                double stirnmodul = prg.stirnmodul_mt(teilkreisdurchmesser,zähnezahl);
+                double stirnmodul = prg.stirnmodul_mt(teilkreisdurchmesser, zähnezahl);
                 Console.WriteLine("Das Stirnmodul               mt = " + Math.Round(stirnmodul, round) + "mm");
                 double normalmodul = prg.normalmodul_mn(stirnmodul, Schrägungswinkel);
                 Console.WriteLine("Das Normalmodul              mn = " + Math.Round(normalmodul, round) + "mm");
@@ -128,9 +127,11 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                 Console.WriteLine("Die Zahnfußhöhe              hf = " + Math.Round(zahnfußhöhe, round) + "mm");
                 double fußkreisdurchmesser = prg.schrägFußkreisdurchmesser_df(teilkreisdurchmesser, normalmodul, kopfspiel);
                 Console.WriteLine("Der Fußkreisurchmesser       df = " + Math.Round(fußkreisdurchmesser, round) + "mm");
-                Console.WriteLine("Die Breite                   b  = " + Math.Round(breite, round) + "mm");
+                double volumen = prg.schrägVolumen_v(kopfkreisdurchmesser, Kreiszahl, breite);
+                Console.WriteLine("Das Volumen                  V  ≈ " + Math.Round(volumen, round) + "mm^3");
+
             }
-            
+
             //Beendigung
             Console.WriteLine("");
             Console.WriteLine("Vielen dank für die Nutzung dieser Software!");
@@ -183,7 +184,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             double innenKopfkreisdurchmesser = teilkreisdurchmesser - 2 * modul;
             return innenKopfkreisdurchmesser;
         }
-        public double Fußkreisdurchmesser_dfi(double teilkreisdurchmesser,double modul, double kopfspiel)
+        public double Fußkreisdurchmesser_dfi(double teilkreisdurchmesser, double modul, double kopfspiel)
         {
             double innenFußkreisdurchmesser = teilkreisdurchmesser + 2 * (modul + kopfspiel);
             return innenFußkreisdurchmesser;
@@ -193,7 +194,11 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             double db = teilkreisdurchmesser * Math.Cos(normeingriffswinkel);
             return db;
         }
-
+        public double Volumen_v(double außenKopfkreisdurchmesser, double Kreiszahl, double breite)
+        {
+            double v = Kreiszahl * Math.Pow((außenKopfkreisdurchmesser / 2), 2) * breite;
+            return v;
+        }
 
         //Methoden Schrägverzahnung
         public double stirnmodul_mt(double teilkreisdurchmesser, double zähnezahl)
@@ -245,6 +250,11 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
         {
             double fußkreisdurchmesser = teilkreisdurchmesser + 2 * (normalmodul + kopfspiel);
             return fußkreisdurchmesser;
+        }
+        public double schrägVolumen_v(double kopfkreisdurchmesser, double Kreiszahl, double breite)
+        {
+            double v = Kreiszahl * Math.Pow((kopfkreisdurchmesser / 2), 2) * breite;
+            return v;
         }
     }
 }
