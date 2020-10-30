@@ -34,6 +34,9 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             Console.Write("Geben Sie die Breite [in mm] ein: ");
             double breite = Convert.ToDouble(Console.ReadLine());
 
+            //Dichte von verschiedenen Materialien eintragen
+            //switch Abfrage einfügen
+
             Console.Write("Auf wie Stellen nach dem Komma sollen Ihre Werte gerundet werden?: ");
             int round = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("");
