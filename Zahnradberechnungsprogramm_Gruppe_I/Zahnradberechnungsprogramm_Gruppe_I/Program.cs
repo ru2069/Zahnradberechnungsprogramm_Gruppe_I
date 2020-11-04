@@ -124,7 +124,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                     Console.WriteLine("Der Grundkreisdurchmesser    db = " + Math.Round(grundkreisdurchmesser, round) + "mm");
                     double volumen = prg.Volumen_v(außenKopfkreisdurchmesser, Kreiszahl, breite);
                     Console.WriteLine("Das Volumen                  V  ≈ " + Math.Round(volumen, round) + "cm^3");
-                    double masse = prg.schrägMasse_m(material, volumen);
+                    double masse = prg.masse_m(material, volumen);
                     Console.WriteLine("Die Masse                    m  ≈ " + Math.Round(masse, round) + "g");
                 }
                 else
