@@ -80,7 +80,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             }
             
 
-            Console.Write("Auf wie Stellen nach dem Komma sollen Ihre Werte gerundet werden?: ");
+            Console.Write("Auf wie viele Stellen nach dem Komma sollen Ihre Werte gerundet werden?: ");
             int round = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("");
 
