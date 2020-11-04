@@ -19,7 +19,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             const double normeingriffswinkel = 20 * Kreiszahl / 180;
             int verzahnungsArt;
             int innenAußen;
-            int material;
+            double material;
             const double dichteVergütungsstahl = 7.84;      //C35/C45
             const double dichteNichtrostenderStahl = 7.0;   //X12CrNiS188
             const double dichteKunststoff = 1.41;           //POM
@@ -46,29 +46,29 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             Console.WriteLine("Aus welchem Material wollen Sie das Zahnrad fertigen?");
             Console.WriteLine("Geben Sie dafür die:{0} 1 für Vergütungsstahl ein{0} 2 für nichtrostenden Stahl ein{0} 3 für Kunststoff ein{0} 4 für Gusseisen ein{0} 5 für Messing ein",
                               Environment.NewLine);
-            material = Convert.ToInt32(Console.ReadLine());
+            material = Convert.ToDouble(Console.ReadLine());
 
             //switch Abfrage für Material
             switch (material)
             {
                 case 1:
-                    material = (int)dichteVergütungsstahl;
-                    break;
+                    material = dichteVergütungsstahl;
+                break;
 
                 case 2:
-                    material = (int)dichteNichtrostenderStahl;
+                    material = dichteNichtrostenderStahl;
                     break;
 
                 case 3:
-                    material = (int)dichteKunststoff;
+                    material = dichteKunststoff;
                     break;
 
                 case 4:
-                    material = (int)dichteGusseisen;
+                    material = dichteGusseisen;
                     break;
 
                 case 5:
-                    material = (int)dichteMessing;
+                    material = dichteMessing;
                     break;
 
                 default:
