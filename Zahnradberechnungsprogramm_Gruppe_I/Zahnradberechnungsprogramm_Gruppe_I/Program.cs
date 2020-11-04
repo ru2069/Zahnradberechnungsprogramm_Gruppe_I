@@ -17,6 +17,12 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             const double normeingriffswinkel = 20 * Kreiszahl / 180;
             int verzahnungsArt;
             int innenAußen;
+            const double dichteVergütungsstahl = 7.84;      //C35/C45
+            const double dichteNichtrostenderStahl = 7.0;   //X12CrNiS188
+            const double dichteKunststoff = 1.41;           //POM
+            const double dichteGusseisen = 7.2;
+            const double dichteMessing = 8.5;
+
 
             //Begrüßung und Parametereingabe
             Console.WriteLine("Herzlich Willkommen zur pre-Alpha dieses Berechnungsprogramm zur Zahnraddimensionierung.");
@@ -34,7 +40,40 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             Console.Write("Geben Sie die Breite [in mm] ein: ");
             double breite = Convert.ToDouble(Console.ReadLine());
 
-            //Dichte von verschiedenen Materialien eintragen
+            Console.WriteLine("Aus welchem Material wollen Sie das Zahnrad fertigen?");
+            Console.WriteLine("Geben Sie dafür die " +
+                "             1 für Vergütungsstahl ein" +
+                "             2 für nichtrostenden stahl ein" +
+                "             3 für Kunststoff ein" +
+                "             4 für Gusseisen ein" +
+                "             5 für Messing ein");
+            double Material = Convert.ToDouble(Console.ReadLine());
+            switch (Material == 0)
+            {
+                case 1:
+                    Material = dichteVergütungsstahl;
+                break;
+
+                case 2:
+                    Material = dichteNichtrostenderStahl;
+                break;
+
+                case 3:
+                    Material = dichteKunststoff;
+                break;
+
+                case 4:
+                    Material = dichteGusseisen;
+                break;
+
+                case 5:
+                    Material = dichteMessing;
+                break;
+
+                default:
+                    Console.WriteLine("Bitte geben sie eine Zahl von 1-5 ein.");
+                break;
+            }
             //switch Abfrage einfügen
 
             Console.Write("Auf wie Stellen nach dem Komma sollen Ihre Werte gerundet werden?: ");
