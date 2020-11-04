@@ -42,11 +42,14 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
 
             Console.Write("Geben Sie die Breite [in mm] ein: ");
             double breite = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("");
 
             Console.WriteLine("Aus welchem Material wollen Sie das Zahnrad fertigen?");
-            Console.WriteLine("Geben Sie dafür die:{0} 1 für Vergütungsstahl ein{0} 2 für nichtrostenden Stahl ein{0} 3 für Kunststoff ein{0} 4 für Gusseisen ein{0} 5 für Messing ein",
+            Console.WriteLine("Geben Sie dafür die:{0} '1' für Vergütungsstahl ein{0} '2' für nichtrostenden Stahl ein{0} '3' für Kunststoff ein{0} '4' für Gusseisen ein{0} '5' für Messing ein",
                               Environment.NewLine);
+            Console.Write("Eingabe: ");
             material = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("");
 
             //switch Abfrage für Material
             switch (material)
@@ -142,10 +145,6 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                     Console.WriteLine("Die Zahnkopfhöhe             ha = " + Math.Round(zahnkopfhöhe, round) + "mm");
                     double zahnfüßhöhe = prg.Zahnfußhöhe_hf(modul, kopfspiel);
                     Console.WriteLine("Die Zahnfußhöhe              hf = " + Math.Round(zahnfüßhöhe, round) + "mm");
-                    double volumen = prg.Volumen_v(innenKopfkreisdurchmesser, Kreiszahl, breite);
-                    Console.WriteLine("Das Volumen                  V  ≈ " + Math.Round(volumen, round) + "cm^3");
-                    double masse = prg.schrägMasse_m(material, volumen);
-                    Console.WriteLine("Die Masse                    m  ≈ " + Math.Round(masse, round) + "g");
                 }
             }
             
