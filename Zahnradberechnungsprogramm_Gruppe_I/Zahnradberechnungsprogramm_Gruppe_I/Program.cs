@@ -10,6 +10,8 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
 {
     class Program
     {
+       
+
         static void Main(string[] args)
         {
             const double Kreiszahl = Math.PI;
@@ -17,6 +19,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             const double normeingriffswinkel = 20 * Kreiszahl / 180;
             int verzahnungsArt;
             int innenAußen;
+            int material;
             const double dichteVergütungsstahl = 7.84;      //C35/C45
             const double dichteNichtrostenderStahl = 7.0;   //X12CrNiS188
             const double dichteKunststoff = 1.41;           //POM
@@ -41,40 +44,38 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             double breite = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine("Aus welchem Material wollen Sie das Zahnrad fertigen?");
-            Console.WriteLine("Geben Sie dafür die " +
-                "             1 für Vergütungsstahl ein" +
-                "             2 für nichtrostenden stahl ein" +
-                "             3 für Kunststoff ein" +
-                "             4 für Gusseisen ein" +
-                "             5 für Messing ein");
-            double Material = Convert.ToDouble(Console.ReadLine());
-            switch (Material == 0)
+            Console.WriteLine("Geben Sie dafür die:{0} 1 für Vergütungsstahl ein{0} 2 für nichtrostenden Stahl ein{0} 3 für Kunststoff ein{0} 4 für Gusseisen ein{0} 5 für Messing ein",
+                              Environment.NewLine);
+            material = Convert.ToInt32(Console.ReadLine());
+
+            //switch Abfrage für Material
+            switch (material)
             {
                 case 1:
-                    Material = dichteVergütungsstahl;
-                break;
+                    material = (int)dichteVergütungsstahl;
+                    break;
 
                 case 2:
-                    Material = dichteNichtrostenderStahl;
-                break;
+                    material = (int)dichteNichtrostenderStahl;
+                    break;
 
                 case 3:
-                    Material = dichteKunststoff;
-                break;
+                    material = (int)dichteKunststoff;
+                    break;
 
                 case 4:
-                    Material = dichteGusseisen;
-                break;
+                    material = (int)dichteGusseisen;
+                    break;
 
                 case 5:
-                    Material = dichteMessing;
-                break;
+                    material = (int)dichteMessing;
+                    break;
 
                 default:
-                    Console.WriteLine("Bitte geben sie eine Zahl von 1-5 ein.");
+                    Console.WriteLine("Bitte geben Sie eine Zahl von 1-5 ein.");
                 break;
             }
-            //switch Abfrage einfügen
+            
 
             Console.Write("Auf wie Stellen nach dem Komma sollen Ihre Werte gerundet werden?: ");
             int round = Convert.ToInt32(Console.ReadLine());
@@ -119,7 +120,9 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                     double grundkreisdurchmesser = prg.Grundkreisdurchmesser_db(teilkreisdurchmesser, normeingriffswinkel);
                     Console.WriteLine("Der Grundkreisdurchmesser    db = " + Math.Round(grundkreisdurchmesser, round) + "mm");
                     double volumen = prg.Volumen_v(außenKopfkreisdurchmesser, Kreiszahl, breite);
-                    Console.WriteLine("Das Volumen                  V  ≈ " + Math.Round(volumen, round) + "mm^3");
+                    Console.WriteLine("Das Volumen                  V  ≈ " + Math.Round(volumen, round) + "cm^3");
+                    double masse = prg.schrägMasse_m(material, volumen);
+                    Console.WriteLine("Die Masse                    m  ≈ " + Math.Round(masse, round) + "g");
                 }
                 else
                 {
@@ -139,9 +142,13 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                     Console.WriteLine("Die Zahnkopfhöhe             ha = " + Math.Round(zahnkopfhöhe, round) + "mm");
                     double zahnfüßhöhe = prg.Zahnfußhöhe_hf(modul, kopfspiel);
                     Console.WriteLine("Die Zahnfußhöhe              hf = " + Math.Round(zahnfüßhöhe, round) + "mm");
+                    double volumen = prg.Volumen_v(innenKopfkreisdurchmesser, Kreiszahl, breite);
+                    Console.WriteLine("Das Volumen                  V  ≈ " + Math.Round(volumen, round) + "cm^3");
+                    double masse = prg.schrägMasse_m(material, volumen);
+                    Console.WriteLine("Die Masse                    m  ≈ " + Math.Round(masse, round) + "g");
                 }
             }
-
+            
             //Ausgabe Schrägverzahnung
             else
             {
@@ -171,16 +178,19 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                 double fußkreisdurchmesser = prg.schrägFußkreisdurchmesser_df(teilkreisdurchmesser, normalmodul, kopfspiel);
                 Console.WriteLine("Der Fußkreisurchmesser       df = " + Math.Round(fußkreisdurchmesser, round) + "mm");
                 double volumen = prg.schrägVolumen_v(kopfkreisdurchmesser, Kreiszahl, breite);
-                Console.WriteLine("Das Volumen                  V  ≈ " + Math.Round(volumen, round) + "mm^3");
+                Console.WriteLine("Das Volumen                  V  ≈ " + Math.Round(volumen, round) + "cm^3");
+                double masse = prg.schrägMasse_m(material, volumen);
+                Console.WriteLine("Die Masse                    m  ≈ " + Math.Round(masse, round) + "g"); 
+
 
             }
-
+       
             //Beendigung
             Console.WriteLine("");
             Console.WriteLine("Vielen dank für die Nutzung dieser Software!");
             Console.ReadKey();
         }
-
+     
         //Methoden Geradverzahnung
         public double Modul_m(double teilkreisdurchmesser, double zähnezahl)
         {
@@ -239,8 +249,13 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
         }
         public double Volumen_v(double außenKopfkreisdurchmesser, double Kreiszahl, double breite)
         {
-            double v = Kreiszahl * Math.Pow((außenKopfkreisdurchmesser / 2), 2) * breite;
+            double v = (Kreiszahl * Math.Pow((außenKopfkreisdurchmesser / 2), 2) * breite) / 1000;
             return v;
+        }
+        public double masse_m(double material, double Volumen_v)
+        {
+            double m = material * Volumen_v;
+            return m;
         }
 
         //Methoden Schrägverzahnung
@@ -296,8 +311,13 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
         }
         public double schrägVolumen_v(double kopfkreisdurchmesser, double Kreiszahl, double breite)
         {
-            double v = Kreiszahl * Math.Pow((kopfkreisdurchmesser / 2), 2) * breite;
+            double v = (Kreiszahl * Math.Pow((kopfkreisdurchmesser / 2), 2) * breite) /1000;
             return v;
+        }
+        public double schrägMasse_m(double material, double schrägVolumen_v)
+        {
+            double m = material * schrägVolumen_v;
+            return m;
         }
     }
 }
