@@ -23,8 +23,8 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
             const double dichteVergütungsstahl = 7.84;      //C35/C45
             const double dichteNichtrostenderStahl = 7.0;   //X12CrNiS188
             const double dichteKunststoff = 1.41;           //POM
-            const double dichteGusseisen = 7.2;
-            const double dichteMessing = 8.5;
+            const double dichteGusseisen = 7.2;             //GG
+            const double dichteMessing = 8.5;               //CuZn
 
 
             //Begrüßung und Parametereingabe
@@ -79,7 +79,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                 break;
             }
             
-
+            //Rundung
             Console.Write("Auf wie viele Stellen nach dem Komma sollen Ihre Werte gerundet werden?: ");
             int round = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("");
@@ -101,6 +101,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                 innenAußen = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("");
 
+                //Ausgabe Geradverzahnung Außen
                 if (innenAußen == 1)
                 {
                     Console.WriteLine("Der Normeingriffswinkel wird mit 20° definiert.");
@@ -127,6 +128,7 @@ namespace Zahnradberechnungsprogramm_Gruppe_I
                     double masse = prg.masse_m(material, volumen);
                     Console.WriteLine("Die Masse                    m  ≈ " + Math.Round(masse, round) + "g");
                 }
+                //Ausgabe Geradeverzahnung Innen
                 else
                 {
                     double modul = prg.Modul_m(teilkreisdurchmesser, zähnezahl);
