@@ -27,6 +27,12 @@
         </Expander>
 
         <TabControl Width="450" Height="420" VerticalAlignment="Top" Margin="199,10,27,-10" Loaded="tbCtrl_Loaded">
+            <TabItem Header="Tab1">
+                <Grid Background="#FF979797">
+                    <Label Content="Label"/>
+
+                </Grid>
+            </TabItem>
         </TabControl>
 
         <Button Content="Ausgewählten Tab schließen" HorizontalAlignment="Left" Margin="19,394,0,0" VerticalAlignment="Top" Click="Button_Click"/>
