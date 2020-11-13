@@ -24,5 +24,45 @@ namespace GUI
         {
             InitializeComponent();
         }
+        
+        TabControl tbControl;
+
+        private void tbCtrl_Loaded(object sender, RoutedEventArgs e)
+        {
+            tbControl = (sender as TabControl);
+        }
+
+
+        private void Button1_Click(object sender, RoutedEventArgs e)
+        {
+            TabItem newTabItem = new TabItem
+            {
+                Header = "Geradverzahnung Außen",
+            };
+            tbControl.Items.Add(newTabItem);
+        }
+
+        private void Button2_Click(object sender, RoutedEventArgs e)
+        {
+            TabItem newTabItem = new TabItem
+            {
+                Header = "Geradverzahnung Innen",
+            };
+            tbControl.Items.Add(newTabItem);
+        }
+
+        private void Button3_Click(object sender, RoutedEventArgs e)
+        {
+            TabItem newTabItem = new TabItem
+            {
+                Header = "Geradverzahnung Innen",
+            };
+            tbControl.Items.Add(newTabItem);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            tbControl.Items.Remove(tbControl.SelectedItem);
+        }
     }
 }

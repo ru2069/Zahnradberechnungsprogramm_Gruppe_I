@@ -10,30 +10,26 @@
     <Grid Width="676" Height="450" VerticalAlignment="Top" HorizontalAlignment="Left">
         <Image Source="/ZZ Logo 2.png" Width="130" Height="130" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,0,0,0" />
 
-        <Expander Header="Stirnrad" Width="170" Height="200" IsExpanded="True" Background="White" BorderBrush="#FF898989" HorizontalAlignment="Left" Margin="10,135,0,115" >
+        <Expander Header="Stirnrad" Width="170" Height="200" IsExpanded="True" Background="White" BorderBrush="#FF898989" HorizontalAlignment="Left" Margin="10,156,0,94" >
             <StackPanel>
 
                 <Expander Header="Geradverzahnung" IsExpanded="False" Margin="20,0,0,0">
                     <StackPanel>
-                        <Button x:Name="Button1" Content="• Außenverzahnung" HorizontalAlignment="Left" Background="White" BorderBrush="White" Margin="20,0,0,0"/>
-                        <Button Content="• Innenverzahnung" HorizontalAlignment="Left" Background="White" BorderBrush="White" Margin="20,0,0,0"/>
+                        <Button Content="• Außenverzahnung" HorizontalAlignment="Left" Background="White" BorderBrush="White" Margin="20,0,0,0" Click="Button1_Click"/>
+                        <Button Content="• Innenverzahnung" HorizontalAlignment="Left" Background="White" BorderBrush="White" Margin="20,0,0,0" Click="Button2_Click"/>
                     </StackPanel>
                 </Expander>
 
                 <Expander Header="Schrägverzahnung" IsExpanded="False" VerticalAlignment="Top" Margin="20,0,0,0">
-                    <Button Content="• Außenverzahnung" HorizontalAlignment="Left" Background="White" BorderBrush="White" Margin="20,0,0,0"/>
+                    <Button Content="• Außenverzahnung" HorizontalAlignment="Left" Background="White" BorderBrush="White" Margin="20,0,0,0" Click="Button3_Click"/>
                 </Expander>
             </StackPanel>
         </Expander>
-        
-        <TabControl Width="450" Height="420" VerticalAlignment="Top" Margin="199,10,27,-10">
-            <TabItem x:Name="Moin" Header="Tab1">
-                <Grid Background="White"/>
-            </TabItem>
-            <TabItem Header="Tab2">
-                <Grid Background="White"/>
-            </TabItem>
-        </TabControl>
-    </Grid>
 
+        <TabControl x:Name="tbCtrl" Width="450" Height="420" VerticalAlignment="Top" Margin="199,10,27,-10" Loaded="tbCtrl_Loaded">
+        </TabControl>
+
+        <Button Content="Ausgewählten Tab schließen" HorizontalAlignment="Left" Margin="19,394,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Label Content="Tab öffnen:" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top"/>
+    </Grid>
 </Window>
