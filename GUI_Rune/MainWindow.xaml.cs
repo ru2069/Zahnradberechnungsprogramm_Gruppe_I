@@ -55,7 +55,7 @@ namespace GUI
         {
             TabItem newTabItem = new TabItem
             {
-                Header = "Geradverzahnung Innen",
+                Header = "Schrägverzahnung Innen",
             };
             tbControl.Items.Add(newTabItem);
         }
