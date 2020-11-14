@@ -14,9 +14,9 @@
             <TabItem Header="Außenverzahnung" FontFamily="Corbel Light" FontSize="16">
                 <Canvas HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Width="1366" Height="600" Background="#FFD8D8D8">
                     <Label Content="Modul:" HorizontalAlignment="Left" Margin="0,5,0,0"/>
-                    <TextBox x:Name="modul" TextWrapping="Wrap" Width="167" Margin="50,5,0,0" Canvas.Left="55" Canvas.Top="4" FontFamily="Calibri"/>
+                    <TextBox x:Name="modul" TextWrapping="Wrap" Width="167" Margin="50,5,0,0" Canvas.Left="55" Canvas.Top="4" FontFamily="Calibri Light"/>
                     <Label Content="Zähnezahl:" Canvas.Top="43" HorizontalAlignment="Left"/>
-                    <TextBox x:Name="zähnezahl" TextWrapping="Wrap" Width="167" Margin="50,0,0,0" Canvas.Left="55" Canvas.Top="47" FontFamily="Calibri"/>
+                    <TextBox x:Name="zähnezahl" TextWrapping="Wrap" Width="167" Margin="50,0,0,0" Canvas.Left="55" Canvas.Top="47" FontFamily="Calibri Light"/>
                     <Label Content="Verzahnung:" Canvas.Top="86" HorizontalAlignment="Left"/>
                     <RadioButton IsChecked="True" Canvas.Left="105" Canvas.Top="94"/>
                     <Label Content="Gerade" Canvas.Left="120" Canvas.Top="86"/>
@@ -24,7 +24,7 @@
                     <Label Content="Schräg" Canvas.Left="195" Canvas.Top="86"/>
                     <Button Content="Berechne" Canvas.Top="510" Height="60" Width="297" Click="Button_Click" Canvas.Left="27" Background="White"/>
                     <Label Content="Teilkreisdurchmesser d:" Canvas.Left="536" Canvas.Top="5"/>
-                    <Label x:Name="teilkreisdurchmesser" Canvas.Left="701" Canvas.Top="5"/>
+                    <Label x:Name="teilkreisdurchmesser" Canvas.Left="701" Canvas.Top="5" FontFamily="Calibri Light"/>
 
                 </Canvas>
             </TabItem>
