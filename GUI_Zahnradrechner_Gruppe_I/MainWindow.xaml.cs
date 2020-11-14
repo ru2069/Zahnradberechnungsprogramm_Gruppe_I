@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GUI2_Rune
+namespace GUI_Zahnradrechner_Gruppe_I
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
