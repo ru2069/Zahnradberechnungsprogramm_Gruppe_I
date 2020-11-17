@@ -29,9 +29,14 @@ namespace GUI_Zahnradrechner_Gruppe_I
         //AUßENVERZAHNUNG
         public void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+
             //if (radiobutton gerade == true)
-                string zahlCheckModul = modul.Text;
+
+            Außenverzahnung Az = new Außenverzahnung();
+            Az.geradverzahnungAußen();
+
+
+            string zahlCheckModul = modul.Text;
                 string zahlCheckZähnezahl = zähnezahl.Text;
 
                 if (eingabecheckmodul(zahlCheckModul) == true)
