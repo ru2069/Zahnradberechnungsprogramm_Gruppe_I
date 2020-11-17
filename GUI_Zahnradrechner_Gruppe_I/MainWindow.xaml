@@ -29,7 +29,9 @@
 
             </TabItem>
             <TabItem Header="Innenverzahnung" FontFamily="Corbel Light" FontSize="16">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <Button Content="Berechne" Canvas.Top="510" Height="60" Width="297" Click="btn_ClickInnen" Canvas.Left="27" Background="White"/>
+                </Grid>
             </TabItem>
         </TabControl>
 
