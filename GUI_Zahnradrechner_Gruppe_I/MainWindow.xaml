@@ -24,9 +24,9 @@
                         <Label Content="Zähnezahl:" HorizontalAlignment="Left" Margin="0,95,0,130"/>
                         <TextBox x:Name="zähnezahl" TextWrapping="Wrap" Width="150" Margin="100,50,150,85"  FontFamily="Calibri Light" Height="25"/>
                         <Label Content="Verzahnung:" HorizontalAlignment="Left" Margin="0,140,0,80" Width="90"/>
-                        <RadioButton IsChecked="True" RenderTransformOrigin="0.333,4.891" Margin="95,150,285,80"/>
+                        <RadioButton x:Name="rdbtn_gerade" IsChecked="True" RenderTransformOrigin="0.333,4.891" Margin="95,150,285,80"/>
                         <Label Content="Gerade" HorizontalAlignment="Left" Margin="110,140,0,80" Width="90"/>
-                        <RadioButton Margin="190,150,190,80" Width="20"/>
+                        <RadioButton x:Name="bdbtn_schräg" Margin="190,150,190,80" Width="20"/>
                         <Label Content="Schräg" Margin="210,140,130,80"/>
                         <Label Content="Breite:" HorizontalAlignment="Left" Margin="0,180,0,0" VerticalAlignment="Top"/>
                         <TextBox HorizontalAlignment="Left" Margin="100,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="25"/>
