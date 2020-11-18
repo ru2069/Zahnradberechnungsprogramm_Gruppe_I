@@ -13,6 +13,7 @@
         <TabControl Width="1349" Height="630" HorizontalAlignment="Left" VerticalAlignment="Bottom">
             <TabItem Header="Außenverzahnung" FontFamily="Corbel Light" FontSize="16">
                 <Canvas HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Width="1366" Height="600" Background="#FFD8D8D8">
+<<<<<<< Updated upstream
                     <Label Content="Modul:" HorizontalAlignment="Left" Margin="0,5,0,0"/>
                     <TextBox x:Name="modul" TextWrapping="Wrap" Width="167" Margin="50,5,0,0" Canvas.Left="55" Canvas.Top="4" FontFamily="Calibri Light"/>
                     <Label Content="Zähnezahl:" Canvas.Top="43" HorizontalAlignment="Left"/>
@@ -22,9 +23,53 @@
                     <Label Content="Gerade" Canvas.Left="120" Canvas.Top="86"/>
                     <RadioButton x:Name="rdbtn_schräg" Canvas.Left="180" Canvas.Top="94"/>
                     <Label Content="Schräg" Canvas.Left="195" Canvas.Top="86"/>
+=======
+
+                    <!-- Eingabe Grid -->
+
+                    <Grid Height="250" Width="400" Background="#FF6BA3DA">
+
+                        <Label Content="Eingabe:" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Label Content="Modul:" HorizontalAlignment="Left" Margin="0,52,0,172"/>
+                        <TextBox x:Name="modul" TextWrapping="Wrap" Width="150" Margin="100,50,150,170" FontFamily="Calibri Light" Height="25" SelectionBrush="White"/>
+                        <Label Content="Zähnezahl:" HorizontalAlignment="Left" Margin="0,95,0,130"/>
+                        <TextBox x:Name="zähnezahl" TextWrapping="Wrap" Width="150" Margin="100,50,150,85"  FontFamily="Calibri Light" Height="25"/>
+                        <Label Content="Verzahnung:" HorizontalAlignment="Left" Margin="0,140,0,80" Width="90"/>
+                        <RadioButton IsChecked="True" RenderTransformOrigin="0.333,4.891" Margin="95,150,285,80"/>
+                        <Label Content="Gerade" HorizontalAlignment="Left" Margin="110,140,0,80" Width="90"/>
+                        <RadioButton Margin="190,150,190,80" Width="20"/>
+                        <Label Content="Schräg" Margin="210,140,130,80"/>
+                        <Label Content="Breite:" HorizontalAlignment="Left" Margin="0,180,0,0" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Margin="100,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="25"/>
+
+                    </Grid>
+
+                    <!-- if schräg -->
+
+                    <Label Content="Schrägungswinkel:" HorizontalAlignment="Left" Canvas.Top="260" VerticalAlignment="Top"/>
+                    <TextBox Canvas.Top="262" Canvas.Left="175" Width="150" Height="25"/>
+
+                    <!-- Materialwahl -->
+
+                    <Grid Height="170" Width="400" Canvas.Top="300" Background="#FF9DB3E4">
+                        <ComboBox HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="120"/>
+                    </Grid>
+
+
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
                     <Button Content="Berechne" Canvas.Top="510" Height="60" Width="297" Click="Button_Click" Canvas.Left="27" Background="White"/>
-                    <Label Content="Teilkreisdurchmesser d:" Canvas.Left="536" Canvas.Top="5"/>
-                    <Label x:Name="teilkreisdurchmesser" Canvas.Left="701" Canvas.Top="5" FontFamily="Calibri Light"/>
+
+
+
+
+
                 </Canvas>
 
             </TabItem>
