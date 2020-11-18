@@ -41,7 +41,10 @@
                     <!-- Materialwahl -->
 
                     <Grid Height="170" Width="400" Canvas.Top="300" Background="#FF9DB3E4">
-                        <ComboBox x:Name="cmb_materialwahl" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="120"/>
+                        <ComboBox x:Name="cmb_materialwahl" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="120">
+                            <ComboBoxItem IsSelected="True">Vergütungsstahl</ComboBoxItem>
+                            <ComboBoxItem>bla bla</ComboBoxItem>
+                        </ComboBox>
                     </Grid>
 
 
