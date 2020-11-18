@@ -34,39 +34,19 @@ namespace GUI_Zahnradrechner_Gruppe_I
             if (rdbtn_gerade.IsChecked == true)
             {
                 //If-Abfragen Zahlcheck der Eingaben
-                string zahlCheckModul = modul.Text;
-                string zahlCheckZähnezahl = zähnezahl.Text;
+                string zahlCheckModul = txb_modul.Text;
+                string zahlCheckZähnezahl = txb_zähnezahl.Text;
 
                 if (eingabecheckmodul(zahlCheckModul) == true)
                 {
 
                     if (eingabecheckzähnezahl(zahlCheckZähnezahl) == true)
                     {
-                        double m = Convert.ToDouble(modul.Text);
-                        double z = Convert.ToDouble(zähnezahl.Text);
+                        double m = Convert.ToDouble(txb_modul.Text);
+                        double z = Convert.ToDouble(txb_zähnezahl.Text);
+
+                        BerechnungenGeradeAußen(m, z);
                         
-                        //If-Abfragen Korrekte Eingaben
-                        if (z % 1 == 0 && z >= 2 && m > 0)
-                        {
-                            //BERECHNUNGEN HIER EINFÜGEN
-                            double d = m * z;
-                            teilkreisdurchmesser.Content = d;
-                        }
-                        else
-                        {
-                            if (z % 1 != 0)
-                            {
-                                MessageBox.Show("Bitte eine ganzzahlige Zähnezahl eingeben!");
-                            }
-                            if (z < 2)
-                            {
-                                MessageBox.Show("Bitte eine Zähnezahl über 2 eingeben!");
-                            }
-                            if (m <= 0)
-                            {
-                                MessageBox.Show("Bitte Modul über 0 wählen!");
-                            }
-                        }
                     }
 
                     else if (eingabecheckzähnezahl(zahlCheckZähnezahl) == false)
@@ -98,7 +78,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
         }
 
 
-
+        //Zahlcheck
         private bool eingabecheckmodul(string zahlCheckModul)
         {
             try
@@ -123,8 +103,40 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 return false;
             }
         }
+
+        //Berechnungen
+        private void BerechnungenGeradeAußen(double m, double z)
+        {
+            //If-Abfragen Korrekte Eingaben
+            if (z % 1 == 0 && z >= 2 && m > 0)
+            {
+                //BERECHNUNGEN HIER EINFÜGEN
+                double d = m * z;
+                teilkreisdurchmesser.Content = d;
+            }
+            else
+            {
+                if (z % 1 != 0)
+                {
+                    MessageBox.Show("Bitte eine ganzzahlige Zähnezahl eingeben!");
+                }
+                if (z < 2)
+                {
+                    MessageBox.Show("Bitte eine Zähnezahl über 2 eingeben!");
+                }
+                if (m <= 0)
+                {
+                    MessageBox.Show("Bitte Modul über 0 wählen!");
+                }
+            }
+        }
+
+
     }
 }
+
+
+
 
 
 //Button der zu den Ergebnissen fürt

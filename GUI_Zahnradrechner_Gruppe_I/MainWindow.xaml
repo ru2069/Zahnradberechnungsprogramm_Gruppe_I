@@ -26,7 +26,7 @@
                         <Label x:Name="lbl_verzahnung" Content="Verzahnung:" HorizontalAlignment="Left" Margin="0,140,0,80" Width="90"/>
                         <RadioButton x:Name="rdbtn_gerade" IsChecked="True" RenderTransformOrigin="0.333,4.891" Margin="95,150,285,80"/>
                         <Label x:Name="lbl_gerade" Content="Gerade" HorizontalAlignment="Left" Margin="110,140,0,80" Width="90"/>
-                        <RadioButton x:Name="bdbtn_schräg" Margin="190,150,190,80" Width="20"/>
+                        <RadioButton x:Name="rdbtn_schräg" Margin="190,150,190,80" Width="20"/>
                         <Label x:Name="lbl_schräg" Content="Schräg" Margin="210,140,130,80"/>
                         <Label x:Name="lbl_breite" Content="Breite:" HorizontalAlignment="Left" Margin="0,180,0,0" VerticalAlignment="Top"/>
                         <TextBox x:Name="txb_breite" HorizontalAlignment="Left" Margin="100,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="25"/>
@@ -53,6 +53,8 @@
 
 
                     <Button x:Name="btn_berechnung" Content="Berechne" Canvas.Top="510" Height="60" Width="297" Click="Button_Click" Canvas.Left="27" Background="White"/>
+                    
+                    <Label x:Name="teilkreisdurchmesser" Canvas.Left="683" Canvas.Top="157"/>
 
 
 
