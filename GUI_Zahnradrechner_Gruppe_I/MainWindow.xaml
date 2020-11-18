@@ -13,17 +13,6 @@
         <TabControl Width="1349" Height="630" HorizontalAlignment="Left" VerticalAlignment="Bottom">
             <TabItem Header="Außenverzahnung" FontFamily="Corbel Light" FontSize="16">
                 <Canvas HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Width="1366" Height="600" Background="#FFD8D8D8">
-<<<<<<< Updated upstream
-                    <Label Content="Modul:" HorizontalAlignment="Left" Margin="0,5,0,0"/>
-                    <TextBox x:Name="modul" TextWrapping="Wrap" Width="167" Margin="50,5,0,0" Canvas.Left="55" Canvas.Top="4" FontFamily="Calibri Light"/>
-                    <Label Content="Zähnezahl:" Canvas.Top="43" HorizontalAlignment="Left"/>
-                    <TextBox x:Name="zähnezahl" TextWrapping="Wrap" Width="167" Margin="50,0,0,0" Canvas.Left="55" Canvas.Top="47" FontFamily="Calibri Light"/>
-                    <Label Content="Verzahnung:" Canvas.Top="86" HorizontalAlignment="Left"/>
-                    <RadioButton x:Name="rdbtn_gerade" IsChecked="True" Canvas.Left="105" Canvas.Top="94"/>
-                    <Label Content="Gerade" Canvas.Left="120" Canvas.Top="86"/>
-                    <RadioButton x:Name="rdbtn_schräg" Canvas.Left="180" Canvas.Top="94"/>
-                    <Label Content="Schräg" Canvas.Left="195" Canvas.Top="86"/>
-=======
 
                     <!-- Eingabe Grid -->
 
@@ -63,7 +52,6 @@
 
 
 
->>>>>>> Stashed changes
                     <Button Content="Berechne" Canvas.Top="510" Height="60" Width="297" Click="Button_Click" Canvas.Left="27" Background="White"/>
 
 
