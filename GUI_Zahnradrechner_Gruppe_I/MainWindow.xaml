@@ -41,7 +41,7 @@
                     <!-- Materialwahl + Rundung -->
 
                     <Grid Height="170" Width="400" Canvas.Top="300" Background="#FF9DB3E4">
-                        <ComboBox x:Name="cmb_materialwahl" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmb_materialwahl_SelectionChanged">
+                        <ComboBox x:Name="cmb_materialwahl" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="120">
                             <ComboBoxItem IsSelected="True">Vergütungsstahl</ComboBoxItem>
                             <ComboBoxItem>Nichtrostender Stahl</ComboBoxItem>
                             <ComboBoxItem>Kunststoff</ComboBoxItem>
@@ -54,7 +54,7 @@
                                 <AccessText TextWrapping="Wrap" Text="Auf wie viele Stellen nach dem Komma gerundet werden?"/>
                             </Label.Content>
                         </Label>
-                        <TextBox x:Name="txb_schraegungswinkel_Copy" Margin="178,60,72,85"/>
+                        <TextBox x:Name="txb_rundung" Margin="178,60,72,85"/>
 
 
 
@@ -68,7 +68,7 @@
 
                     <StackPanel Margin="0,500,0,0" Orientation="Horizontal">
 
-                        <Button x:Name="btn_berechnung" Content="Berechne" Height="40" Width="250" Click="Button_Click" Background="White" FontSize="20" FontWeight="ExtraBold"/>
+                        <Button x:Name="btn_berechnung" Content="Berechne" Height="40" Width="250" Click="Btn_ClickAußen" Background="White" FontSize="20" FontWeight="ExtraBold"/>
                         <Button x:Name="btn_neu" Content="Neu" Width="150" Background="White" FontSize="20" FontWeight="ExtraBold"/>
 
                     </StackPanel>
@@ -116,7 +116,7 @@
 
 
                     </StackPanel>
-                    <Button x:Name="btn_beenden" Content="Programm Beenden" Canvas.Left="600" Canvas.Top="500" FontSize="20" Height="40" RenderTransformOrigin="-0.274,-0.251" Background="White" IsDefault="True"/>
+                    <Button x:Name="btn_beenden" Content="Programm Beenden" Canvas.Left="600" Canvas.Top="500" FontSize="20" Height="40" RenderTransformOrigin="-0.274,-0.251" Background="White" IsDefault="True" Click="btn_beenden_Click"/>
 
 
 
@@ -125,7 +125,7 @@
             </TabItem>
             <TabItem Header="Innenverzahnung" FontFamily="Corbel Light" FontSize="16">
                 <Grid Background="#FFE5E5E5">
-                    <Button Content="Berechne" Canvas.Top="510" Height="60" Width="297" Click="btn_ClickInnen" Canvas.Left="27" Background="White"/>
+                    <Button Content="Berechne" Canvas.Top="510" Height="60" Width="297" Canvas.Left="27" Background="White"/>
                 </Grid>
             </TabItem>
         </TabControl>

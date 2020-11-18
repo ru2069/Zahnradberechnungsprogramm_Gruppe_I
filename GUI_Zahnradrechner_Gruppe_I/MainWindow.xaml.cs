@@ -27,75 +27,107 @@ namespace GUI_Zahnradrechner_Gruppe_I
 
 
         //AUßENVERZAHNUNG
-        public void Button_Click(object sender, RoutedEventArgs e)
+        public void Btn_ClickAußen(object sender, RoutedEventArgs e)
         {
-
             //If-Abfrage Radiobutton Gerade
             if (rdbtn_gerade.IsChecked == true)
             {
                 //If-Abfragen Zahlcheck der Eingaben
                 string zahlCheckModul = txb_modul.Text;
                 string zahlCheckZähnezahl = txb_zähnezahl.Text;
+                string zahlCheckBreite = txb_breite.Text;
 
-                if (eingabecheckmodul(zahlCheckModul) == true)
+                if (Eingabecheck(zahlCheckModul) == true)
                 {
-
-                    if (eingabecheckzähnezahl(zahlCheckZähnezahl) == true)
+                    if (Eingabecheck(zahlCheckZähnezahl) == true)
                     {
-                        double m = Convert.ToDouble(txb_modul.Text);
-                        double z = Convert.ToDouble(txb_zähnezahl.Text);
+                        if (Eingabecheck(zahlCheckBreite) == true)
+                        {
+                            //BERECHNUNGEN
+                            double m = Convert.ToDouble(txb_modul.Text);
+                            double z = Convert.ToDouble(txb_zähnezahl.Text);
+                            double b = Convert.ToDouble(txb_breite.Text);
+                            //Hier Material einfügen
+                            //Hier Rundung einfügen
+                            //Variablen für Material anlegen mit zugeordneten Werten
 
-                        BerechnungenGeradeAußen(m, z);
-                        
+                            //ÜBERGABE
+                            BerechnungenGeradeAußen(m, z, b);
+                        }
+                        else if (Eingabecheck(zahlCheckBreite) == false)
+                        {
+                            MessageBox.Show("Sie müssen eine Zahl als Breite eingeben!");
+                        }
                     }
-
-                    else if (eingabecheckzähnezahl(zahlCheckZähnezahl) == false)
+                    else if (Eingabecheck(zahlCheckZähnezahl) == false)
                     {
                         MessageBox.Show("Sie müssen eine Zahl als Zähnezahl eingeben!");
                     }
-
                 }
-
-                else if (eingabecheckmodul(zahlCheckModul) == false)
+                else if (Eingabecheck(zahlCheckModul) == false)
                 {
                     MessageBox.Show("Sie müssen eine Zahl als Modul eingeben!");
                 }
-
             }
-
             //If-Abfrage Radiobutton Schräg
             else if (rdbtn_schräg.IsChecked == true)
             {
+                //If-Abfragen Zahlcheck der Eingaben
+                string zahlCheckModul = txb_modul.Text;
+                string zahlCheckZähnezahl = txb_zähnezahl.Text;
+                string zahlCheckBreite = txb_breite.Text;
+                string zahlCheckSchrägungswinkel = txb_schraegungswinkel.Text;
 
+                if (Eingabecheck(zahlCheckModul) == true)
+                {
+                    if (Eingabecheck(zahlCheckZähnezahl) == true)
+                    {
+                        if (Eingabecheck(zahlCheckBreite) == true)
+                        {
+                            if (Eingabecheck(zahlCheckSchrägungswinkel) == true)
+                            {
+                                //BERECHNUNGEN
+                                double m = Convert.ToDouble(txb_modul.Text);
+                                double z = Convert.ToDouble(txb_zähnezahl.Text);
+                                double b = Convert.ToDouble(txb_breite.Text);
+                                double schr = Convert.ToDouble(txb_schraegungswinkel.Text);
+                                //Hier Material einfügen
+                                //Hier Rundung einfügen
+                                //Variablen für Material anlegen mit zugeordneten Werten
+
+                                //ÜBERGABE
+                                BerechnungenSchrägAußen(m, z, b, schr);
+                            }
+                            else if (Eingabecheck(zahlCheckSchrägungswinkel) == false)
+                            {
+                                MessageBox.Show("Sie müssen eine Zahl als Schrägungswinkel eingeben!");
+                            }
+                        }
+                        else if (Eingabecheck(zahlCheckBreite) == false)
+                        {
+                            MessageBox.Show("Sie müssen eine Zahl als Breite eingeben!");
+                        }
+                    }
+                    else if (Eingabecheck(zahlCheckZähnezahl) == false)
+                    {
+                        MessageBox.Show("Sie müssen eine Zahl als Zähnezahl eingeben!");
+                    }
+                }
+                else if (Eingabecheck(zahlCheckModul) == false)
+                {
+                    MessageBox.Show("Sie müssen eine Zahl als Modul eingeben!");
+                }
             }
         }
 
-
-        //INNENVERZAHNUNG
-        private void btn_ClickInnen(object sender, RoutedEventArgs e)
-        {
-
-        }
 
 
         //Zahlcheck
-        private bool eingabecheckmodul(string zahlCheckModul)
+        private bool Eingabecheck(string zahlCheck)
         {
             try
             {
-                double eingabeZahl = double.Parse(zahlCheckModul);
-                return true;
-            }
-            catch (FormatException)
-            {
-                return false;
-            }
-        }
-        private bool eingabecheckzähnezahl(string zahlCheckZähnezahl)
-        {
-            try
-            {
-                double eingabeZahl = double.Parse(zahlCheckZähnezahl);
+                double eingabeZahl = double.Parse(zahlCheck);
                 return true;
             }
             catch (FormatException)
@@ -104,39 +136,70 @@ namespace GUI_Zahnradrechner_Gruppe_I
             }
         }
 
-        //Berechnungen
-        private void BerechnungenGeradeAußen(double m, double z)
+        //Berechnungen //MÜSSEN ERWEITERT WERDEN
+        private void BerechnungenGeradeAußen(double m, double z, double b)
         {
             //If-Abfragen Korrekte Eingaben
-            if (z % 1 == 0 && z >= 2 && m > 0)
+            if (z % 1 == 0 && z >= 2 && m > 0 && b > 0)
             {
                 //BERECHNUNGEN HIER EINFÜGEN
                 double d = m * z;
                 // teilkreisdurchmesser.Content = d;
             }
+            
+            // Fehler: Falsche Werte
             else
             {
-                if (z % 1 != 0)
+                if (z % 1 != 0 || z < 2)
                 {
-                    MessageBox.Show("Bitte eine ganzzahlige Zähnezahl eingeben!");
-                }
-                if (z < 2)
-                {
-                    MessageBox.Show("Bitte eine Zähnezahl über 2 eingeben!");
+                    MessageBox.Show("Bitte eine ganzzahlige Zähnezahl über 2 eingeben!");
                 }
                 if (m <= 0)
                 {
                     MessageBox.Show("Bitte Modul über 0 wählen!");
                 }
+                if (b <= 0)
+                {
+                    MessageBox.Show("Bitte Breite über 0 wählen!");
+                }
+            }
+        }
+        private void BerechnungenSchrägAußen(double m, double z, double b, double schr)
+        {
+            //If-Abfragen Korrekte Eingaben
+            if (z % 1 == 0 && z >= 2 && m > 0 && b > 0 && schr > 0 && schr < 90)
+            {
+                //BERECHNUNGEN HIER EINFÜGEN
+                double d = m * z;
+                // teilkreisdurchmesser.Content = d;
+            }
+            
+            //Fehler: Falsch Werte
+            else
+            {
+                if (z % 1 != 0 || z < 2)
+                {
+                    MessageBox.Show("Bitte eine ganzzahlige Zähnezahl über 2 eingeben!");
+                }
+                if (m <= 0)
+                {
+                    MessageBox.Show("Bitte Modul über 0 wählen!");
+                }
+                if (b <= 0)
+                {
+                    MessageBox.Show("Bitte Breite über 0 wählen!");
+                }
+                if (schr <= 0 || schr >= 90 )
+                {
+                    MessageBox.Show("Bitte Schrägungswinkel größer 0° und kleiner 90° wählen!");
+                }
             }
         }
 
-        private void cmb_materialwahl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void btn_beenden_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
-
-      
     }
 }
 
