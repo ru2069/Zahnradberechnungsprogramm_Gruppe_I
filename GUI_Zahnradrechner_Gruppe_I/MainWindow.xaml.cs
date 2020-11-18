@@ -112,7 +112,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
             {
                 //BERECHNUNGEN HIER EINFÜGEN
                 double d = m * z;
-                teilkreisdurchmesser.Content = d;
+                // teilkreisdurchmesser.Content = d;
             }
             else
             {
@@ -131,7 +131,12 @@ namespace GUI_Zahnradrechner_Gruppe_I
             }
         }
 
+        private void cmb_materialwahl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
+
+      
     }
 }
 
