@@ -18,9 +18,9 @@
                     <Label Content="Zähnezahl:" Canvas.Top="43" HorizontalAlignment="Left"/>
                     <TextBox x:Name="zähnezahl" TextWrapping="Wrap" Width="167" Margin="50,0,0,0" Canvas.Left="55" Canvas.Top="47" FontFamily="Calibri Light"/>
                     <Label Content="Verzahnung:" Canvas.Top="86" HorizontalAlignment="Left"/>
-                    <RadioButton IsChecked="True" Canvas.Left="105" Canvas.Top="94"/>
+                    <RadioButton x:Name="rdbtn_gerade" IsChecked="True" Canvas.Left="105" Canvas.Top="94"/>
                     <Label Content="Gerade" Canvas.Left="120" Canvas.Top="86"/>
-                    <RadioButton Canvas.Left="180" Canvas.Top="94"/>
+                    <RadioButton x:Name="rdbtn_schräg" Canvas.Left="180" Canvas.Top="94"/>
                     <Label Content="Schräg" Canvas.Left="195" Canvas.Top="86"/>
                     <Button Content="Berechne" Canvas.Top="510" Height="60" Width="297" Click="Button_Click" Canvas.Left="27" Background="White"/>
                     <Label Content="Teilkreisdurchmesser d:" Canvas.Left="536" Canvas.Top="5"/>

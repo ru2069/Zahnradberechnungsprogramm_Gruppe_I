@@ -30,43 +30,66 @@ namespace GUI_Zahnradrechner_Gruppe_I
         public void Button_Click(object sender, RoutedEventArgs e)
         {
 
-            //if (radiobutton gerade == true)
-
-            string zahlCheckModul = modul.Text;
-            string zahlCheckZähnezahl = zähnezahl.Text;
-
-            if (eingabecheckmodul(zahlCheckModul) == true)
+            //If-Abfrage Radiobutton Gerade
+            if (rdbtn_gerade.IsChecked == true)
             {
+                //If-Abfragen Zahlcheck der Eingaben
+                string zahlCheckModul = modul.Text;
+                string zahlCheckZähnezahl = zähnezahl.Text;
 
-                if (eingabecheckzähnezahl(zahlCheckZähnezahl) == true)
+                if (eingabecheckmodul(zahlCheckModul) == true)
                 {
-                    //If geradezahlige Zähnezal
-                    double m = Convert.ToDouble(modul.Text);
-                    double z = Convert.ToDouble(zähnezahl.Text);
 
-                    double d = m * z;
-                    teilkreisdurchmesser.Content = d;
-                    //else if
-                    //Fehler
+                    if (eingabecheckzähnezahl(zahlCheckZähnezahl) == true)
+                    {
+                        double m = Convert.ToDouble(modul.Text);
+                        double z = Convert.ToDouble(zähnezahl.Text);
+                        
+                        //If-Abfragen Korrekte Eingaben
+                        if (z % 1 == 0 && z >= 2 && m > 0)
+                        {
+                            //BERECHNUNGEN HIER EINFÜGEN
+                            double d = m * z;
+                            teilkreisdurchmesser.Content = d;
+                        }
+                        else
+                        {
+                            if (z % 1 != 0)
+                            {
+                                MessageBox.Show("Bitte eine ganzzahlige Zähnezahl eingeben!");
+                            }
+                            if (z < 2)
+                            {
+                                MessageBox.Show("Bitte eine Zähnezahl über 2 eingeben!");
+                            }
+                            if (m <= 0)
+                            {
+                                MessageBox.Show("Bitte Modul über 0 wählen!");
+                            }
+                        }
+                    }
+
+                    else if (eingabecheckzähnezahl(zahlCheckZähnezahl) == false)
+                    {
+                        MessageBox.Show("Sie müssen eine Zahl als Zähnezahl eingeben!");
+                    }
+
                 }
-                else if (eingabecheckzähnezahl(zahlCheckZähnezahl) == false)
+
+                else if (eingabecheckmodul(zahlCheckModul) == false)
                 {
-                    MessageBox.Show("Sie müssen eine Zahl als Zähnezahl eingeben!");
+                    MessageBox.Show("Sie müssen eine Zahl als Modul eingeben!");
                 }
-                //Button der zu den Ergebnissen fürt
-                //Außenverzahnung Az = new Außenverzahnung();
-                //Az.geradverzahnungAußen();
 
             }
-            else if (eingabecheckmodul(zahlCheckModul) == false)
-            {
-                MessageBox.Show("Sie müssen eine Zahl als Modul eingeben!");
 
-                //else if (radiobutton schräg == true)
-                //if
-                //Schrägverzahnung Sz = new Schrägverzahnung();
-                //Sz.schrägverzahnungAußen();
+            //If-Abfrage Radiobutton Schräg
+            else if (rdbtn_schräg.IsChecked == true)
+            {
+
             }
+        }
+
 
         //INNENVERZAHNUNG
         private void btn_ClickInnen(object sender, RoutedEventArgs e)
@@ -102,3 +125,11 @@ namespace GUI_Zahnradrechner_Gruppe_I
         }
     }
 }
+
+
+//Button der zu den Ergebnissen fürt
+//Außenverzahnung Az = new Außenverzahnung();
+//Az.geradverzahnungAußen();
+
+//Schrägverzahnung Sz = new Schrägverzahnung();
+//Sz.schrägverzahnungAußen();
