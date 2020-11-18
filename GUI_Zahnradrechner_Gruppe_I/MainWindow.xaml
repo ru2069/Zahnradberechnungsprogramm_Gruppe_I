@@ -18,30 +18,30 @@
 
                     <Grid Height="250" Width="400" Background="#FF6BA3DA">
 
-                        <Label Content="Eingabe:" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <Label Content="Modul:" HorizontalAlignment="Left" Margin="0,52,0,172"/>
-                        <TextBox x:Name="modul" TextWrapping="Wrap" Width="150" Margin="100,50,150,170" FontFamily="Calibri Light" Height="25" SelectionBrush="White"/>
-                        <Label Content="Zähnezahl:" HorizontalAlignment="Left" Margin="0,95,0,130"/>
-                        <TextBox x:Name="zähnezahl" TextWrapping="Wrap" Width="150" Margin="100,50,150,85"  FontFamily="Calibri Light" Height="25"/>
-                        <Label Content="Verzahnung:" HorizontalAlignment="Left" Margin="0,140,0,80" Width="90"/>
+                        <Label x:Name="lbl_eingabe" Content="Eingabe:" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Label x:Name="lbl_modul" Content="Modul:" HorizontalAlignment="Left" Margin="0,52,0,172"/>
+                        <TextBox x:Name="txb_modul" TextWrapping="Wrap" Width="150" Margin="100,50,150,170" FontFamily="Calibri Light" Height="25" SelectionBrush="White"/>
+                        <Label x:Name="lbl_zaenezahl" Content="Zähnezahl:" HorizontalAlignment="Left" Margin="0,95,0,130"/>
+                        <TextBox x:Name="txb_zähnezahl" TextWrapping="Wrap" Width="150" Margin="100,50,150,85"  FontFamily="Calibri Light" Height="25"/>
+                        <Label x:Name="lbl_verzahnung" Content="Verzahnung:" HorizontalAlignment="Left" Margin="0,140,0,80" Width="90"/>
                         <RadioButton x:Name="rdbtn_gerade" IsChecked="True" RenderTransformOrigin="0.333,4.891" Margin="95,150,285,80"/>
-                        <Label Content="Gerade" HorizontalAlignment="Left" Margin="110,140,0,80" Width="90"/>
+                        <Label x:Name="lbl_gerade" Content="Gerade" HorizontalAlignment="Left" Margin="110,140,0,80" Width="90"/>
                         <RadioButton x:Name="bdbtn_schräg" Margin="190,150,190,80" Width="20"/>
-                        <Label Content="Schräg" Margin="210,140,130,80"/>
-                        <Label Content="Breite:" HorizontalAlignment="Left" Margin="0,180,0,0" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Margin="100,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="25"/>
+                        <Label x:Name="lbl_schräg" Content="Schräg" Margin="210,140,130,80"/>
+                        <Label x:Name="lbl_breite" Content="Breite:" HorizontalAlignment="Left" Margin="0,180,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="txb_breite" HorizontalAlignment="Left" Margin="100,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="25"/>
 
                     </Grid>
 
                     <!-- if schräg -->
 
-                    <Label Content="Schrägungswinkel:" HorizontalAlignment="Left" Canvas.Top="260" VerticalAlignment="Top"/>
-                    <TextBox Canvas.Top="262" Canvas.Left="175" Width="150" Height="25"/>
+                    <Label x:Name="lbl_schraegungswinkel" Content="Schrägungswinkel:" HorizontalAlignment="Left" Canvas.Top="260" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txb_schraegungswinkel" Canvas.Top="262" Canvas.Left="175" Width="150" Height="25"/>
 
                     <!-- Materialwahl -->
 
                     <Grid Height="170" Width="400" Canvas.Top="300" Background="#FF9DB3E4">
-                        <ComboBox HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="120"/>
+                        <ComboBox x:Name="cmb_materialwahl" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="120"/>
                     </Grid>
 
 
@@ -52,7 +52,7 @@
 
 
 
-                    <Button Content="Berechne" Canvas.Top="510" Height="60" Width="297" Click="Button_Click" Canvas.Left="27" Background="White"/>
+                    <Button x:Name="btn_berechnung" Content="Berechne" Canvas.Top="510" Height="60" Width="297" Click="Button_Click" Canvas.Left="27" Background="White"/>
 
 
 
