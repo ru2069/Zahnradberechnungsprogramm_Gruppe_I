@@ -125,7 +125,81 @@
             </TabItem>
             <TabItem Header="Innenverzahnung" FontFamily="Corbel Light" FontSize="16">
                 <Grid Background="#FFE5E5E5">
-                    <Button Content="Berechne" Canvas.Top="510" Height="60" Width="297" Canvas.Left="27" Background="White"/>
+
+                    <Grid Height="250" Width="400" Background="#FF6BA3DA" Margin="0,0,943,348">
+                        <Label x:Name="label_Eingabe" Content="Eingabe" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox x:Name="textbox_modul" TextWrapping="Wrap" Width="150" Margin="100,53,150,172" FontFamily="Calibri Light" Height="25" SelectionBrush="White"/>
+                        <Label x:Name="label_modul" Content="Modul:" HorizontalAlignment="Left" Margin="0,52,0,172"/>
+                        <Label x:Name="label_zaenezahl" Content="Zähnezahl:" HorizontalAlignment="Left" Margin="0,95,0,130"/>
+                        <TextBox x:Name="textbox_zähnezahl" TextWrapping="Wrap" Width="150" Margin="100,50,150,85"  FontFamily="Calibri Light" Height="25"/>
+                        <Label x:Name="label_breite" Content="Breite:" HorizontalAlignment="Left" Margin="0,180,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="txetbox_breite" HorizontalAlignment="Left" Margin="100,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="25"/>
+                    </Grid>
+
+
+                    <Grid Height="170" Width="400" Canvas.Top="300" Background="#FF9DB3E4" Margin="0,299,943,129">
+
+                        <Label Content="Auf wie viele Stellen nach dem Komma gerundet werden?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="384" Height="29"/>
+                        <TextBox x:Name="Textbox_rundung" HorizontalAlignment="Left" Margin="243,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                        <ComboBox HorizontalAlignment="Left" Margin="47,59,0,0" VerticalAlignment="Top" Width="120">
+                            <ComboBoxItem IsSelected="True"> Vergütungsstahl 
+                            </ComboBoxItem>
+                            <ComboBoxItem >Nichtrostender Stahl</ComboBoxItem>
+                            <ComboBoxItem > Kunststoff </ComboBoxItem>
+                            <ComboBoxItem > Gusseisen </ComboBoxItem>
+                            <ComboBoxItem > Messing  </ComboBoxItem>
+                        </ComboBox>
+
+
+
+                    </Grid>
+
+                    <Button x:Name="botton_berechnung" Content="Berechne" Height="40" Click="Btn_ClickAußen" Background="White" FontSize="20" FontWeight="ExtraBold" Margin="10,523,1143,35"/>
+                    <Button x:Name="botton_neu" Content="Neu" Background="White" FontSize="20" FontWeight="ExtraBold" Margin="200,523,943,35"/>
+
+
+                    <StackPanel Height="500" Width="200" Margin="647,10,496,88" Background="#FF93CADA">
+                        <Label x:Name="label_teilkreisdurchmesser" Content="Teilkreisdurchmesser" FontWeight="Bold" Height="30"/>
+                        <Label x:Name="label_Teilung" Content="Teilung" FontWeight="Bold" Height="30"/>
+                        <Label x:Name="label_Kopfspiel" Content="Kopfspiel" FontWeight="Bold" Height="30"/>
+                        <Label x:Name="label_kopfkreisduchmesser" Content="Kopfkreisduchmesser" FontWeight="Bold" Height="30"/>
+                        <Label x:Name="label_fußkreisduchmesser" Content="Fußkreisdurchmesser" FontWeight="Bold" Height="30"/>
+                        <Label x:Name="label_zahnhoehe" Content="zahnhoehe" FontWeight="Bold" Height="30"/>
+                        <Label x:Name="label_zahnkopfhoehe" Content="zahnkopfhoehe" FontWeight="Bold" Height="30"/>
+                        <Label x:Name="label_zahnfusshoehe" Content="zahnfußhoehe" FontWeight="Bold" Height="30"/>
+                        <Label x:Name="label_volumen" Content="Volumen" FontWeight="Bold" Height="30"/>
+                        <Label x:Name="label_masse" Content="Masse" FontWeight="Bold" Height="30"/>
+                    </StackPanel>
+
+
+                    <StackPanel  Height="500" Width="200" Margin="847,10,296,88" Background="#FF93CADA">
+                        <TextBox x:Name="txb_teilkreisdurchmesser1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False"/>
+                        <TextBox x:Name="txb_teilung1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False"/>
+                        <TextBox x:Name="txb_Kopfspiel" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False"/>
+                        <TextBox x:Name="txb_Kopfkreisdurchmesser" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False"/>
+                        <TextBox x:Name="txb_Fusskreisduchmesser" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False"/>
+                        <TextBox x:Name="txb_zahnhoehe1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False"/>
+                        <TextBox x:Name="txb_zahnkopfhoehe1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False"/>
+                        <TextBox x:Name="txb_zahnfusshohe" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False"/>
+                        <TextBox x:Name="txb_volumen1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False"/>
+                        <TextBox x:Name="txb_masse1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False"/>
+                    </StackPanel>
+
+
+                    <Button x:Name="btn_beenden1" Content="Programm beenden " Canvas.Left="600" Canvas.Top="500" FontSize="20" Height="40" RenderTransformOrigin="-0.274,-0.251" Background="White" IsDefault="True" Click="btn_beenden_Click" Margin="647,537,296,21"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </Grid>
             </TabItem>
         </TabControl>
