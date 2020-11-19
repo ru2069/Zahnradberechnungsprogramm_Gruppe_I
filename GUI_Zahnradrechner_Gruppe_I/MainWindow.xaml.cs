@@ -146,7 +146,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 double d = m * z;
                 // teilkreisdurchmesser.Content = d;
             }
-            
+
             // Fehler: Falsche Werte
             else
             {
@@ -173,7 +173,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 double d = m * z;
                 // teilkreisdurchmesser.Content = d;
             }
-            
+
             //Fehler: Falsch Werte
             else
             {
@@ -189,18 +189,19 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 {
                     MessageBox.Show("Bitte Breite über 0 wählen!");
                 }
-                if (schr <= 0 || schr >= 90 )
+                if (schr <= 0 || schr >= 90)
                 {
                     MessageBox.Show("Bitte Schrägungswinkel größer 0° und kleiner 90° wählen!");
                 }
             }
         }
-
         private void btn_beenden_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Application.Current.Shutdown();
         }
+
     }
+
 }
 
 
