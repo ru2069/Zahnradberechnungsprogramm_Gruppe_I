@@ -211,11 +211,36 @@ namespace GUI_Zahnradrechner_Gruppe_I
             //If-Abfragen Korrekte Eingaben
             if (z % 1 == 0 && z >= 2 && m > 0 && b > 0)
             {
+
+                Berechnungen prg = new Berechnungen();
+
                 txb_breite.Background = Brushes.White;
                 txb_zähnezahl.Background = Brushes.White;
                 txb_modul.Background = Brushes.White;
                 //BERECHNUNGEN HIER EINFÜGEN
-                double d = m * z;
+                
+                double d = prg.Teilkreisdurchmesser_d(modul, zähnezahl);
+                txb_teilkreisdurchmesser.Text = Convert.ToString(Math.Round(d));
+                double teilung = prg.Teilung_p(Kreiszahl, modul);
+                txb_teilung = Convert.ToString(Math.Round(teilung));
+                double kopfspiel = prg.Kopfspiel_c(modul, Kopfspielzahl);
+                txb_kopfspiel = Convert.ToString(kopfspiel));
+                double außenKopfkreisdurchmesser = prg.Kopfkreisdurchmesser_daa(teilkreisdurchmesser, modul);
+
+                double außenFußkreisdurchmesser = prg.Fußkreisdurchmesser_dfa(teilkreisdurchmesser, modul, kopfspiel);
+
+                double zahnhöhe = prg.Zahnhöhe_h(modul, kopfspiel);
+
+                double zahnkopfhöhe = prg.Zahnkopfhöhe_ha(modul);
+
+                double zahnfüßhöhe = prg.Zahnfußhöhe_hf(modul, kopfspiel);
+
+                double grundkreisdurchmesser = prg.Grundkreisdurchmesser_db(teilkreisdurchmesser, normeingriffswinkel);
+
+                double volumen = prg.Volumen_v(außenKopfkreisdurchmesser, Kreiszahl, breite);
+
+                double masse = prg.masse_m(material, volumen);
+
                 // teilkreisdurchmesser.Content = d;
             }
 
@@ -245,6 +270,8 @@ namespace GUI_Zahnradrechner_Gruppe_I
             //If-Abfragen Korrekte Eingaben
             if (z % 1 == 0 && z >= 2 && m > 0 && b > 0 && schr > 0 && schr < 90)
             {
+                Berechnungen prg = new Berechnungen();
+
                 txb_breite.Background = Brushes.White;
                 txb_zähnezahl.Background = Brushes.White;
                 txb_modul.Background = Brushes.White;
@@ -252,7 +279,32 @@ namespace GUI_Zahnradrechner_Gruppe_I
 
 
                 //BERECHNUNGEN HIER EINFÜGEN
-                double d = m * z;
+                double modul = prg.Teilkreisdurchmesser_d(modul, zähnezahl);
+
+                double stirnmodul = prg.stirnmodul_mt(teilkreisdurchmesser, zähnezahl);
+
+                double normalmodul = prg.normalmodul_mn(stirnmodul, Schrägungswinkel);
+
+                double kopfspiel = prg.schrägKopfspiel_c(normalmodul, Kopfspielzahl);
+
+                double stirnteilung = prg.stirnteilung_pt(Kreiszahl, teilkreisdurchmesser, zähnezahl);
+
+                double normalteilung = prg.normalteilung_pn(Kreiszahl, normalmodul);
+
+                double kopfkreisdurchmesser = prg.kopfkreisdurchmesser_da(teilkreisdurchmesser, normalmodul);
+
+                double zahnhöhe = prg.schrägZahnhöhe_h(normalmodul, kopfspiel);
+
+                double zahnkopfhöhe = prg.schrägZahnkopfhöhe_ha(normalmodul);
+
+                double zahnfußhöhe = prg.schrägZahnfußhöhe_hf(normalmodul, kopfspiel);
+
+                double fußkreisdurchmesser = prg.schrägFußkreisdurchmesser_df(teilkreisdurchmesser, normalmodul, kopfspiel);
+
+                double volumen = prg.schrägVolumen_v(kopfkreisdurchmesser, Kreiszahl, breite);
+
+                double masse = prg.schrägMasse_m(material, volumen);
+
                 // teilkreisdurchmesser.Content = d;
             }
 
@@ -284,6 +336,8 @@ namespace GUI_Zahnradrechner_Gruppe_I
 
         private void BerechnungenGeradeInnen(double m, double z, double b)
         {
+            Berechnungen prg = new Berechnungen();
+
             //If-Abfragen Korrekte Eingaben
             if (z % 1 == 0 && z >= 2 && m > 0 && b > 0)
             {
@@ -291,7 +345,22 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 textbox_zähnezahl.Background = Brushes.White;
                 textbox_modul.Background = Brushes.White;
                 //BERECHNUNGEN HIER EINFÜGEN
-                double d = m * z;
+                double modul = prg.Teilkreisdurchmesser_d(teilkreisdurchmesser, zähnezahl);
+
+                double teilung = prg.Teilung_p(Kreiszahl, modul);
+
+                double kopfspiel = prg.Kopfspiel_c(modul, Kopfspielzahl);
+
+                double innenKopfkreisdurchmesser = prg.Kopfkreisdurchmesser_dai(teilkreisdurchmesser, modul);
+
+                double innenFußkreisdurchmesser = prg.Fußkreisdurchmesser_dfi(teilkreisdurchmesser, modul, kopfspiel);
+
+                double zahnhöhe = prg.Zahnhöhe_h(modul, kopfspiel);
+
+                double zahnkopfhöhe = prg.Zahnkopfhöhe_ha(modul);
+
+                double zahnfüßhöhe = prg.Zahnfußhöhe_hf(modul, kopfspiel);
+
                 // teilkreisdurchmesser.Content = d;
             }
 
@@ -315,6 +384,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 }
             }
         }
+
 
 
         //Programm beenden
