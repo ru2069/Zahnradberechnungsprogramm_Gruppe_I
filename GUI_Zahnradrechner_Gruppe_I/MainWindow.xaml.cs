@@ -225,9 +225,9 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 txb_teilung.Text = Convert.ToString(Math.Round(teilung));
                 double kopfspiel = prg.Kopfspiel_c(modul, Kopfspielzahl);
                 txb_kopfspiel.Text = Convert.ToString(kopfspiel);
-                double außenKopfkreisdurchmesser = prg.Kopfkreisdurchmesser_daa(teilkreisdurchmesser, modul);
+                double außenKopfkreisdurchmesser = prg.Kopfkreisdurchmesser_daa(d, modul);
                 txb_kopfkreisdurchmesser.Text = Convert.ToString(außenKopfkreisdurchmesser);
-                double außenFußkreisdurchmesser = prg.Fußkreisdurchmesser_dfa(teilkreisdurchmesser, modul, kopfspiel);
+                double außenFußkreisdurchmesser = prg.Fußkreisdurchmesser_dfa(d, modul, kopfspiel);
                 txb_fußkreisdurchmesser.Text = Convert.ToString(außenFußkreisdurchmesser);
                 double zahnhöhe = prg.Zahnhöhe_h(modul, kopfspiel);
                 txb_zahnhoehe.Text = Convert.ToString(zahnhöhe);
@@ -235,7 +235,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 txb_zahnkopfhoehe.Text = Convert.ToString(zahnkopfhöhe);
                 double zahnfüßhöhe = prg.Zahnfußhöhe_hf(modul, kopfspiel);
                 txb_zahnfußhoehe.Text = Convert.ToString(zahnfüßhöhe);
-                double grundkreisdurchmesser = prg.Grundkreisdurchmesser_db(teilkreisdurchmesser, normeingriffswinkel);
+                double grundkreisdurchmesser = prg.Grundkreisdurchmesser_db(d, normeingriffswinkel);
                 txb_grundkreisdurchmesser.Text = Convert.ToString(grundkreisdurchmesser);
                 double volumen = prg.Volumen_v(außenKopfkreisdurchmesser, Kreiszahl, breite);
                 txb_volumen.Text = Convert.ToString(volumen);
@@ -281,17 +281,17 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 //BERECHNUNGEN HIER EINFÜGEN
                 double d = prg.Teilkreisdurchmesser_d(modul, zähnezahl);
                 txb_teilkreisdurchmesser.Text = Convert.ToString(d);
-                double stirnmodul = prg.stirnmodul_mt(teilkreisdurchmesser, zähnezahl);
+                double stirnmodul = prg.stirnmodul_mt(d, zähnezahl);
                 txb_stirnmodul.Text = Convert.ToString(stirnmodul);
                 double normalmodul = prg.normalmodul_mn(stirnmodul, Schrägungswinkel);
                 //?
                 double kopfspiel = prg.schrägKopfspiel_c(normalmodul, Kopfspielzahl);
                 txb_kopfspiel.Text = Convert.ToString(kopfspiel);
-                double stirnteilung = prg.stirnteilung_pt(Kreiszahl, teilkreisdurchmesser, zähnezahl);
+                double stirnteilung = prg.stirnteilung_pt(Kreiszahl, d, zähnezahl);
                 txb_stirnteilung.Text = Convert.ToString(stirnteilung);
                 double normalteilung = prg.normalteilung_pn(Kreiszahl, normalmodul);
                 //?
-                double kopfkreisdurchmesser = prg.kopfkreisdurchmesser_da(teilkreisdurchmesser, normalmodul);
+                double kopfkreisdurchmesser = prg.kopfkreisdurchmesser_da(d, normalmodul);
                 txb_kopfkreisdurchmesser.Text = Convert.ToString(kopfkreisdurchmesser);
                 double zahnhöhe = prg.schrägZahnhöhe_h(normalmodul, kopfspiel);
                 txb_zahnhoehe.Text = Convert.ToString(zahnhöhe);
@@ -299,7 +299,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 txb_zahnkopfhoehe.Text = Convert.ToString(zahnkopfhöhe);
                 double zahnfußhöhe = prg.schrägZahnfußhöhe_hf(normalmodul, kopfspiel);
                 txb_zahnfußhoehe.Text = Convert.ToString(zahnfußhöhe);
-                double fußkreisdurchmesser = prg.schrägFußkreisdurchmesser_df(teilkreisdurchmesser, normalmodul, kopfspiel);
+                double fußkreisdurchmesser = prg.schrägFußkreisdurchmesser_df(d, normalmodul, kopfspiel);
                 txb_fußkreisdurchmesser.Text = Convert.ToString(fußkreisdurchmesser);
                 double volumen = prg.schrägVolumen_v(kopfkreisdurchmesser, Kreiszahl, breite);
                 txb_volumen.Text = Convert.ToString(volumen);
@@ -345,15 +345,15 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 textbox_zähnezahl.Background = Brushes.White;
                 textbox_modul.Background = Brushes.White;
                 //BERECHNUNGEN HIER EINFÜGEN
-                double d = prg.Teilkreisdurchmesser_d(teilkreisdurchmesser, zähnezahl);
+                double d = prg.Teilkreisdurchmesser_d(modul, zähnezahl);
                 txb_teilkreisdurchmesser1.Text = Convert.ToString(d);
                 double teilung = prg.Teilung_p(Kreiszahl, modul);
                 txb_teilung1.Text = Convert.ToString(teilung);
                 double kopfspiel = prg.Kopfspiel_c(modul, Kopfspielzahl);
                 txb_Kopfspiel.Text = Convert.ToString(kopfspiel);
-                double innenKopfkreisdurchmesser = prg.Kopfkreisdurchmesser_dai(teilkreisdurchmesser, modul);
+                double innenKopfkreisdurchmesser = prg.Kopfkreisdurchmesser_dai(d, modul);
                 txb_Kopfkreisdurchmesser.Text = Convert.ToString(innenKopfkreisdurchmesser);
-                double innenFußkreisdurchmesser = prg.Fußkreisdurchmesser_dfi(teilkreisdurchmesser, modul, kopfspiel);
+                double innenFußkreisdurchmesser = prg.Fußkreisdurchmesser_dfi(d, modul, kopfspiel);
                 txb_Fusskreisduchmesser.Text = Convert.ToString(innenFußkreisdurchmesser);
                 double zahnhöhe = prg.Zahnhöhe_h(modul, kopfspiel);
                 txb_zahnhoehe1.Text = Convert.ToString(zahnhöhe);
