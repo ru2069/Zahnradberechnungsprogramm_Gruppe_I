@@ -138,6 +138,56 @@ namespace GUI_Zahnradrechner_Gruppe_I
         }
 
 
+        //INNENVERZAHNUNG
+        private void Btn_ClickInnen(object sender, RoutedEventArgs e)
+        {
+            //If-Abfragen Zahlcheck der Eingaben
+            string zahlCheckModul = textbox_modul.Text;
+            string zahlCheckZähnezahl = textbox_zähnezahl.Text;
+            string zahlCheckBreite = textbox_breite.Text;
+
+            if (Eingabecheck(zahlCheckModul) == true)
+            {
+                textbox_modul.Background = Brushes.White;
+
+                if (Eingabecheck(zahlCheckZähnezahl) == true)
+                {
+                    textbox_zähnezahl.Background = Brushes.White;
+
+                    if (Eingabecheck(zahlCheckBreite) == true)
+                    {
+                        textbox_breite.Background = Brushes.White;
+                        //BERECHNUNGEN
+                        double m = Convert.ToDouble(textbox_modul.Text);
+                        double z = Convert.ToDouble(textbox_zähnezahl.Text);
+                        double b = Convert.ToDouble(textbox_breite.Text);
+                        //Hier Material einfügen
+                        //Hier Rundung einfügen
+                        //Variablen für Material anlegen mit zugeordneten Werten
+
+                        //ÜBERGABE
+                        BerechnungenGeradeInnen(m, z, b);
+                    }
+                    else if (Eingabecheck(zahlCheckBreite) == false)
+                    {
+                        MessageBox.Show("Sie müssen eine Zahl als Breite eingeben!");
+                        textbox_breite.Background = Brushes.OrangeRed;
+                    }
+                }
+                else if (Eingabecheck(zahlCheckZähnezahl) == false)
+                {
+                    MessageBox.Show("Sie müssen eine Zahl als Zähnezahl eingeben!");
+                    textbox_zähnezahl.Background = Brushes.OrangeRed;
+                }
+            }
+            else if (Eingabecheck(zahlCheckModul) == false)
+            {
+                MessageBox.Show("Sie müssen eine Zahl als Modul eingeben!");
+                textbox_modul.Background = Brushes.OrangeRed;
+            }
+        }
+
+
 
         //Zahlcheck
         private bool Eingabecheck(string zahlCheck)
@@ -152,6 +202,8 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 return false;
             }
         }
+
+
 
         //Berechnungen //MÜSSEN ERWEITERT WERDEN
         private void BerechnungenGeradeAußen(double m, double z, double b)
@@ -230,11 +282,51 @@ namespace GUI_Zahnradrechner_Gruppe_I
             }
         }
 
-        private void btn_beenden_Click(object sender, RoutedEventArgs e)
+        private void BerechnungenGeradeInnen(double m, double z, double b)
+        {
+            //If-Abfragen Korrekte Eingaben
+            if (z % 1 == 0 && z >= 2 && m > 0 && b > 0)
+            {
+                textbox_breite.Background = Brushes.White;
+                textbox_zähnezahl.Background = Brushes.White;
+                textbox_modul.Background = Brushes.White;
+                //BERECHNUNGEN HIER EINFÜGEN
+                double d = m * z;
+                // teilkreisdurchmesser.Content = d;
+            }
+
+            // Fehler: Falsche Werte
+            else
+            {
+                if (z % 1 != 0 || z < 2)
+                {
+                    MessageBox.Show("Bitte eine ganzzahlige Zähnezahl über 2 eingeben!");
+                    textbox_zähnezahl.Background = Brushes.OrangeRed;
+                }
+                if (m <= 0)
+                {
+                    MessageBox.Show("Bitte Modul über 0 wählen!");
+                    textbox_modul.Background = Brushes.OrangeRed;
+                }
+                if (b <= 0)
+                {
+                    MessageBox.Show("Bitte Breite über 0 wählen!");
+                    textbox_breite.Background = Brushes.OrangeRed;
+                }
+            }
+        }
+
+
+        //Programm beenden
+        private void btn_beenden_ClickAußen(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
+        private void btn_beenden_ClickInnen(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 
 }
