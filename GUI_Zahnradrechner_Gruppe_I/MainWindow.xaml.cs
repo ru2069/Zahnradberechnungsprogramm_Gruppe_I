@@ -222,11 +222,11 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 double d = prg.Teilkreisdurchmesser_d(modul, zähnezahl);
                 txb_teilkreisdurchmesser.Text = Convert.ToString(Math.Round(d));
                 double teilung = prg.Teilung_p(Kreiszahl, modul);
-                txb_teilung = Convert.ToString(Math.Round(teilung));
+                txb_teilung.Text = Convert.ToString(Math.Round(teilung));
                 double kopfspiel = prg.Kopfspiel_c(modul, Kopfspielzahl);
-                txb_kopfspiel = Convert.ToString(kopfspiel));
+                txb_kopfspiel.Text = Convert.ToString(kopfspiel);
                 double außenKopfkreisdurchmesser = prg.Kopfkreisdurchmesser_daa(teilkreisdurchmesser, modul);
-
+                
                 double außenFußkreisdurchmesser = prg.Fußkreisdurchmesser_dfa(teilkreisdurchmesser, modul, kopfspiel);
 
                 double zahnhöhe = prg.Zahnhöhe_h(modul, kopfspiel);
