@@ -13,6 +13,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
         double normeingriffswinkel;
         double breite;
         double material;
+        double schr;
 
         public double getModul()
         {
@@ -81,6 +82,16 @@ namespace GUI_Zahnradrechner_Gruppe_I
         public void setMaterial(double material)
         {
             this.material = material;
+        }
+
+        public double getSchrägungswinkel()
+        {
+            return schr;
+        }
+
+        public void setSchrägungswinkel(double schr)
+        {
+            this.schr = schr;
         }
     }
 }

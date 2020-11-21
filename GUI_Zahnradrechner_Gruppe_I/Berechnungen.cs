@@ -78,9 +78,9 @@ namespace GUI_Zahnradrechner_Gruppe_I
             double mt = d / zähnezahl;
             return mt;
         }
-        public double normalmodul_mn(double stirnmodul, double Schrägungswinkel)
+        public double normalmodul_mn(double stirnmodul, double schr)
         {
-            double mn = stirnmodul * Math.Cos(Schrägungswinkel);
+            double mn = stirnmodul * Math.Cos(schr);
             return mn;
         }
         public double normalteilung_pn(double kreiszahl, double normalmodul)
