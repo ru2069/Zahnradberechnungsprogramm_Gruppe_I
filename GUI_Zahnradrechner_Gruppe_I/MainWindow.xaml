@@ -5,31 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_Zahnradrechner_Gruppe_I"
         mc:Ignorable="d"
-        Title="ZZ Zahnradrechner" Height="768" Width="1366" Icon="/Mini Logo 2.png" >
+        Title="ZZ Zahnradrechner" Height="768" Width="1344" Icon="/Mini Logo 2.png" >
     <Grid Background="#FFA6A6A6">
         <Label Content="Willkommen beim ZZ Zahnradrechner!" FontFamily="Corbel Light" FontSize="40" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <Image  Stretch="Uniform" Width="130" Height="130" HorizontalAlignment="Right" VerticalAlignment="Top" Source="/ZZ Logo 2.png" />
 
         <TabControl Width="1349" Height="630" HorizontalAlignment="Left" VerticalAlignment="Bottom">
             <TabItem Header="Außenverzahnung" FontFamily="Corbel Light" FontSize="16">
-                <Canvas HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="1366" Height="600" Background="#FFD8D8D8">
+                <Canvas VerticalAlignment="Top" Height="600" Background="#FFD8D8D8">
 
                     <!-- Eingabe Grid -->
 
                     <Grid Height="250" Width="400" Background="#FF6BA3DA">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="111*"/>
+                            <ColumnDefinition Width="89*"/>
+                        </Grid.ColumnDefinitions>
 
                         <Label x:Name="lbl_eingabe" Content="Eingabe:" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <Label x:Name="lbl_modul" Content="Modul:" HorizontalAlignment="Left" Margin="0,52,0,172"/>
-                        <TextBox x:Name="txb_modul" TextWrapping="Wrap" Width="150" Margin="100,50,150,170" FontFamily="Calibri Light" Height="25" SelectionBrush="White"/>
+                        <TextBox x:Name="txb_modul_außen" TextWrapping="Wrap" Width="150" Margin="100,52,150,172" FontFamily="Calibri Light" Height="25" SelectionBrush="White" Grid.ColumnSpan="2"/>
                         <Label x:Name="lbl_zaenezahl" Content="Zähnezahl:" HorizontalAlignment="Left" Margin="0,95,0,130"/>
-                        <TextBox x:Name="txb_zähnezahl" TextWrapping="Wrap" Width="150" Margin="100,50,150,85"  FontFamily="Calibri Light" Height="25"/>
+                        <TextBox x:Name="txb_zaehnezahl_außen" TextWrapping="Wrap" Width="150" Margin="100,95,150,130"  FontFamily="Calibri Light" Height="25" Grid.ColumnSpan="2"/>
                         <Label x:Name="lbl_verzahnung" Content="Verzahnung:" HorizontalAlignment="Left" Margin="0,140,0,80" Width="90"/>
-                        <RadioButton x:Name="rdbtn_gerade" IsChecked="True" RenderTransformOrigin="0.333,4.891" Margin="95,150,285,80"/>
+                        <RadioButton x:Name="rdbtn_gerade" IsChecked="True" RenderTransformOrigin="0.333,4.891" Margin="95,150,107,80"/>
                         <Label x:Name="lbl_gerade" Content="Gerade" HorizontalAlignment="Left" Margin="110,140,0,80" Width="90"/>
-                        <RadioButton x:Name="rdbtn_schräg" Margin="190,150,190,80" Width="20"/>
-                        <Label x:Name="lbl_schräg" Content="Schräg" Margin="210,140,130,80"/>
+                        <RadioButton x:Name="rdbtn_schräg" Margin="190,150,12,80" Width="20"/>
+                        <Label x:Name="lbl_schräg" Content="Schräg" Margin="210,140,130,80" Grid.ColumnSpan="2"/>
                         <Label x:Name="lbl_breite" Content="Breite:" HorizontalAlignment="Left" Margin="0,180,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="txb_breite" HorizontalAlignment="Left" Margin="100,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="25"/>
+                        <TextBox x:Name="txb_breite_außen" HorizontalAlignment="Left" Margin="100,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="25" Grid.ColumnSpan="2"/>
 
                     </Grid>
 
@@ -133,20 +137,20 @@
                     </Grid.ColumnDefinitions>
 
                     <Grid Height="250" Width="400" Background="#FF6BA3DA" Margin="0,0,943,348" Grid.ColumnSpan="4">
-                        <Label x:Name="label_Eingabe" Content="Eingabe" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="textbox_modul" TextWrapping="Wrap" Width="150" Margin="100,53,150,172" FontFamily="Calibri Light" Height="25" SelectionBrush="White"/>
-                        <Label x:Name="label_modul" Content="Modul:" HorizontalAlignment="Left" Margin="0,52,0,172"/>
-                        <Label x:Name="label_zähnezahl" Content="Zähnezahl:" HorizontalAlignment="Left" Margin="0,95,0,130"/>
-                        <TextBox x:Name="textbox_zähnezahl" TextWrapping="Wrap" Width="150" Margin="100,50,150,85"  FontFamily="Calibri Light" Height="25"/>
-                        <Label x:Name="label_breite" Content="Breite:" HorizontalAlignment="Left" Margin="0,180,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="textbox_breite" HorizontalAlignment="Left" Margin="100,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="25"/>
+                        <Label x:Name="lbl_eingabe_innen" Content="Eingabe" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox x:Name="txb_modul_innen" TextWrapping="Wrap" Width="150" Margin="100,53,150,172" FontFamily="Calibri Light" Height="25" SelectionBrush="White"/>
+                        <Label x:Name="lbl_modul_innen" Content="Modul:" HorizontalAlignment="Left" Margin="0,52,0,172"/>
+                        <Label x:Name="lbl_zaehnezahl" Content="Zähnezahl:" HorizontalAlignment="Left" Margin="0,95,0,130"/>
+                        <TextBox x:Name="txb_zaehnezahl_innen" TextWrapping="Wrap" Width="150" Margin="100,50,150,85"  FontFamily="Calibri Light" Height="25"/>
+                        <Label x:Name="lbl_breite_innen" Content="Breite:" HorizontalAlignment="Left" Margin="0,180,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="txb_breite_innen" HorizontalAlignment="Left" Margin="100,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="25"/>
                     </Grid>
 
 
                     <Grid Height="170" Width="400" Background="#FF9DB3E4" Margin="0,299,943,129" Grid.ColumnSpan="4">
 
-                        <Label Content="Auf wie viele Stellen nach dem Komma gerundet werden?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="384" Height="29"/>
-                        <TextBox x:Name="Textbox_rundung" HorizontalAlignment="Left" Margin="243,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                        <Label Content="Auf wie viele Stellen nach dem Komma soll gerundet werden?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="384" Height="29"/>
+                        <TextBox x:Name="txb_rundung_innen" HorizontalAlignment="Left" Margin="243,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                         <ComboBox HorizontalAlignment="Left" Margin="47,59,0,0" VerticalAlignment="Top" Width="120">
                             <ComboBoxItem IsSelected="True">Vergütungsstahl
                             </ComboBoxItem>
