@@ -18,6 +18,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -139,28 +140,62 @@ namespace GUI_Zahnradrechner_Gruppe_I
 
 
         //INNENVERZAHNUNG
-        private void Btn_ClickInnen(object sender, RoutedEventArgs e)
+        public void Btn_ClickInnen(object sender, RoutedEventArgs e)
         {
             //If-Abfragen Zahlcheck der Eingaben
-            string zahlCheckModul = textbox_modul.Text;
-            string zahlCheckZähnezahl = textbox_zähnezahl.Text;
-            string zahlCheckBreite = textbox_breite.Text;
+            string zahlCheckModul = txb_modul_innen.Text;
+            string zahlCheckZähnezahl = txb_zaehnezahl_innen.Text;
+            string zahlCheckBreite = txb_breite_innen.Text;
 
             if (Eingabecheck(zahlCheckModul) == true)
             {
-                textbox_modul.Background = Brushes.White;
+                txb_modul_innen.Background = Brushes.White;
 
                 if (Eingabecheck(zahlCheckZähnezahl) == true)
                 {
-                    textbox_zähnezahl.Background = Brushes.White;
+                    txb_zaehnezahl_innen.Background = Brushes.White;
 
                     if (Eingabecheck(zahlCheckBreite) == true)
                     {
-                        textbox_breite.Background = Brushes.White;
+                        txb_breite_innen.Background = Brushes.White;
+
                         //BERECHNUNGEN
-                        double m = Convert.ToDouble(textbox_modul.Text);
-                        double z = Convert.ToDouble(textbox_zähnezahl.Text);
-                        double b = Convert.ToDouble(textbox_breite.Text);
+
+                        double m = Convert.ToDouble(txb_modul_innen.Text);
+                        double z = Convert.ToDouble(txb_zaehnezahl_innen.Text);
+                        double b = Convert.ToDouble(txb_breite_innen.Text);
+                        const double dichteVergütungsstahl = 7.84;      //C35/C45
+                        const double dichteNichtrostenderStahl = 7.0;   //X12CrNiS188
+                        const double dichteKunststoff = 1.41;           //POM
+                        const double dichteGusseisen = 7.2;             //GG
+                        const double dichteMessing = 8.5;               //CuZn
+
+                        double material = Convert.ToDouble(cmb_materialwahl.SelectedIndex);
+                        //switch Abfrage für Material
+                        switch (material)
+                        {
+                            case 1:
+                                material = dichteVergütungsstahl;
+                                break;
+
+                            case 2:
+                                material = dichteNichtrostenderStahl;
+                                break;
+
+                            case 3:
+                                material = dichteKunststoff;
+                                break;
+
+                            case 4:
+                                material = dichteGusseisen;
+                                break;
+
+                            case 5:
+                                material = dichteMessing;
+                                break;
+
+                        }
+
                         //Hier Material einfügen
                         //Hier Rundung einfügen
                         //Variablen für Material anlegen mit zugeordneten Werten
@@ -171,19 +206,19 @@ namespace GUI_Zahnradrechner_Gruppe_I
                     else if (Eingabecheck(zahlCheckBreite) == false)
                     {
                         MessageBox.Show("Sie müssen eine Zahl als Breite eingeben!");
-                        textbox_breite.Background = Brushes.OrangeRed;
+                        txb_breite_innen.Background = Brushes.OrangeRed;
                     }
                 }
                 else if (Eingabecheck(zahlCheckZähnezahl) == false)
                 {
                     MessageBox.Show("Sie müssen eine Zahl als Zähnezahl eingeben!");
-                    textbox_zähnezahl.Background = Brushes.OrangeRed;
+                    txb_zaehnezahl_innen.Background = Brushes.OrangeRed;
                 }
             }
             else if (Eingabecheck(zahlCheckModul) == false)
             {
                 MessageBox.Show("Sie müssen eine Zahl als Modul eingeben!");
-                textbox_modul.Background = Brushes.OrangeRed;
+                txb_modul_innen.Background = Brushes.OrangeRed;
             }
         }
 
@@ -222,8 +257,10 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 double modul = Convert.ToDouble(txb_modul_außen.Text);
                 double zaehnezahl = Convert.ToDouble(txb_zaehnezahl_außen.Text);
                 double breite = Convert.ToDouble(txb_breite_außen.Text);
+                const double Kopfspielzahl = 0.167;
+                const double normeingriffswinkel = 20 * Math.PI / 180;
 
-
+          
 
                 double d = prg.Teilkreisdurchmesser_d(modul, zaehnezahl);
                 txb_teilkreisdurchmesser.Text = Convert.ToString(Math.Round(d));
@@ -245,8 +282,9 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 txb_grundkreisdurchmesser.Text = Convert.ToString(grundkreisdurchmesser);
                 double volumen = prg.Volumen_v(außenKopfkreisdurchmesser, Math.PI, breite);
                 txb_volumen.Text = Convert.ToString(volumen);
-                double masse = prg.masse_m(material, volumen);
-                txb_masse.Text = Convert.ToString(masse); 
+
+                // double masse = prg.masse_m(material, volumen);
+                // txb_masse.Text = Convert.ToString(masse); 
                 // teilkreisdurchmesser.Content = d;
             }
 
@@ -288,12 +326,14 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 double modul = Convert.ToDouble(txb_modul_außen.Text);
                 double zaehnezahl = Convert.ToDouble(txb_zaehnezahl_außen.Text);
                 double breite = Convert.ToDouble(txb_breite_außen.Text);
+                const double Kopfspielzahl = 0.167;
+                double schraegungswinkel = Convert.ToDouble(txb_schraegungswinkel.Text);
 
                 double d = prg.Teilkreisdurchmesser_d(modul, zaehnezahl);
                 txb_teilkreisdurchmesser.Text = Convert.ToString(d);
                 double stirnmodul = prg.stirnmodul_mt(d, zaehnezahl);
                 txb_stirnmodul.Text = Convert.ToString(stirnmodul);
-                double normalmodul = prg.normalmodul_mn(stirnmodul, Schrägungswinkel);
+                double normalmodul = prg.normalmodul_mn(stirnmodul, schraegungswinkel);
                 //?
                 double kopfspiel = prg.schrägKopfspiel_c(normalmodul, Kopfspielzahl);
                 txb_kopfspiel.Text = Convert.ToString(kopfspiel);
@@ -313,8 +353,9 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 txb_fußkreisdurchmesser.Text = Convert.ToString(fußkreisdurchmesser);
                 double volumen = prg.schrägVolumen_v(kopfkreisdurchmesser, Math.PI, breite);
                 txb_volumen.Text = Convert.ToString(volumen);
-                double masse = prg.schrägMasse_m(material, volumen);
-                txb_masse.Text = Convert.ToString(masse);
+
+                // double masse = prg.schrägMasse_m(material, volumen);
+                // txb_masse.Text = Convert.ToString(masse);
                 // teilkreisdurchmesser.Content = d;
             }
 
@@ -360,6 +401,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 double modul = Convert.ToDouble(txb_modul_innen.Text);
                 double zaehnezahl = Convert.ToDouble(txb_zaehnezahl_innen.Text);
                 double breite = Convert.ToDouble(txb_breite_innen.Text);
+                const double Kopfspielzahl = 0.167;
 
                 double d = prg.Teilkreisdurchmesser_d(modul, zaehnezahl);
                 txb_teilkreisdurchmesser1.Text = Convert.ToString(d);
