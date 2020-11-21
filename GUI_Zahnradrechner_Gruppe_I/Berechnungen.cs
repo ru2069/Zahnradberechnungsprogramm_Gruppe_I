@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GUI_Zahnradrechner_Gruppe_I
 {
-    class Berechnungen
+     public class Berechnungen
     {
         public double Teilkreisdurchmesser_d(double modul, double zähnezahl)
         {
@@ -36,46 +36,46 @@ namespace GUI_Zahnradrechner_Gruppe_I
             double zahnhöhe = (2 * modul) + kopfspiel;
             return zahnhöhe;
         }
-        public double Kopfkreisdurchmesser_daa(double teilkreisdurchmesser, double modul)
+        public double Kopfkreisdurchmesser_daa(double d, double modul)
         {
-            double außenKopfkreisdurchmesser = teilkreisdurchmesser + 2 * modul;
+            double außenKopfkreisdurchmesser = d + 2 * modul;
             return außenKopfkreisdurchmesser;
         }
-        public double Fußkreisdurchmesser_dfa(double teilkreisdurchmesser, double modul, double kopfspiel)
+        public double Fußkreisdurchmesser_dfa(double d, double modul, double kopfspiel)
         {
-            double außenFußkreisdurchmesser = teilkreisdurchmesser - 2 * (modul + kopfspiel);
+            double außenFußkreisdurchmesser = d - 2 * (modul + kopfspiel);
             return außenFußkreisdurchmesser;
         }
-        public double Kopfkreisdurchmesser_dai(double teilkreisdurchmesser, double modul)
+        public double Kopfkreisdurchmesser_dai(double d, double modul)
         {
-            double innenKopfkreisdurchmesser = teilkreisdurchmesser - 2 * modul;
+            double innenKopfkreisdurchmesser = d - 2 * modul;
             return innenKopfkreisdurchmesser;
         }
-        public double Fußkreisdurchmesser_dfi(double teilkreisdurchmesser, double modul, double kopfspiel)
+        public double Fußkreisdurchmesser_dfi(double d, double modul, double kopfspiel)
         {
-            double innenFußkreisdurchmesser = teilkreisdurchmesser + 2 * (modul + kopfspiel);
+            double innenFußkreisdurchmesser = d + 2 * (modul + kopfspiel);
             return innenFußkreisdurchmesser;
         }
-        public double Grundkreisdurchmesser_db(double teilkreisdurchmesser, double normeingriffswinkel)
+        public double Grundkreisdurchmesser_db(double d, double normeingriffswinkel)
         {
-            double db = teilkreisdurchmesser * Math.Cos(normeingriffswinkel);
+            double db = d * Math.Cos(normeingriffswinkel);
             return db;
         }
-        public double Volumen_v(double außenKopfkreisdurchmesser, double Kreiszahl, double breite)
+        public double Volumen_vg(double außenKopfkreisdurchmesser, double Kreiszahl, double breite)
         {
-            double v = (Kreiszahl * Math.Pow((außenKopfkreisdurchmesser / 2), 2) * breite) / 1000;
-            return v;
+            double vg = (Kreiszahl * Math.Pow((außenKopfkreisdurchmesser / 2), 2) * breite) / 1000;
+            return vg;
         }
-        public double masse_m(double material, double Volumen_v)
+        public double masse_mg(double material, double vg)
         {
-            double m = material * Volumen_v;
-            return m;
+            double mg = material * vg;
+            return mg;
         }
 
         //Methoden Schrägverzahnung
-        public double stirnmodul_mt(double teilkreisdurchmesser, double zähnezahl)
+        public double stirnmodul_mt(double d, double zähnezahl)
         {
-            double mt = teilkreisdurchmesser / zähnezahl;
+            double mt = d / zähnezahl;
             return mt;
         }
         public double normalmodul_mn(double stirnmodul, double Schrägungswinkel)
@@ -88,14 +88,14 @@ namespace GUI_Zahnradrechner_Gruppe_I
             double pn = kreiszahl * normalmodul;
             return pn;
         }
-        public double stirnteilung_pt(double kreiszahl, double teilkreidurchmesser, double zähnezahl)
+        public double stirnteilung_pt(double kreiszahl, double d, double zähnezahl)
         {
-            double pt = (kreiszahl * teilkreidurchmesser) / zähnezahl;
+            double pt = (kreiszahl * d) / zähnezahl;
             return pt;
         }
-        public double kopfkreisdurchmesser_da(double teilkreisdurchmesser, double normalmodul)
+        public double kopfkreisdurchmesser_da(double d, double normalmodul)
         {
-            double da = teilkreisdurchmesser + 2 * normalmodul;
+            double da = d + 2 * normalmodul;
             return da;
         }
         public double schrägKopfspiel_c(double normalmodul, double Kopfspielzahl)
@@ -118,20 +118,20 @@ namespace GUI_Zahnradrechner_Gruppe_I
             double zahnfußhöhe = normalmodul + kopfspiel;
             return zahnfußhöhe;
         }
-        public double schrägFußkreisdurchmesser_df(double teilkreisdurchmesser, double kopfspiel, double normalmodul)
+        public double schrägFußkreisdurchmesser_df(double d, double kopfspiel, double normalmodul)
         {
-            double fußkreisdurchmesser = teilkreisdurchmesser + 2 * (normalmodul + kopfspiel);
+            double fußkreisdurchmesser = d + 2 * (normalmodul + kopfspiel);
             return fußkreisdurchmesser;
         }
-        public double schrägVolumen_v(double kopfkreisdurchmesser, double Kreiszahl, double breite)
+        public double schrägVolumen_vs(double d, double Kreiszahl, double breite)
         {
-            double v = (Kreiszahl * Math.Pow((kopfkreisdurchmesser / 2), 2) * breite) / 1000;
-            return v;
+            double vs = (Kreiszahl * Math.Pow((d / 2), 2) * breite) / 1000;
+            return vs;
         }
-        public double schrägMasse_m(double material, double schrägVolumen_v)
+        public double schrägMasse_ms(double material, double vs)
         {
-            double m = material * schrägVolumen_v;
-            return m;
+            double ms = material * vs;
+            return ms;
         }
     }
 }

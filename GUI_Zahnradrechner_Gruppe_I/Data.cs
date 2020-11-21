@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GUI_Zahnradrechner_Gruppe_I
 {
-    class Data
+    public class Data
     {
         double modul;
         double zähnezahl;
@@ -44,7 +44,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
             this.kreiszahl = kreiszahl;
         }
 
-        public double getKopfkreiszahl()
+        public double getKopfspielzahl()
         {
             return kopfspielzahl;
         }

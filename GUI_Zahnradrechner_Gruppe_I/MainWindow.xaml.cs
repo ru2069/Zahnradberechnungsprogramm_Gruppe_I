@@ -26,8 +26,9 @@ namespace GUI_Zahnradrechner_Gruppe_I
         }
 
         //AUßENVERZAHNUNG
-        public void Btn_ClickAußen(object sender, RoutedEventArgs e)
+        public Data Btn_ClickAußen(object sender, RoutedEventArgs e)
         {
+            Data dat = new Data();
             //If-Abfrage Radiobutton Gerade
             if (rdbtn_gerade.IsChecked == true)
             {
@@ -49,14 +50,17 @@ namespace GUI_Zahnradrechner_Gruppe_I
                             txb_breite.Background = Brushes.White;
                             //BERECHNUNGEN
                             double m = Convert.ToDouble(txb_modul.Text);
+                            dat.setModul(m);
                             double z = Convert.ToDouble(txb_zähnezahl.Text);
+                            dat.setZähnezahl(z);
                             double b = Convert.ToDouble(txb_breite.Text);
+                            dat.setBreite(b);
                             //Hier Material einfügen
                             //Hier Rundung einfügen
                             //Variablen für Material anlegen mit zugeordneten Werten
 
                             //ÜBERGABE
-                            BerechnungenGeradeAußen(m, z, b);
+                            BerechnungenGeradeAußen(dat);
                         }
                         else if (Eingabecheck(zahlCheckBreite) == false)
                         {
@@ -101,9 +105,13 @@ namespace GUI_Zahnradrechner_Gruppe_I
 
                                 //BERECHNUNGEN
                                 double m = Convert.ToDouble(txb_modul.Text);
+                                dat.setModul(m);
                                 double z = Convert.ToDouble(txb_zähnezahl.Text);
+                                dat.setZähnezahl(z);
                                 double b = Convert.ToDouble(txb_breite.Text);
+
                                 double schr = Convert.ToDouble(txb_schraegungswinkel.Text);
+
                                 //Hier Material einfügen
                                 //Hier Rundung einfügen
                                 //Variablen für Material anlegen mit zugeordneten Werten
@@ -135,6 +143,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
                     txb_modul.Background = Brushes.OrangeRed;
                 }
             }
+            return dat;
         }
 
 
@@ -206,63 +215,63 @@ namespace GUI_Zahnradrechner_Gruppe_I
 
 
         //Berechnungen //MÜSSEN ERWEITERT WERDEN
-        private void BerechnungenGeradeAußen(double m, double z, double b)
+        private Data BerechnungenGeradeAußen(Data dat)
         {
             //If-Abfragen Korrekte Eingaben
-            if (z % 1 == 0 && z >= 2 && m > 0 && b > 0)
+            if (dat.getZähnezahl() % 1 == 0 && dat.getZähnezahl() >= 2 && dat.getModul() > 0 && dat.getBreite() > 0)
             {
 
                 Berechnungen prg = new Berechnungen();
-
                 txb_breite.Background = Brushes.White;
                 txb_zähnezahl.Background = Brushes.White;
                 txb_modul.Background = Brushes.White;
                 //BERECHNUNGEN HIER EINFÜGEN
                 
-                double d = prg.Teilkreisdurchmesser_d(modul, zähnezahl);
+                double d = prg.Teilkreisdurchmesser_d(dat.getModul(), dat.getZähnezahl());
                 txb_teilkreisdurchmesser.Text = Convert.ToString(Math.Round(d));
-                double teilung = prg.Teilung_p(Kreiszahl, modul);
+                double teilung = prg.Teilung_p(dat.getKreiszahl(), dat.getModul());
                 txb_teilung.Text = Convert.ToString(Math.Round(teilung));
-                double kopfspiel = prg.Kopfspiel_c(modul, Kopfspielzahl);
+                double kopfspiel = prg.Kopfspiel_c(dat.getModul(), dat.getKopfspielzahl());
                 txb_kopfspiel.Text = Convert.ToString(kopfspiel);
-                double außenKopfkreisdurchmesser = prg.Kopfkreisdurchmesser_daa(d, modul);
+                double außenKopfkreisdurchmesser = prg.Kopfkreisdurchmesser_daa(d, dat.getModul());
                 txb_kopfkreisdurchmesser.Text = Convert.ToString(außenKopfkreisdurchmesser);
-                double außenFußkreisdurchmesser = prg.Fußkreisdurchmesser_dfa(d, modul, kopfspiel);
+                double außenFußkreisdurchmesser = prg.Fußkreisdurchmesser_dfa(d, dat.getModul(), kopfspiel);
                 txb_fußkreisdurchmesser.Text = Convert.ToString(außenFußkreisdurchmesser);
-                double zahnhöhe = prg.Zahnhöhe_h(modul, kopfspiel);
+                double zahnhöhe = prg.Zahnhöhe_h(dat.getModul(), kopfspiel);
                 txb_zahnhoehe.Text = Convert.ToString(zahnhöhe);
-                double zahnkopfhöhe = prg.Zahnkopfhöhe_ha(modul);
+                double zahnkopfhöhe = prg.Zahnkopfhöhe_ha(dat.getModul());
                 txb_zahnkopfhoehe.Text = Convert.ToString(zahnkopfhöhe);
-                double zahnfüßhöhe = prg.Zahnfußhöhe_hf(modul, kopfspiel);
+                double zahnfüßhöhe = prg.Zahnfußhöhe_hf(dat.getModul(), kopfspiel);
                 txb_zahnfußhoehe.Text = Convert.ToString(zahnfüßhöhe);
-                double grundkreisdurchmesser = prg.Grundkreisdurchmesser_db(d, normeingriffswinkel);
+                double grundkreisdurchmesser = prg.Grundkreisdurchmesser_db(d, dat.getNormeingriffswinkel());
                 txb_grundkreisdurchmesser.Text = Convert.ToString(grundkreisdurchmesser);
-                double volumen = prg.Volumen_v(außenKopfkreisdurchmesser, Kreiszahl, breite);
+                double volumen = prg.Volumen_vg(außenKopfkreisdurchmesser, dat.getKreiszahl(), dat.getBreite());
                 txb_volumen.Text = Convert.ToString(volumen);
-                double masse = prg.masse_m(material, volumen);
-                txb_masse.Text = Convert.ToString(masse); 
+                double masse = prg.masse_mg(dat.getMaterial(), volumen);
+                txb_masse.Text = Convert.ToString(masse);
                 // teilkreisdurchmesser.Content = d;
             }
 
             // Fehler: Falsche Werte
             else
             {
-                if (z % 1 != 0 || z < 2)
+                if (dat.getZähnezahl() % 1 != 0 || dat.getZähnezahl() < 2)
                 {
                     MessageBox.Show("Bitte eine ganzzahlige Zähnezahl über 2 eingeben!");
                     txb_zähnezahl.Background = Brushes.OrangeRed;
                 }
-                if (m <= 0)
+                if (dat.getModul() <= 0)
                 {
                     MessageBox.Show("Bitte Modul über 0 wählen!");
                     txb_modul.Background = Brushes.OrangeRed;
                 }
-                if (b <= 0)
+                if (dat.getBreite() <= 0)
                 {
                     MessageBox.Show("Bitte Breite über 0 wählen!");
                     txb_breite.Background = Brushes.OrangeRed;
                 }
             }
+            return dat;
         }
 
         private void BerechnungenSchrägAußen(double m, double z, double b, double schr)
