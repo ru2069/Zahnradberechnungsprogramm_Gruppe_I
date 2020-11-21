@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_Zahnradrechner_Gruppe_I"
         mc:Ignorable="d"
-        Title="ZZ Zahnradrechner" Height="768" Width="1344" Icon="/Mini Logo 2.png" >
-    <Grid Background="#FFA6A6A6">
+        Title="ZZ Zahnradrechner" Height="768" Width="1344" Icon="/Mini Logo 2.png" MinWidth="1344" MinHeight="750.71" MaxWidth="1344" MaxHeight="750.71" >
+    <Grid Background="#FFA6A6A6" MinWidth="1344" MinHeight="750.71" MaxWidth="1344" MaxHeight="750.71">
         <Label Content="Willkommen beim ZZ Zahnradrechner!" FontFamily="Corbel Light" FontSize="40" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <Image  Stretch="Uniform" Width="130" Height="130" HorizontalAlignment="Right" VerticalAlignment="Top" Source="/ZZ Logo 2.png" />
 
         <TabControl Width="1349" Height="630" HorizontalAlignment="Left" VerticalAlignment="Bottom">
             <TabItem Header="Außenverzahnung" FontFamily="Corbel Light" FontSize="16">
-                <Canvas VerticalAlignment="Top" Height="600" Background="#FFD8D8D8">
+                <Canvas VerticalAlignment="Top" Height="600" Background="#FFD8D8D8" Margin="0,0">
 
                     <!-- Eingabe Grid -->
 
