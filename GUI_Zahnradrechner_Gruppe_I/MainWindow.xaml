@@ -165,7 +165,7 @@
                             <ComboBoxItem>Messing</ComboBoxItem>
 
                         </ComboBox>
-                        <ComboBox FontFamily="Calibri Light" Margin="0,59,30,0" HorizontalAlignment="Right" Width="120" Height="26" VerticalAlignment="Top" Grid.ColumnSpan="3">
+                        <ComboBox x:Name="cmb_rundung_innen" FontFamily="Calibri Light" Margin="0,59,30,0" HorizontalAlignment="Right" Width="120" Height="26" VerticalAlignment="Top" Grid.ColumnSpan="3">
                             <ComboBoxItem IsSelected="True">0</ComboBoxItem>
                             <ComboBoxItem>1</ComboBoxItem>
                             <ComboBoxItem>2</ComboBoxItem>
@@ -194,7 +194,7 @@
                         <TextBox x:Name="txb_teilung1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
                         <TextBox x:Name="txb_Kopfspiel" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
                         <TextBox x:Name="txb_Kopfkreisdurchmesser" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
-                        <TextBox x:Name="txb_Fusskreisduchmesser" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
+                        <TextBox x:Name="txb_Fusskreisdurchmesser" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
                         <TextBox x:Name="txb_zahnhoehe1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
                         <TextBox x:Name="txb_zahnkopfhoehe1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
                         <TextBox x:Name="txb_zahnfusshohe" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>

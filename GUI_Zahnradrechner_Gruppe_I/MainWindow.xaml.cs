@@ -378,25 +378,31 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 txb_breite_innen.Background = Brushes.White;
                 txb_zaehnezahl_innen.Background = Brushes.White;
                 txb_modul_innen.Background = Brushes.White;
-
-                //BERECHNUNGEN HIER EINFÜGEN
+                int round = Convert.ToInt32(cmb_rundung_innen.Text);
 
                 double d = prg.Teilkreisdurchmesser_d(dat.getModul(), dat.getZähnezahl());
-                txb_teilkreisdurchmesser1.Text = Convert.ToString(d);
+                txb_teilkreisdurchmesser1.Text = Convert.ToString(Math.Round(d, round) + " mm");
+
                 double teilung = prg.Teilung_p(dat.getKreiszahl(), dat.getModul());
-                txb_teilung1.Text = Convert.ToString(teilung);
+                txb_teilung1.Text = Convert.ToString(Math.Round(teilung, round) + " mm");
+
                 double kopfspiel = prg.Kopfspiel_c(dat.getModul(), dat.getKopfspielzahl());
-                txb_Kopfspiel.Text = Convert.ToString(kopfspiel);
+                txb_Kopfspiel.Text = Convert.ToString(Math.Round(kopfspiel, round) + " mm");
+
                 double innenKopfkreisdurchmesser = prg.Kopfkreisdurchmesser_dai(d, dat.getModul());
-                txb_Kopfkreisdurchmesser.Text = Convert.ToString(innenKopfkreisdurchmesser);
+                txb_Kopfkreisdurchmesser.Text = Convert.ToString(Math.Round(innenKopfkreisdurchmesser, round) + "mm");
+
                 double innenFußkreisdurchmesser = prg.Fußkreisdurchmesser_dfi(d, dat.getModul(), kopfspiel);
-                txb_Fusskreisduchmesser.Text = Convert.ToString(innenFußkreisdurchmesser);
+                txb_Fusskreisdurchmesser.Text = Convert.ToString(Math.Round(innenFußkreisdurchmesser, round) + "mm");
+
                 double zahnhöhe = prg.Zahnhöhe_h(dat.getModul(), kopfspiel);
-                txb_zahnhoehe1.Text = Convert.ToString(zahnhöhe);
+                txb_zahnhoehe1.Text = Convert.ToString(Math.Round(zahnhöhe, round) + " mm");
+
                 double zahnkopfhöhe = prg.Zahnkopfhöhe_ha(dat.getModul());
-                txb_zahnkopfhoehe1.Text = Convert.ToString(zahnkopfhöhe);
+                txb_zahnkopfhoehe1.Text = Convert.ToString(Math.Round(zahnkopfhöhe, round) + " mm");
+
                 double zahnfüßhöhe = prg.Zahnfußhöhe_hf(dat.getModul(), kopfspiel);
-                txb_zahnfusshohe.Text = Convert.ToString(zahnfüßhöhe);
+                txb_zahnfusshohe.Text = Convert.ToString(Math.Round(zahnfüßhöhe, round) + " mm");
             }
 
             // Fehler: Falsche Werte
