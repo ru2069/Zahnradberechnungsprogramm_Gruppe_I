@@ -8,12 +8,15 @@ namespace GUI_Zahnradrechner_Gruppe_I
     {
         double modul;
         double zähnezahl;
-        double kreiszahl;
-        double kopfspielzahl;
-        double normeingriffswinkel;
+        double kreiszahl = Math.PI;
+        double kopfspielzahl = 0.167;
+        double normeingriffswinkel = 20 * Math.PI / 180;
         double breite;
         double material;
         double schr;
+
+        //Inputs
+        //Modul
 
         public double getModul()
         {
@@ -25,6 +28,8 @@ namespace GUI_Zahnradrechner_Gruppe_I
             this.modul = modul;
         }
 
+        //Zähnezahl
+
         public double getZähnezahl()
         {
             return zähnezahl;
@@ -35,36 +40,8 @@ namespace GUI_Zahnradrechner_Gruppe_I
             this.zähnezahl = zähnezahl;
         }
 
-        public double getKreiszahl()
-        {
-            return kreiszahl;
-        }
-
-        public void setKreiszahl(double kreiszahl)
-        {
-            this.kreiszahl = kreiszahl;
-        }
-
-        public double getKopfspielzahl()
-        {
-            return kopfspielzahl;
-        }
-
-        public void setKopfspielzahl(double kopfspielzahl)
-        {
-            this.kopfspielzahl = kopfspielzahl;
-        }
-
-        public double getNormeingriffswinkel()
-        {
-            return normeingriffswinkel;
-        }
-
-        public void setNormeingriffswinkel(double normeingriffswinkel)
-        {
-            this.normeingriffswinkel = normeingriffswinkel;
-        }
-
+        //Breite
+        
         public double getBreite()
         {
             return breite;
@@ -74,6 +51,9 @@ namespace GUI_Zahnradrechner_Gruppe_I
         {
             this.breite = breite;
         }
+
+        //Material
+
         public double getMaterial()
         {
             return material;
@@ -84,14 +64,42 @@ namespace GUI_Zahnradrechner_Gruppe_I
             this.material = material;
         }
 
+        //Schrägungswinkel
+
         public double getSchrägungswinkel()
         {
-            return schr;
+            double schrDegree;
+            schrDegree = schr * Math.PI / 180;
+            return schrDegree;
         }
 
         public void setSchrägungswinkel(double schr)
         {
             this.schr = schr;
         }
+
+
+        //Konstanten
+        //Kreiszahl
+
+        public double getKreiszahl()
+        {
+            return kreiszahl;
+        }
+
+        //Kopspielzahl
+
+        public double getKopfspielzahl()
+        {
+            return kopfspielzahl;
+        }
+
+        //Normeingriffswinkel
+
+        public double getNormeingriffswinkel()
+        {
+            return normeingriffswinkel;
+        }
+
     }
 }

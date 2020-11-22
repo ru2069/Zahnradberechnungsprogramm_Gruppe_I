@@ -27,7 +27,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
         }
 
         //AUßENVERZAHNUNG
-        public Data Btn_ClickAußen(object sender, RoutedEventArgs e)
+        public void Btn_ClickAußen(object sender, RoutedEventArgs e)
         {
             Data dat = new Data();
 
@@ -50,19 +50,16 @@ namespace GUI_Zahnradrechner_Gruppe_I
                         if (Eingabecheck(zahlCheckBreite) == true)
                         {
                             txb_breite_außen.Background = Brushes.White;
+                            
                             //BERECHNUNGEN
-
                             double m = Convert.ToDouble(txb_modul_außen.Text);
                             dat.setModul(m);
                             double z = Convert.ToDouble(txb_zaehnezahl_außen.Text);
                             dat.setZähnezahl(z);
                             double b = Convert.ToDouble(txb_breite_außen.Text);
                             dat.setBreite(b);
-                            //Hier Material einfügen
-                            //Hier Rundung einfügen
-                            //Variablen für Material anlegen mit zugeordneten Werten
+                            dat.setMaterial(material);
 
-                            //ÜBERGABE
                             BerechnungenGeradeAußen(dat);
                         }
                         else if (Eingabecheck(zahlCheckBreite) == false)
@@ -83,6 +80,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
                     txb_modul_außen.Background = Brushes.OrangeRed;
                 }
             }
+
             //If-Abfrage Radiobutton Schräg
             else if (rdbtn_schräg.IsChecked == true)
             {
@@ -107,7 +105,6 @@ namespace GUI_Zahnradrechner_Gruppe_I
                                 txb_schraegungswinkel.Background = Brushes.White;
 
                                 //BERECHNUNGEN
-
                                 double m = Convert.ToDouble(txb_modul_außen.Text);
                                 dat.setModul(m);
                                 double z = Convert.ToDouble(txb_zaehnezahl_außen.Text);
@@ -116,12 +113,8 @@ namespace GUI_Zahnradrechner_Gruppe_I
                                 dat.setBreite(b);
                                 double schr = Convert.ToDouble(txb_schraegungswinkel.Text);
                                 dat.setSchrägungswinkel(schr);
+                                dat.setMaterial(material);
 
-                                //Hier Material einfügen
-                                //Hier Rundung einfügen
-                                //Variablen für Material anlegen mit zugeordneten Werten
-
-                                //ÜBERGABE
                                 BerechnungenSchrägAußen(dat);
                             }
                             else if (Eingabecheck(zahlCheckSchrägungswinkel) == false)
@@ -148,12 +141,11 @@ namespace GUI_Zahnradrechner_Gruppe_I
                     txb_modul_außen.Background = Brushes.OrangeRed;
                 }
             }
-            return dat;
         }
 
 
         //INNENVERZAHNUNG
-        public Data Btn_ClickInnen(object sender, RoutedEventArgs e)
+        public void Btn_ClickInnen(object sender, RoutedEventArgs e)
         {
             Data dat = new Data();
 
@@ -175,47 +167,14 @@ namespace GUI_Zahnradrechner_Gruppe_I
                         txb_breite_innen.Background = Brushes.White;
 
                         //BERECHNUNGEN
-
                         double m = Convert.ToDouble(txb_modul_innen.Text);
+                        dat.setModul(m);
                         double z = Convert.ToDouble(txb_zaehnezahl_innen.Text);
+                        dat.setZähnezahl(z);
                         double b = Convert.ToDouble(txb_breite_innen.Text);
-                        const double dichteVergütungsstahl = 7.84;      //C35/C45
-                        const double dichteNichtrostenderStahl = 7.0;   //X12CrNiS188
-                        const double dichteKunststoff = 1.41;           //POM
-                        const double dichteGusseisen = 7.2;             //GG
-                        const double dichteMessing = 8.5;               //CuZn
+                        dat.setBreite(b);
 
-                        double material = Convert.ToDouble(cmb_materialwahl.SelectedIndex);
-                        //switch Abfrage für Material
-                        switch (material)
-                        {
-                            case 1:
-                                material = dichteVergütungsstahl;
-                                break;
-
-                            case 2:
-                                material = dichteNichtrostenderStahl;
-                                break;
-
-                            case 3:
-                                material = dichteKunststoff;
-                                break;
-
-                            case 4:
-                                material = dichteGusseisen;
-                                break;
-
-                            case 5:
-                                material = dichteMessing;
-                                break;
-
-                        }
-
-                        //Hier Material einfügen
-                        //Hier Rundung einfügen
-                        //Variablen für Material anlegen mit zugeordneten Werten
-
-                        //ÜBERGABE
+                        //Berechnungen
                         BerechnungenGeradeInnen(dat);
                     }
                     else if (Eingabecheck(zahlCheckBreite) == false)
@@ -235,7 +194,6 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 MessageBox.Show("Sie müssen eine Zahl als Modul eingeben!");
                 txb_modul_innen.Background = Brushes.OrangeRed;
             }
-            return dat;
         }
 
 
@@ -264,31 +222,41 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 txb_breite_außen.Background = Brushes.White;
                 txb_zaehnezahl_außen.Background = Brushes.White;
                 txb_modul_außen.Background = Brushes.White;
+                int round = Convert.ToInt32(cmb_rundung.Text);
 
-                //BERECHNUNGEN
 
                 double d = prg.Teilkreisdurchmesser_d(dat.getModul(), dat.getZähnezahl());
-                txb_teilkreisdurchmesser.Text = Convert.ToString(Math.Round(d));
+                txb_teilkreisdurchmesser.Text = Convert.ToString(Math.Round(d, round) + " mm");
+
                 double teilung = prg.Teilung_p(dat.getKreiszahl(), dat.getModul());
-                txb_teilung.Text = Convert.ToString(Math.Round(teilung));
+                txb_teilung.Text = Convert.ToString(Math.Round(teilung, round) + " mm");
+
                 double kopfspiel = prg.Kopfspiel_c(dat.getModul(), dat.getKopfspielzahl());
-                txb_kopfspiel.Text = Convert.ToString(kopfspiel);
+                txb_kopfspiel.Text = Convert.ToString(Math.Round(kopfspiel, round) + " mm");
+
                 double außenKopfkreisdurchmesser = prg.Kopfkreisdurchmesser_daa(d, dat.getModul());
-                txb_kopfkreisdurchmesser.Text = Convert.ToString(außenKopfkreisdurchmesser);
+                txb_kopfkreisdurchmesser.Text = Convert.ToString(Math.Round(außenKopfkreisdurchmesser, round) + " mm");
+
                 double außenFußkreisdurchmesser = prg.Fußkreisdurchmesser_dfa(d, dat.getModul(), kopfspiel);
-                txb_fußkreisdurchmesser.Text = Convert.ToString(außenFußkreisdurchmesser);
+                txb_fußkreisdurchmesser.Text = Convert.ToString(Math.Round(außenFußkreisdurchmesser, round) + " mm");
+
                 double zahnhöhe = prg.Zahnhöhe_h(dat.getModul(), kopfspiel);
-                txb_zahnhoehe.Text = Convert.ToString(zahnhöhe);
+                txb_zahnhoehe.Text = Convert.ToString(Math.Round(zahnhöhe, round) + " mm");
+
                 double zahnkopfhöhe = prg.Zahnkopfhöhe_ha(dat.getModul());
-                txb_zahnkopfhoehe.Text = Convert.ToString(zahnkopfhöhe);
+                txb_zahnkopfhoehe.Text = Convert.ToString(Math.Round(zahnkopfhöhe, round) + " mm");
+
                 double zahnfüßhöhe = prg.Zahnfußhöhe_hf(dat.getModul(), kopfspiel);
-                txb_zahnfußhoehe.Text = Convert.ToString(zahnfüßhöhe);
+                txb_zahnfußhoehe.Text = Convert.ToString(Math.Round(zahnfüßhöhe, round) + " mm");
+
                 double grundkreisdurchmesser = prg.Grundkreisdurchmesser_db(d, dat.getNormeingriffswinkel());
-                txb_grundkreisdurchmesser.Text = Convert.ToString(grundkreisdurchmesser);
-                double volumen = prg.Volumen_vg(außenKopfkreisdurchmesser, dat.getKreiszahl(), dat.getBreite());
-                txb_volumen.Text = Convert.ToString(volumen);
-                double masse = prg.masse_mg(dat.getMaterial(), volumen);
-                txb_masse.Text = Convert.ToString(masse);
+                txb_grundkreisdurchmesser.Text = Convert.ToString(Math.Round(grundkreisdurchmesser, round) + " mm");
+
+                double volumen = prg.Volumen(außenKopfkreisdurchmesser, dat.getKreiszahl(), dat.getBreite());
+                txb_volumen.Text = Convert.ToString(Math.Round(volumen, round) + " mm^3");
+
+                double masse = prg.Masse(dat.getMaterial(), volumen);
+                txb_masse.Text = Convert.ToString("~" + (Math.Round(masse, round)) + " g");
 
             }
             // Fehler: Falsche Werte
@@ -316,7 +284,6 @@ namespace GUI_Zahnradrechner_Gruppe_I
             return dat;
         }
 
-
         private Data BerechnungenSchrägAußen(Data dat)
         {
             //If-Abfragen Korrekte Eingaben
@@ -328,38 +295,50 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 txb_zaehnezahl_außen.Background = Brushes.White;
                 txb_modul_außen.Background = Brushes.White;
                 txb_schraegungswinkel.Background = Brushes.White;
+                int round = Convert.ToInt32(cmb_rundung.Text);
 
 
-                //BERECHNUNGEN HIER EINFÜGEN
-                double d = prg.Teilkreisdurchmesser_d(dat.getModul(), dat.getZähnezahl());
-                txb_teilkreisdurchmesser.Text = Convert.ToString(d);
-                double stirnmodul = prg.stirnmodul_mt(d, dat.getZähnezahl());
-                txb_stirnmodul.Text = Convert.ToString(stirnmodul);
-                double normalmodul = prg.normalmodul_mn(stirnmodul, dat.getSchrägungswinkel());
-                //?
-                double kopfspiel = prg.schrägKopfspiel_c(normalmodul, dat.getKopfspielzahl());
-                txb_kopfspiel.Text = Convert.ToString(kopfspiel);
-                double stirnteilung = prg.stirnteilung_pt(dat.getKreiszahl(), d, dat.getZähnezahl()) ;
-                txb_stirnteilung.Text = Convert.ToString(stirnteilung);
-                double normalteilung = prg.normalteilung_pn(dat.getKreiszahl(), normalmodul);
-                //?
-                double kopfkreisdurchmesser = prg.kopfkreisdurchmesser_da(d, normalmodul);
-                txb_kopfkreisdurchmesser.Text = Convert.ToString(kopfkreisdurchmesser);
-                double zahnhöhe = prg.schrägZahnhöhe_h(normalmodul, kopfspiel);
-                txb_zahnhoehe.Text = Convert.ToString(zahnhöhe);
-                double zahnkopfhöhe = prg.schrägZahnkopfhöhe_ha(normalmodul);
-                txb_zahnkopfhoehe.Text = Convert.ToString(zahnkopfhöhe);
-                double zahnfußhöhe = prg.schrägZahnfußhöhe_hf(normalmodul, kopfspiel);
-                txb_zahnfußhoehe.Text = Convert.ToString(zahnfußhöhe);
-                double fußkreisdurchmesser = prg.schrägFußkreisdurchmesser_df(d, normalmodul, kopfspiel);
-                txb_fußkreisdurchmesser.Text = Convert.ToString(fußkreisdurchmesser);
-                double volumen = prg.schrägVolumen_vs(kopfkreisdurchmesser, dat.getKreiszahl(), dat.getBreite());
-                txb_volumen.Text = Convert.ToString(volumen);
-                //Gibt es ein Ausgabefeld für das Volumen von schrägverzahnten Zahnrädern
+                double normalteilung = prg.normalteilung_pn(dat.getKreiszahl(), dat.getModul());
+                txb_teilung.Text = Convert.ToString(Math.Round(normalteilung, round) + " mm");
 
-                // double masse = prg.schrägMasse_m(material, volumen);
-                // txb_masse.Text = Convert.ToString(masse);
-                // teilkreisdurchmesser.Content = d;
+                double stirnmodul = prg.stirnmodul_mt(dat.getModul(), dat.getSchrägungswinkel());
+                txb_stirnmodul.Text = Convert.ToString(Math.Round(stirnmodul, round) + " mm");
+
+                double stirnteilung = prg.stirnteilung_pt(normalteilung, dat.getSchrägungswinkel());
+                txb_stirnteilung.Text = Convert.ToString(Math.Round(stirnteilung, round) + " mm");
+
+                double d = prg.schrägTeilkreisdurchmesser_d(stirnmodul, dat.getZähnezahl());
+                txb_teilkreisdurchmesser.Text = Convert.ToString(Math.Round(d, round) + " mm");
+
+                double teilung = prg.Teilung_p(dat.getKreiszahl(), dat.getModul());
+                txb_teilung.Text = Convert.ToString(Math.Round(teilung, round) + " mm");
+
+                double kopfspiel = prg.Kopfspiel_c(dat.getModul(), dat.getKopfspielzahl());
+                txb_kopfspiel.Text = Convert.ToString(Math.Round(kopfspiel, round) + " mm");
+
+                double außenKopfkreisdurchmesser = prg.Kopfkreisdurchmesser_daa(d, dat.getModul());
+                txb_kopfkreisdurchmesser.Text = Convert.ToString(Math.Round(außenKopfkreisdurchmesser, round) + " mm");
+
+                double außenFußkreisdurchmesser = prg.Fußkreisdurchmesser_dfa(d, dat.getModul(), kopfspiel);
+                txb_fußkreisdurchmesser.Text = Convert.ToString(Math.Round(außenFußkreisdurchmesser, round) + " mm");
+
+                double zahnhöhe = prg.Zahnhöhe_h(dat.getModul(), kopfspiel);
+                txb_zahnhoehe.Text = Convert.ToString(Math.Round(zahnhöhe, round) + " mm");
+
+                double zahnkopfhöhe = prg.Zahnkopfhöhe_ha(dat.getModul());
+                txb_zahnkopfhoehe.Text = Convert.ToString(Math.Round(zahnkopfhöhe, round) + " mm");
+
+                double grundkreisdurchmesser = prg.Grundkreisdurchmesser_db(d, dat.getNormeingriffswinkel());
+                txb_grundkreisdurchmesser.Text = Convert.ToString(Math.Round(grundkreisdurchmesser, round) + " mm");
+
+                double zahnfüßhöhe = prg.Zahnfußhöhe_hf(dat.getModul(), kopfspiel);
+                txb_zahnfußhoehe.Text = Convert.ToString(Math.Round(zahnfüßhöhe, round) + " mm");
+
+                double volumen = prg.Volumen(außenKopfkreisdurchmesser, dat.getKreiszahl(), dat.getBreite());
+                txb_volumen.Text = Convert.ToString(Math.Round(volumen, round) + " mm^3");
+
+                double masse = prg.Masse(dat.getMaterial(), volumen);
+                txb_masse.Text = Convert.ToString("~" + (Math.Round(masse, round)) + " g");
             }
 
             //Fehler: Falsch Werte
@@ -418,7 +397,6 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 txb_zahnkopfhoehe1.Text = Convert.ToString(zahnkopfhöhe);
                 double zahnfüßhöhe = prg.Zahnfußhöhe_hf(dat.getModul(), kopfspiel);
                 txb_zahnfusshohe.Text = Convert.ToString(zahnfüßhöhe);
-                // teilkreisdurchmesser.Content = d;
             }
 
             // Fehler: Falsche Werte
@@ -455,17 +433,40 @@ namespace GUI_Zahnradrechner_Gruppe_I
         {
             Application.Current.Shutdown();
         }
+
+
+        //Material
+        public double material;
+        public void cmb_materialwahl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            const double dichteVergütungsstahl = 7.84;      //C35/C45
+            const double dichteNichtrostenderStahl = 7.0;   //X12CrNiS188
+            const double dichteKunststoff = 1.41;           //POM
+            const double dichteGusseisen = 7.2;             //GG
+            const double dichteMessing = 8.5;               //CuZn
+
+            if (cmb_materialwahl.SelectedIndex == 0)
+            {
+                material = dichteVergütungsstahl;
+            }
+            if (cmb_materialwahl.SelectedIndex == 1)
+            {
+                material = dichteNichtrostenderStahl;
+            }
+            if (cmb_materialwahl.SelectedIndex == 2)
+            {
+                material = dichteKunststoff;
+            }
+            if (cmb_materialwahl.SelectedIndex == 3)
+            {
+                material = dichteGusseisen;
+            }
+            if (cmb_materialwahl.SelectedIndex == 4)
+            {
+                material = dichteMessing;
+            }
+        }
     }
 
 }
-
-
-
-
-
-//Button der zu den Ergebnissen fürt
-//Außenverzahnung Az = new Außenverzahnung();
-//Az.geradverzahnungAußen();
-
-//Schrägverzahnung Sz = new Schrägverzahnung();
-//Sz.schrägverzahnungAußen();

@@ -6,25 +6,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
 {
      public class Berechnungen
     {
-        const double kreiszahl = Math.PI;
-        const double kopfspielzahl = 0.167;
-        const double normeingriffswinkel = 20 * kreiszahl / 180;
-
-        public double getKreiszahl()
-        {
-            return kreiszahl;
-        }
-
-        public double getKopfspielzahl()
-        {
-            return kopfspielzahl;
-        }
-
-        public double getNormeingriffswinkel()
-        {
-            return normeingriffswinkel;
-        }
-
+        //Methoden Geradverzahnung
         public double Teilkreisdurchmesser_d(double modul, double zähnezahl)
         {
             double d = modul * zähnezahl;
@@ -80,77 +62,38 @@ namespace GUI_Zahnradrechner_Gruppe_I
             double db = d * Math.Cos(normeingriffswinkel);
             return db;
         }
-        public double Volumen_vg(double außenKopfkreisdurchmesser, double Kreiszahl, double breite)
+        public double Volumen(double außenKopfkreisdurchmesser, double Kreiszahl, double breite)
         {
-            double vg = (Kreiszahl * Math.Pow((außenKopfkreisdurchmesser / 2), 2) * breite) / 1000;
-            return vg;
+            double v = ((Kreiszahl * Math.Pow(außenKopfkreisdurchmesser, 2) / 4) * breite) / 1000;
+            return v;
         }
-        public double masse_mg(double material, double vg)
+        public double Masse(double material, double v)
         {
-            double mg = material * vg;
+            double mg = material * v;
             return mg;
         }
 
+
         //Methoden Schrägverzahnung
-        public double stirnmodul_mt(double d, double zähnezahl)
+        public double normalteilung_pn(double kreiszahl, double modul)
         {
-            double mt = d / zähnezahl;
-            return mt;
-        }
-        public double normalmodul_mn(double stirnmodul, double schr)
-        {
-            double mn = stirnmodul * Math.Cos(schr);
-            return mn;
-        }
-        public double normalteilung_pn(double kreiszahl, double normalmodul)
-        {
-            double pn = kreiszahl * normalmodul;
+            double pn = kreiszahl * modul;
             return pn;
         }
-        public double stirnteilung_pt(double kreiszahl, double d, double zähnezahl)
+        public double stirnmodul_mt(double modul, double schrDegree)
         {
-            double pt = (kreiszahl * d) / zähnezahl;
+            double mt = modul / Math.Cos(schrDegree);
+            return mt;
+        }
+        public double stirnteilung_pt(double normalteilung, double schrDegree)
+        {
+            double pt = normalteilung / Math.Cos(schrDegree);
             return pt;
         }
-        public double kopfkreisdurchmesser_da(double d, double normalmodul)
+        public double schrägTeilkreisdurchmesser_d(double stirnmodul, double zähnezahl)
         {
-            double da = d + 2 * normalmodul;
-            return da;
-        }
-        public double schrägKopfspiel_c(double normalmodul, double Kopfspielzahl)
-        {
-            double kopfspiel = Kopfspielzahl * normalmodul;
-            return kopfspiel;
-        }
-        public double schrägZahnhöhe_h(double normalmodul, double kopfspiel)
-        {
-            double zahnhöhe = (2 * normalmodul) + kopfspiel;
-            return zahnhöhe;
-        }
-        public double schrägZahnkopfhöhe_ha(double normalmodul)
-        {
-            double zahnkopfhöhe = normalmodul;
-            return zahnkopfhöhe;
-        }
-        public double schrägZahnfußhöhe_hf(double normalmodul, double kopfspiel)
-        {
-            double zahnfußhöhe = normalmodul + kopfspiel;
-            return zahnfußhöhe;
-        }
-        public double schrägFußkreisdurchmesser_df(double d, double kopfspiel, double normalmodul)
-        {
-            double fußkreisdurchmesser = d + 2 * (normalmodul + kopfspiel);
-            return fußkreisdurchmesser;
-        }
-        public double schrägVolumen_vs(double d, double Kreiszahl, double breite)
-        {
-            double vs = (Kreiszahl * Math.Pow((d / 2), 2) * breite) / 1000;
-            return vs;
-        }
-        public double schrägMasse_ms(double material, double vs)
-        {
-            double ms = material * vs;
-            return ms;
+            double d = stirnmodul * zähnezahl;
+            return d;
         }
     }
 }
