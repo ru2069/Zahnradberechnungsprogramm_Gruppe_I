@@ -473,6 +473,43 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 material = dichteMessing;
             }
         }
+
+        private void btn_neu_Click(object sender, RoutedEventArgs e) //Neu bontton (Aussenverzahung)
+        {
+            txb_modul_außen.Text = "";
+            txb_breite_außen.Text = "";
+            txb_zaehnezahl_außen.Text = "";
+            txb_breite_außen.Text = "";
+            txb_schraegungswinkel.Text = "";
+            txb_teilkreisdurchmesser.Text = "";
+            txb_teilung.Text = "";
+            txb_kopfspiel.Text = "";
+            txb_kopfkreisdurchmesser.Text = "";
+            txb_fußkreisdurchmesser.Text = "";
+            txb_zahnhoehe.Text = "";
+            txb_zahnkopfhoehe.Text = "";
+            txb_zahnfußhoehe.Text = "";
+            txb_volumen.Text = "";
+            txb_masse.Text = "";
+            txb_grundkreisdurchmesser.Text = "";
+            txb_stirnmodul.Text = "";
+            txb_stirnteilung.Text = "";
+        }
+
+        private void botton_neu_Click(object sender, RoutedEventArgs e)  // Neu botton (Inennverzahung)
+        {
+            txb_modul_innen.Text = "";
+            txb_zaehnezahl_innen.Text = "";
+            txb_breite_innen.Text = "";
+            txb_teilkreisdurchmesser1.Text = "";
+            txb_teilung1.Text = "";
+            txb_Kopfspiel.Text = "";
+            txb_Kopfkreisdurchmesser.Text = "";
+            txb_Fusskreisdurchmesser.Text = "";
+            txb_zahnhoehe1.Text = "";
+            txb_zahnkopfhoehe1.Text = "";
+            txb_zahnfusshohe.Text = "";
+        }
     }
 
 }
