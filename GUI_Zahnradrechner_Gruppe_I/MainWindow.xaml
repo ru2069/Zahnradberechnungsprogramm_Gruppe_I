@@ -120,6 +120,8 @@
 
                     </StackPanel>
                     <Button x:Name="btn_beenden" FontFamily="Calibri Light" Content="Programm Beenden" Canvas.Left="600" Canvas.Top="500" FontSize="20" Height="40" RenderTransformOrigin="-0.274,-0.251" Background="White" IsDefault="True" Click="btn_beenden_ClickAußen"/>
+                    <Button Content="Weitere Info" Canvas.Left="949" Canvas.Top="524" Click="Btn_ClickInfo"/>
+                    <Button Content="Hinweise" Canvas.Left="1093" Canvas.Top="539" Click="Btn_ClickHinweise"/>
 
                 </Canvas>
 
@@ -206,6 +208,7 @@
 
 
                     <Button x:Name="btn_beenden1" Content="Programm beenden " FontSize="20" Height="40" RenderTransformOrigin="-0.274,-0.251" Background="White" IsDefault="True" Margin="576,537,296,21" Grid.Column="3" Click="btn_beenden_ClickInnen" FontFamily="Calibri Light"/>
+                    <Button Content="Hinweise" Grid.Column="3" HorizontalAlignment="Left" Margin="1065,455,0,0" VerticalAlignment="Top" Click="Btn_ClickHinweiseInnen" />
 
                 </Grid>
             </TabItem>

@@ -525,6 +525,22 @@ namespace GUI_Zahnradrechner_Gruppe_I
             txb_zahnkopfhoehe1.Text = "";
             txb_zahnfusshohe.Text = "";
         }
+
+        private void Btn_ClickInfo(object sender, RoutedEventArgs e)
+        {
+            Window1 Infowindow1 = new Window1();
+            Infowindow1.Show();
+        }
+
+        private void Btn_ClickHinweise(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Der Kopfspielfaktor ist mit 0,167 belegt. " + Environment.NewLine + "Der Normeingriffswinkel beträgt 20°.");
+        }
+
+        private void Btn_ClickHinweiseInnen(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Der Kopfspielfaktor ist mit 0,167 belegt.");
+        }
     }
 
 }
