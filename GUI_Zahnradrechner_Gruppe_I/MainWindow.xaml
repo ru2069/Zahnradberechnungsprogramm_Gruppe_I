@@ -8,11 +8,11 @@
         Title="ZZ Zahnradrechner" Icon="/Mini Logo 2.png" MinWidth="1344" MinHeight="750.71" >
     <Grid Background="#FFA6A6A6">
         <Label Content="Willkommen beim ZZ Zahnradrechner!" FontFamily="Corbel Light" FontSize="40" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Image  Stretch="Uniform" Width="130" Height="130" HorizontalAlignment="Right" VerticalAlignment="Top" Source="/ZZ Logo 2.png" />
+        <Image  Stretch="Uniform" Height="130" VerticalAlignment="Top" Source="/ZZ Logo 2.png" HorizontalAlignment="Right" Width="1344" />
 
-        <TabControl Margin="0,100,10,5" HorizontalAlignment="Right" Width="1284">
+        <TabControl Margin="0,100,10,5" HorizontalAlignment="Left">
             <TabItem Header="Außenverzahnung" FontFamily="Corbel Light" FontSize="16">
-                <Canvas VerticalAlignment="Stretch" Height="585" Background="#FFD8D8D8" Margin="0,0,0,0">
+                <Canvas Background="#FFD8D8D8" HorizontalAlignment="Stretch" Width="1294" VerticalAlignment="Stretch">
 
                     <!-- Eingabe Grid -->
 
@@ -157,9 +157,9 @@
                             <ColumnDefinition Width="89*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Width="384" Height="29" Grid.ColumnSpan="3" FontFamily="Calibri Light">
+                        <Label VerticalAlignment="Top" Width="384" Height="29"  FontFamily="Calibri Light">
                             <Label.Content>
-                                <AccessText TextWrapping="Wrap" Text="Auf wie viele Stellen nach dem Komma gerundet werden?"/>
+                                <AccessText TextWrapping="Wrap" Text="Auf wie viele Stellen nach dem Komma gerundet werden?" Width="326"/>
                             </Label.Content>
                         </Label>
 
@@ -171,7 +171,7 @@
                             <ComboBoxItem>Messing</ComboBoxItem>
 
                         </ComboBox>
-                        <ComboBox x:Name="cmb_rundung_innen" FontFamily="Calibri Light" Margin="0,59,30,0" HorizontalAlignment="Right" Width="120" Height="26" VerticalAlignment="Top" Grid.ColumnSpan="3">
+                        <ComboBox x:Name="cmb_rundung_innen" FontFamily="Calibri Light" Margin="0,107,16,0" HorizontalAlignment="Right" Width="120" Height="26" VerticalAlignment="Top" Grid.ColumnSpan="3">
                             <ComboBoxItem IsSelected="True">0</ComboBoxItem>
                             <ComboBoxItem>1</ComboBoxItem>
                             <ComboBoxItem>2</ComboBoxItem>
