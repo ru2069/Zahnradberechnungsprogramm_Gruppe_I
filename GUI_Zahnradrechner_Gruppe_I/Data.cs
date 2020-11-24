@@ -17,6 +17,14 @@ namespace GUI_Zahnradrechner_Gruppe_I
 
         //Inputs
         //Modul
+        public Data()
+        {
+            Berechnungen prg = new Berechnungen();
+
+            this.kopfspielzahl = prg.getKopfspielzahl();
+            this.kreiszahl = prg.getKreiszahl();
+            this.normeingriffswinkel = prg.getNormeingriffswinkel();
+        }
 
         public double getModul()
         {

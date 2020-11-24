@@ -6,6 +6,25 @@ namespace GUI_Zahnradrechner_Gruppe_I
 {
      public class Berechnungen
     {
+        const double kreiszahl = Math.PI;
+        const double kopfspielzahl = 0.167;
+        const double normeingriffswinkel = 20 * kreiszahl / 180;
+        public double getKreiszahl()
+        {
+            return kreiszahl;
+        }
+
+        public double getKopfspielzahl()
+        {
+            return kopfspielzahl;
+        }
+
+        public double getNormeingriffswinkel()
+        {
+            return normeingriffswinkel;
+        }
+
+
         //Methoden Geradverzahnung
         public double Teilkreisdurchmesser_d(double modul, double zähnezahl)
         {
