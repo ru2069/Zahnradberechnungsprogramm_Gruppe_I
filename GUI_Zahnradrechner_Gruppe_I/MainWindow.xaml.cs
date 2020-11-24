@@ -58,7 +58,6 @@ namespace GUI_Zahnradrechner_Gruppe_I
                             dat.setZähnezahl(z);
                             double b = Convert.ToDouble(txb_breite_außen.Text);
                             dat.setBreite(b);
-                            dat.setMaterial(material);
 
                             BerechnungenGeradeAußen(dat);
                         }
@@ -113,7 +112,6 @@ namespace GUI_Zahnradrechner_Gruppe_I
                                 dat.setBreite(b);
                                 double schr = Convert.ToDouble(txb_schraegungswinkel.Text);
                                 dat.setSchrägungswinkel(schr);
-                                dat.setMaterial(material);
 
                                 BerechnungenSchrägAußen(dat);
                             }
@@ -468,36 +466,42 @@ namespace GUI_Zahnradrechner_Gruppe_I
         }
 
 
-        //Material
-        public double material;
+
         public void cmb_materialwahl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-            const double dichteVergütungsstahl = 7.84;      //C35/C45
-            const double dichteNichtrostenderStahl = 7.0;   //X12CrNiS188
-            const double dichteKunststoff = 1.41;           //POM
-            const double dichteGusseisen = 7.2;             //GG
-            const double dichteMessing = 8.5;               //CuZn
+            Data dat =new Data();
+
+            double material;
 
             if (cmb_materialwahl.SelectedIndex == 0)
             {
+                const double dichteVergütungsstahl = 7.84;      //C35/C45
                 material = dichteVergütungsstahl;
+                dat.setMaterial(material);
             }
             if (cmb_materialwahl.SelectedIndex == 1)
             {
+                const double dichteNichtrostenderStahl = 7.0;   //X12CrNiS188
                 material = dichteNichtrostenderStahl;
+                dat.setMaterial(material);
             }
             if (cmb_materialwahl.SelectedIndex == 2)
             {
+                const double dichteKunststoff = 1.41;           //POM
                 material = dichteKunststoff;
+                dat.setMaterial(material);
             }
             if (cmb_materialwahl.SelectedIndex == 3)
             {
+                const double dichteGusseisen = 7.2;             //GG
                 material = dichteGusseisen;
+                dat.setMaterial(material);
             }
             if (cmb_materialwahl.SelectedIndex == 4)
             {
+                const double dichteMessing = 8.5;               //CuZn
                 material = dichteMessing;
+                dat.setMaterial(material);
             }
         }
 
