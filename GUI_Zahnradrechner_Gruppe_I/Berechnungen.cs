@@ -6,34 +6,15 @@ namespace GUI_Zahnradrechner_Gruppe_I
 {
      public class Berechnungen
     {
-        const double kreiszahl = Math.PI;
-        const double kopfspielzahl = 0.167;
-        const double normeingriffswinkel = 20 * kreiszahl / 180;
-        public double getKreiszahl()
-        {
-            return kreiszahl;
-        }
-
-        public double getKopfspielzahl()
-        {
-            return kopfspielzahl;
-        }
-
-        public double getNormeingriffswinkel()
-        {
-            return normeingriffswinkel;
-        }
-
-
         //Methoden Geradverzahnung
         public double Teilkreisdurchmesser_d(double modul, double zähnezahl)
         {
             double d = modul * zähnezahl;
             return d;
         }
-        public double Teilung_p(double Kreiszahl, double modul)
+        public double Teilung_p(double kreiszahl, double modul)
         {
-            double teilung = Kreiszahl * modul;
+            double teilung = kreiszahl * modul;
             return teilung;
         }
         public double Zahnkopfhöhe_ha(double modul)
@@ -41,9 +22,9 @@ namespace GUI_Zahnradrechner_Gruppe_I
             double zahnkopfhöhe = modul;
             return zahnkopfhöhe;
         }
-        public double Kopfspiel_c(double modul, double Kopfspielzahl)
+        public double Kopfspiel_c(double modul, double kopfspielzahl)
         {
-            double kopfspiel = Kopfspielzahl * modul;
+            double kopfspiel = kopfspielzahl * modul;
             return kopfspiel;
         }
         public double Zahnfußhöhe_hf(double modul, double kopfspiel)

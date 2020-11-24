@@ -58,6 +58,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
                             dat.setZähnezahl(z);
                             double b = Convert.ToDouble(txb_breite_außen.Text);
                             dat.setBreite(b);
+                            dat.setMaterial(material);
 
                             BerechnungenGeradeAußen(dat);
                         }
@@ -112,6 +113,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
                                 dat.setBreite(b);
                                 double schr = Convert.ToDouble(txb_schraegungswinkel.Text);
                                 dat.setSchrägungswinkel(schr);
+                                dat.setMaterial(material);
 
                                 BerechnungenSchrägAußen(dat);
                             }
@@ -400,13 +402,13 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 txb_teilung1.Text = Convert.ToString(Math.Round(teilung, round) + " mm");
 
                 double kopfspiel = prg.Kopfspiel_c(dat.getModul(), dat.getKopfspielzahl());
-                txb_Kopfspiel.Text = Convert.ToString(Math.Round(kopfspiel, round) + " mm");
+                txb_kopfspiel1.Text = Convert.ToString(Math.Round(kopfspiel, round) + " mm");
 
                 double innenKopfkreisdurchmesser = prg.Kopfkreisdurchmesser_dai(d, dat.getModul());
-                txb_Kopfkreisdurchmesser.Text = Convert.ToString(Math.Round(innenKopfkreisdurchmesser, round) + "mm");
+                txb_kopfkreisdurchmesser1.Text = Convert.ToString(Math.Round(innenKopfkreisdurchmesser, round) + "mm");
 
                 double innenFußkreisdurchmesser = prg.Fußkreisdurchmesser_dfi(d, dat.getModul(), kopfspiel);
-                txb_Fusskreisdurchmesser.Text = Convert.ToString(Math.Round(innenFußkreisdurchmesser, round) + "mm");
+                txb_fußkreisdurchmesser1.Text = Convert.ToString(Math.Round(innenFußkreisdurchmesser, round) + "mm");
 
                 double zahnhöhe = prg.Zahnhöhe_h(dat.getModul(), kopfspiel);
                 txb_zahnhoehe1.Text = Convert.ToString(Math.Round(zahnhöhe, round) + " mm");
@@ -415,7 +417,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
                 txb_zahnkopfhoehe1.Text = Convert.ToString(Math.Round(zahnkopfhöhe, round) + " mm");
 
                 double zahnfüßhöhe = prg.Zahnfußhöhe_hf(dat.getModul(), kopfspiel);
-                txb_zahnfusshohe.Text = Convert.ToString(Math.Round(zahnfüßhöhe, round) + " mm");
+                txb_zahnfußhoehe1.Text = Convert.ToString(Math.Round(zahnfüßhöhe, round) + " mm");
             }
 
             // Fehler: Falsche Werte
@@ -466,42 +468,34 @@ namespace GUI_Zahnradrechner_Gruppe_I
         }
 
 
-
+        public double material;
         public void cmb_materialwahl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Data dat =new Data();
-
-            double material;
 
             if (cmb_materialwahl.SelectedIndex == 0)
             {
                 const double dichteVergütungsstahl = 7.84;      //C35/C45
                 material = dichteVergütungsstahl;
-                dat.setMaterial(material);
             }
             if (cmb_materialwahl.SelectedIndex == 1)
             {
                 const double dichteNichtrostenderStahl = 7.0;   //X12CrNiS188
                 material = dichteNichtrostenderStahl;
-                dat.setMaterial(material);
             }
             if (cmb_materialwahl.SelectedIndex == 2)
             {
                 const double dichteKunststoff = 1.41;           //POM
                 material = dichteKunststoff;
-                dat.setMaterial(material);
             }
             if (cmb_materialwahl.SelectedIndex == 3)
             {
                 const double dichteGusseisen = 7.2;             //GG
                 material = dichteGusseisen;
-                dat.setMaterial(material);
             }
             if (cmb_materialwahl.SelectedIndex == 4)
             {
                 const double dichteMessing = 8.5;               //CuZn
                 material = dichteMessing;
-                dat.setMaterial(material);
             }
         }
 
@@ -539,12 +533,12 @@ namespace GUI_Zahnradrechner_Gruppe_I
             txb_breite_innen.Text = "";
             txb_teilkreisdurchmesser1.Text = "";
             txb_teilung1.Text = "";
-            txb_Kopfspiel.Text = "";
-            txb_Kopfkreisdurchmesser.Text = "";
-            txb_Fusskreisdurchmesser.Text = "";
+            txb_kopfspiel1.Text = "";
+            txb_kopfkreisdurchmesser1.Text = "";
+            txb_fußkreisdurchmesser1.Text = "";
             txb_zahnhoehe1.Text = "";
             txb_zahnkopfhoehe1.Text = "";
-            txb_zahnfusshohe.Text = "";
+            txb_zahnfußhoehe1.Text = "";
 
             txb_modul_innen.Background = Brushes.White;
             txb_zaehnezahl_innen.Background = Brushes.White;

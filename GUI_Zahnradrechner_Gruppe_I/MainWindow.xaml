@@ -184,26 +184,26 @@
 
 
                     <StackPanel Height="500" Width="200" Margin="576,10,496,88" Background="#FF93CADA" Grid.Column="3">
-                        <Label x:Name="label_teilkreisdurchmesser" Content="Teilkreisdurchmesser" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
-                        <Label x:Name="label_Teilung" Content="Teilung" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
-                        <Label x:Name="label_Kopfspiel" Content="Kopfspiel" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
-                        <Label x:Name="label_kopfkreisduchmesser" Content="Kopfkreisduchmesser" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
-                        <Label x:Name="label_fußkreisduchmesser" Content="Fußkreisdurchmesser" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
-                        <Label x:Name="label_zahnhoehe" Content="zahnhoehe" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
-                        <Label x:Name="label_zahnkopfhoehe" Content="zahnkopfhoehe" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
-                        <Label x:Name="label_zahnfusshoehe" Content="zahnfußhoehe" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
+                        <Label x:Name="label_teilkreisdurchmesser1" Content="Teilkreisdurchmesser" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
+                        <Label x:Name="label_teilung1" Content="Teilung" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
+                        <Label x:Name="label_kopfspiel1" Content="Kopfspiel" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
+                        <Label x:Name="label_kopfkreisduchmesser1" Content="Kopfkreisduchmesser" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
+                        <Label x:Name="label_fußkreisduchmesser1" Content="Fußkreisdurchmesser" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
+                        <Label x:Name="label_zahnhoehe1" Content="zahnhoehe" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
+                        <Label x:Name="label_zahnkopfhoehe1" Content="zahnkopfhoehe" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
+                        <Label x:Name="label_zahnfußhoehe1" Content="zahnfußhoehe" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
                     </StackPanel>
 
 
                     <StackPanel  Height="500" Width="200" Margin="776,10,296,88" Background="#FF93CADA" Grid.Column="3">
                         <TextBox x:Name="txb_teilkreisdurchmesser1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
                         <TextBox x:Name="txb_teilung1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
-                        <TextBox x:Name="txb_Kopfspiel" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
-                        <TextBox x:Name="txb_Kopfkreisdurchmesser" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
-                        <TextBox x:Name="txb_Fusskreisdurchmesser" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
+                        <TextBox x:Name="txb_kopfspiel1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
+                        <TextBox x:Name="txb_kopfkreisdurchmesser1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
+                        <TextBox x:Name="txb_fußkreisdurchmesser1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
                         <TextBox x:Name="txb_zahnhoehe1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
                         <TextBox x:Name="txb_zahnkopfhoehe1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
-                        <TextBox x:Name="txb_zahnfusshohe" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
+                        <TextBox x:Name="txb_zahnfußhoehe1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
                     </StackPanel>
 
 
