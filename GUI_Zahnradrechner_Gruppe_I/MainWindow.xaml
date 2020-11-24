@@ -120,20 +120,15 @@
 
                     </StackPanel>
                     <Button x:Name="btn_beenden" FontFamily="Calibri Light" Content="Programm Beenden" Canvas.Left="600" Canvas.Top="500" FontSize="20" Height="40" RenderTransformOrigin="-0.274,-0.251" Background="White" IsDefault="True" Click="btn_beenden_ClickAußen"/>
-                    <Button Content="Weitere Info" Canvas.Left="949" Canvas.Top="524" Click="Btn_ClickInfo"/>
-                    <Button Content="Hinweise" Canvas.Left="1093" Canvas.Top="539" Click="Btn_ClickHinweise"/>
+                    <Button Content="Weitere Info" Canvas.Left="900" Canvas.Top="523" Click="Btn_ClickInfo"/>
+                    <Button Content="Hinweise" Canvas.Left="900" Canvas.Top="500" Click="Btn_ClickHinweise"/>
 
                 </Canvas>
 
             </TabItem>
             <TabItem Header="Innenverzahnung" FontFamily="Corbel Light" FontSize="16">
-                <Grid Background="#FFE5E5E5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="9*"/>
-                        <ColumnDefinition Width="20*"/>
-                        <ColumnDefinition Width="43*"/>
-                        <ColumnDefinition Width="1272*"/>
-                    </Grid.ColumnDefinitions>
+                <Canvas Background="#FFD8D8D8" HorizontalAlignment="Stretch" Width="1294" VerticalAlignment="Stretch">
+                    
 
                     <Grid Height="250" Width="400" Background="#FF6BA3DA" Margin="0,0,943,348" Grid.ColumnSpan="4">
                         <Grid.ColumnDefinitions>
@@ -179,11 +174,11 @@
                         </ComboBox>
                     </Grid>
 
-                    <Button x:Name="botton_berechnung" Content="Berechne" Height="40" Background="White" FontSize="20" FontWeight="ExtraBold" Margin="1,523,1143,35" Click="Btn_ClickInnen" Grid.ColumnSpan="3" Grid.Column="1" FontFamily="Calibri Light"/>
-                    <Button x:Name="botton_neu" Content="Neu" Background="White" FontSize="20" FontWeight="ExtraBold" Margin="130,523,943,35" Grid.Column="3" FontFamily="Calibri Light" Click="botton_neu_Click"/>
+                    <Button x:Name="botton_berechnung" Content="Berechne" Height="40" Width="250" Background="White" FontSize="20" FontWeight="ExtraBold" Margin="0,500,1143,35" Click="Btn_ClickInnen" Grid.ColumnSpan="3" Grid.Column="1" FontFamily="Calibri Light"/>
+                    <Button x:Name="botton_neu" Content="Neu" Width="150" Height=" 40" Background="White" FontSize="20" FontWeight="ExtraBold" Margin="250,500,943,35" Grid.Column="3" FontFamily="Calibri Light" Click="botton_neu_Click"/>
 
 
-                    <StackPanel Height="500" Width="200" Margin="576,10,496,88" Background="#FF93CADA" Grid.Column="3">
+                    <StackPanel Height="500" Width="200" Margin="500,0,496,88" Background="#FF93CADA" Grid.Column="3">
                         <Label x:Name="label_teilkreisdurchmesser1" Content="Teilkreisdurchmesser" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
                         <Label x:Name="label_teilung1" Content="Teilung" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
                         <Label x:Name="label_kopfspiel1" Content="Kopfspiel" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
@@ -195,7 +190,7 @@
                     </StackPanel>
 
 
-                    <StackPanel  Height="500" Width="200" Margin="776,10,296,88" Background="#FF93CADA" Grid.Column="3">
+                    <StackPanel  Height="500" Width="200" Margin="700,0,296,88" Background="#FF93CADA" Grid.Column="3">
                         <TextBox x:Name="txb_teilkreisdurchmesser1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
                         <TextBox x:Name="txb_teilung1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
                         <TextBox x:Name="txb_kopfspiel1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
@@ -207,10 +202,10 @@
                     </StackPanel>
 
 
-                    <Button x:Name="btn_beenden1" Content="Programm beenden " FontSize="20" Height="40" RenderTransformOrigin="-0.274,-0.251" Background="White" IsDefault="True" Margin="576,537,296,21" Grid.Column="3" Click="btn_beenden_ClickInnen" FontFamily="Calibri Light"/>
-                    <Button Content="Hinweise" Grid.Column="3" HorizontalAlignment="Left" Margin="1065,455,0,0" VerticalAlignment="Top" Click="Btn_ClickHinweiseInnen" />
+                    <Button x:Name="btn_beenden1" Content="Programm beenden " FontSize="20" Height="40" RenderTransformOrigin="-0.274,-0.251" Background="White" IsDefault="True" Margin="600,500,296,21" Grid.Column="3" Click="btn_beenden_ClickInnen" FontFamily="Calibri Light"/>
+                    <Button Content="Hinweise" Grid.Column="3" HorizontalAlignment="Left" Margin="900,500,0,0" VerticalAlignment="Top" Click="Btn_ClickHinweiseInnen" />
 
-                </Grid>
+                </Canvas>
             </TabItem>
         </TabControl>
     </Grid>
