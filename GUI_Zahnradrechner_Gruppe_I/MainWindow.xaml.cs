@@ -262,7 +262,12 @@ namespace GUI_Zahnradrechner_Gruppe_I
             // Fehler: Falsche Werte
             else
             {
-                if (dat.getZähnezahl() % 1 != 0 || dat.getZähnezahl() < 2)
+                if (dat.getZähnezahl() % 1 != 0)
+                {
+                    MessageBox.Show("Bitte eine ganzzahlige Zähnezahl über 2 eingeben!");
+                    txb_zaehnezahl_außen.Background = Brushes.OrangeRed;
+                }
+                if (dat.getZähnezahl() < 2)
                 {
                     MessageBox.Show("Bitte eine ganzzahlige Zähnezahl über 2 eingeben!");
                     txb_zaehnezahl_außen.Background = Brushes.OrangeRed;
@@ -287,7 +292,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
         private Data BerechnungenSchrägAußen(Data dat)
         {
             //If-Abfragen Korrekte Eingaben
-            if (dat.getZähnezahl() % 1 == 0 && dat.getZähnezahl() >= 2 && dat.getModul() > 0 && dat.getBreite() > 0 && dat.getSchrägungswinkel() > 0 && dat.getSchrägungswinkel() < 90)
+            if (dat.getZähnezahl() % 1 == 0 && dat.getZähnezahl() >= 2 && dat.getModul() > 0 && dat.getBreite() > 0 && dat.getSchrägungswinkel() > 0 && dat.getSchrägungswinkel() < 1.5704)
             {
                 Berechnungen prg = new Berechnungen();
 
@@ -344,7 +349,12 @@ namespace GUI_Zahnradrechner_Gruppe_I
             //Fehler: Falsch Werte
             else
             {
-                if (dat.getZähnezahl() % 1 != 0 || dat.getZähnezahl() < 2)
+                if (dat.getZähnezahl() % 1 != 0)
+                {
+                    MessageBox.Show("Bitte eine ganzzahlige Zähnezahl über 2 eingeben!");
+                    txb_zaehnezahl_außen.Background = Brushes.OrangeRed;
+                }
+                if (dat.getZähnezahl() < 2)
                 {
                     MessageBox.Show("Bitte eine ganzzahlige Zähnezahl über 2 eingeben!");
                     txb_zaehnezahl_außen.Background = Brushes.OrangeRed;
@@ -359,7 +369,12 @@ namespace GUI_Zahnradrechner_Gruppe_I
                     MessageBox.Show("Bitte Breite über 0 wählen!");
                     txb_breite_außen.Background = Brushes.OrangeRed;
                 }
-                if (dat.getSchrägungswinkel() <= 0 || dat.getSchrägungswinkel() >= 90)
+                if (dat.getSchrägungswinkel() <= 0)
+                {
+                    MessageBox.Show("Bitte Schrägungswinkel größer 0° und kleiner 90° wählen!");
+                    txb_schraegungswinkel.Background = Brushes.OrangeRed;
+                }
+                if (dat.getSchrägungswinkel() >= 1.5704)
                 {
                     MessageBox.Show("Bitte Schrägungswinkel größer 0° und kleiner 90° wählen!");
                     txb_schraegungswinkel.Background = Brushes.OrangeRed;
