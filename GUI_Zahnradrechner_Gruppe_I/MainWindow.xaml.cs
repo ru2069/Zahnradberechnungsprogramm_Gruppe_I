@@ -564,5 +564,6 @@ namespace GUI_Zahnradrechner_Gruppe_I
         {
             MessageBox.Show("Der Kopfspielfaktor ist mit 0,167 belegt.");
         }
+
     }
 }
