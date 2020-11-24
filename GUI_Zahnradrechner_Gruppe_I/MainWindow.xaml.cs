@@ -506,7 +506,6 @@ namespace GUI_Zahnradrechner_Gruppe_I
             txb_modul_außen.Text = "";
             txb_breite_außen.Text = "";
             txb_zaehnezahl_außen.Text = "";
-            txb_breite_außen.Text = "";
             txb_schraegungswinkel.Text = "";
             txb_teilkreisdurchmesser.Text = "";
             txb_teilung.Text = "";
@@ -521,6 +520,12 @@ namespace GUI_Zahnradrechner_Gruppe_I
             txb_grundkreisdurchmesser.Text = "";
             txb_stirnmodul.Text = "";
             txb_stirnteilung.Text = "";
+
+            txb_modul_außen.Background = Brushes.White;
+            txb_breite_außen.Background = Brushes.White;
+            txb_schraegungswinkel.Background = Brushes.White;
+            txb_zaehnezahl_außen.Background = Brushes.White;
+
         }
 
         private void botton_neu_Click(object sender, RoutedEventArgs e)  // Neu botton (Inennverzahung)
@@ -536,6 +541,12 @@ namespace GUI_Zahnradrechner_Gruppe_I
             txb_zahnhoehe1.Text = "";
             txb_zahnkopfhoehe1.Text = "";
             txb_zahnfusshohe.Text = "";
+
+            txb_modul_innen.Background = Brushes.White;
+            txb_zaehnezahl_innen.Background = Brushes.White;
+            txb_breite_innen.Background = Brushes.White;
+
+
         }
 
         private void Btn_ClickInfo(object sender, RoutedEventArgs e)
