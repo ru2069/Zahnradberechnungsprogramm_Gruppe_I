@@ -447,12 +447,24 @@ namespace GUI_Zahnradrechner_Gruppe_I
         //Programm beenden
         private void btn_beenden_ClickAußen(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            MessageBoxResult result = MessageBox.Show("Programm beenden?", "ZZ Zahnradrechner", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    Application.Current.Shutdown();
+                    break;
+            }
         }
 
         private void btn_beenden_ClickInnen(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            MessageBoxResult result = MessageBox.Show("Programm beenden?", "ZZ Zahnradrechner", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    Application.Current.Shutdown();
+                    break;
+            }
         }
 
 
@@ -542,5 +554,4 @@ namespace GUI_Zahnradrechner_Gruppe_I
             MessageBox.Show("Der Kopfspielfaktor ist mit 0,167 belegt.");
         }
     }
-
 }
