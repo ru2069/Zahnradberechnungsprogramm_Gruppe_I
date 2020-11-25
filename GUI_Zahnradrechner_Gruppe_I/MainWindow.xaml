@@ -28,7 +28,7 @@
                         <Label          x:Name="lbl_zaenezahl"  Content="Zähnezahl:" HorizontalAlignment="Left" Margin="0,95,0,130" FontFamily="Calibri Light"/>
                         <TextBox        x:Name="txb_zaehnezahl_außen"   TextWrapping="Wrap" Width="150" Margin="100,95,150,130" Height="25" Grid.ColumnSpan="2" FontFamily="Calibri Light"/>
                         <Label          x:Name="lbl_verzahnung" Content="Verzahnung:" HorizontalAlignment="Left" Margin="0,140,0,80" Width="90" FontFamily="Calibri Light"/>
-                        <RadioButton    x:Name="rdbtn_gerade"           IsChecked="True" RenderTransformOrigin="0.333,4.891" Margin="95,150,107,80"/>
+                        <RadioButton    x:Name="rdbtn_gerade"           RenderTransformOrigin="0.333,4.891" Margin="95,150,107,80" Checked="rdbtn_gerade_Checked" Unchecked="rdbtn_gerade_Unchecked"/>
                         <Label          x:Name="lbl_gerade"     Content="Gerade" HorizontalAlignment="Left" Margin="110,140,0,80" Width="90" FontFamily="Calibri Light"/>
                         <RadioButton    x:Name="rdbtn_schräg"           Margin="190,150,12,80" Width="20"/>
                         <Label          x:Name="lbl_schräg"     Content="Schräg" Margin="210,140,130,80" Grid.ColumnSpan="2" FontFamily="Calibri Light"/>
@@ -39,8 +39,8 @@
 
                     <!-- if schräg -->
 
-                    <Label x:Name="lbl_schraegungswinkel"       Content="Schrägungswinkel:" HorizontalAlignment="Left" Canvas.Top="260" VerticalAlignment="Top" FontFamily="Calibri Light"/>
-                    <TextBox x:Name="txb_schraegungswinkel"             Canvas.Top="262" Canvas.Left="175" Width="150" Height="25" FontFamily="Calibri Light"/>
+                    <Label x:Name="lbl_schraegungswinkel"       Visibility="Hidden" Content="Schrägungswinkel:" HorizontalAlignment="Left" Canvas.Top="260" VerticalAlignment="Top" FontFamily="Calibri Light"/>
+                    <TextBox x:Name="txb_schraegungswinkel"       Visibility="Hidden" Canvas.Top="262" Canvas.Left="175" Width="150" Height="25" FontFamily="Calibri Light"/>
 
                     <!-- Materialwahl + Rundung -->
 

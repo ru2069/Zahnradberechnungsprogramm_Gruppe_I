@@ -31,6 +31,11 @@ namespace GUI_Zahnradrechner_Gruppe_I
         {
             Data dat = new Data();
 
+            if (rdbtn_gerade.IsChecked == false && rdbtn_schräg.IsChecked == false)
+            {
+                MessageBox.Show("Bitte zwischen Gerad- oder Schrägverzahnung wählen!");
+            }
+
             //If-Abfrage Radiobutton Gerade
             if (rdbtn_gerade.IsChecked == true)
             {
@@ -563,5 +568,16 @@ namespace GUI_Zahnradrechner_Gruppe_I
             MessageBox.Show("Der Kopfspielfaktor ist mit 0,167 belegt.");
         }
 
+        private void rdbtn_gerade_Checked(object sender, RoutedEventArgs e)
+        {
+            lbl_schraegungswinkel.Visibility = Visibility.Hidden;
+            txb_schraegungswinkel.Visibility = Visibility.Hidden;
+        }
+
+        private void rdbtn_gerade_Unchecked(object sender, RoutedEventArgs e)
+        {
+            lbl_schraegungswinkel.Visibility = Visibility.Visible;
+            txb_schraegungswinkel.Visibility = Visibility.Visible;
+        }
     }
 }
