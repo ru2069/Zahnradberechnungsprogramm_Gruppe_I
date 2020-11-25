@@ -165,11 +165,11 @@
 
                         <Label Margin="178,10,0,0" FontFamily="Calibri Light" Height="65" VerticalAlignment="Top" HorizontalAlignment="Left" Width="212" Grid.ColumnSpan="4">
                             <Label.Content>
-                                <AccessText TextWrapping="Wrap" Text="Auf wie viele Stellen nach dem Komma soll gerundet werden?" Width="202" Height="67"/>
+                                <AccessText x:Name="lbl_Rundung" TextWrapping="Wrap" Text="Auf wie viele Stellen nach dem Komma soll gerundet werden?" Width="202" Height="67"/>
                             </Label.Content>
                         </Label>
 
-                        <Label Margin="10,7,0,0" FontFamily="Calibri Light">
+                        <Label x:Name="lbl_Materialwahl" Margin="10,7,0,0" FontFamily="Calibri Light">
                             <Label.Content>
                                 <AccessText TextWrapping="Wrap" Text="Bitte wählen Sie unten ihr Material" Height="42" Width="159"/>
                             </Label.Content>
