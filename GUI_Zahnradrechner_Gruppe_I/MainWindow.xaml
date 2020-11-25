@@ -10,9 +10,10 @@
         <Label Content="Willkommen beim ZZ Zahnradrechner!" FontFamily="Corbel Light" FontSize="40" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <Image  Stretch="Uniform" Height="130" VerticalAlignment="Top" Source="/ZZ Logo 2.png" HorizontalAlignment="Right" Width="1344" />
 
+
         <TabControl Margin="0,100,10,5" HorizontalAlignment="Left">
             <TabItem Header="Außenverzahnung" FontFamily="Corbel Light" FontSize="16">
-                <Canvas Background="#FFD8D8D8" HorizontalAlignment="Stretch" Width="1294" VerticalAlignment="Stretch">
+                <Canvas Background="#FFD8D8D8" Width="1307">
 
                     <!-- Eingabe Grid -->
 
@@ -129,9 +130,10 @@
                     <Button Content="Weitere Info" Canvas.Left="900" Canvas.Top="523" Click="Btn_ClickInfo"/>
                     <Button Content="Hinweise" Canvas.Left="900" Canvas.Top="500" Click="Btn_ClickHinweise"/>
 
+                    <Grid Height="597" Width="1294"/>
 
-                    <Image Canvas.Left="920" Stretch="Uniform" Source="/hsp_1.png" Height="264" Width="374"/>
-                    <Image Height="273" Canvas.Left="1054" Stretch="Fill" Source="/hsp_3.png" Canvas.Top="274" Width="229"/>
+
+
 
                 </Canvas>
 
@@ -221,7 +223,11 @@
 
                     <Button x:Name="btn_beenden1" Content="Programm beenden " FontSize="20" Height="40" RenderTransformOrigin="-0.274,-0.251" Background="White" IsDefault="True" Margin="600,500,296,21" Grid.Column="3" Click="btn_beenden_ClickInnen" FontFamily="Calibri Light"/>
                     <Button Content="Hinweise" Grid.Column="3" HorizontalAlignment="Left" Margin="900,500,0,0" VerticalAlignment="Top" Click="Btn_ClickHinweiseInnen" />
-                    <Image Height="197" Canvas.Left="916" Stretch="Fill" Source="/hsp_4.jpg" Canvas.Top="10" Width="368" RenderTransformOrigin="0.457,0.739"/>
+                    <Grid Height="490" Width="389" Canvas.Left="905" Canvas.Top="10">
+                        <Image HorizontalAlignment="Center" Height="257" Margin="0,0,0,0" VerticalAlignment="Top" Width="329" Source="/hsp_1.png" RenderTransformOrigin="0.503,-0.039"/>
+                        <Image Margin="46,252,-80,0" Source="/hsp_3.png" />
+                    </Grid>
+
 
                 </Canvas>
             </TabItem>
