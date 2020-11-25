@@ -13,9 +13,9 @@
         <Grid Height="490" Canvas.Left="905" Canvas.Top="10" Margin="976,122,10,121"/>
 
 
-        <TabControl Margin="0,100,10,5" HorizontalAlignment="Left">
+        <TabControl Margin="0,100,10,5" HorizontalAlignment="Left" Background="#FFD8D8D8">
             <TabItem Header="Außenverzahnung" FontFamily="Corbel Light" FontSize="16">
-                <Canvas Background="#FFD8D8D8" Width="1307">
+                <Canvas Background="#FFD8D8D8" Width="1307"  Margin="0,0,10,0">
 
                     <!-- Eingabe Grid -->
 
@@ -133,8 +133,8 @@
                     <Button Content="Hinweise" Canvas.Left="900" Canvas.Top="500" Click="Btn_ClickHinweise"/>
 
                     <Grid Height="552" Width="460" Canvas.Right="20" Canvas.Top="20" Canvas.Left="837">
-                        <Image HorizontalAlignment="Right" Width="380" Source="/hsp_1.png" Height="318" VerticalAlignment="Bottom" Margin="0,0,10,276" RenderTransformOrigin="0.637,0.53"/>
-                        <Image HorizontalAlignment="Right" Height="231" Margin="0,281,10,0" VerticalAlignment="Top" Width="356" Source="/hsp_3.png"/>
+                        <Image HorizontalAlignment="Right" Width="380" Source="/hsp_1.png" Margin="0,-39,10,273" RenderTransformOrigin="0.637,0.53"/>
+                        <Image HorizontalAlignment="Right" Height="259" Margin="0,267,10,0" VerticalAlignment="Top" Width="356" Source="/hsp_3.png"/>
 
 
                     </Grid>
@@ -232,6 +232,12 @@
 
                     <Button x:Name="btn_beenden1" Content="Programm beenden " FontSize="20" Height="40" RenderTransformOrigin="-0.274,-0.251" Background="White" IsDefault="True" Margin="600,500,296,21" Grid.Column="3" Click="btn_beenden_ClickInnen" FontFamily="Calibri Light"/>
                     <Button Content="Hinweise" Grid.Column="3" HorizontalAlignment="Left" Margin="900,500,0,0" VerticalAlignment="Top" Click="Btn_ClickHinweiseInnen" />
+
+                    <Grid Width="379" Height="384" Canvas.Left="905" >
+                        <Image HorizontalAlignment="Center" Height="366" VerticalAlignment="Top" Width="359" Source="/hsp_4.jpg"/>
+
+
+                    </Grid>
 
 
 
