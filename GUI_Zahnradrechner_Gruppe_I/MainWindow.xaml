@@ -65,7 +65,7 @@
                             <ComboBoxItem>2</ComboBoxItem>
                             <ComboBoxItem>3</ComboBoxItem>
                         </ComboBox>
-                        <Label Margin="10,7,0,0" FontFamily="Calibri Light">
+                        <Label Margin="10,7,227,104" FontFamily="Calibri Light">
                             <Label.Content>
                                 <AccessText TextWrapping="Wrap" Text="Bitte wählen Sie unten ihr Material" Height="42" Width="159"/>
                             </Label.Content>
