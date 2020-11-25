@@ -10,13 +10,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="hsp_1.png" />
     <None Remove="hsp_2.png" />
+    <None Remove="hsp_3.png" />
     <None Remove="Mini Logo 2.png" />
     <None Remove="ZZ Logo 2.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="hsp_1.png" />
     <Resource Include="hsp_2.png" />
+    <Resource Include="hsp_3.png" />
     <Resource Include="Mini Logo 2.png" />
     <Resource Include="ZZ Logo 2.png" />
   </ItemGroup>
