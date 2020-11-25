@@ -129,6 +129,10 @@
                     <Button Content="Weitere Info" Canvas.Left="900" Canvas.Top="523" Click="Btn_ClickInfo"/>
                     <Button Content="Hinweise" Canvas.Left="900" Canvas.Top="500" Click="Btn_ClickHinweise"/>
 
+
+                    <Image Canvas.Left="920" Stretch="Uniform" Source="/hsp_1.png" Height="264" Width="374"/>
+                    <Image Height="273" Canvas.Left="1054" Stretch="Fill" Source="/hsp_3.png" Canvas.Top="274" Width="229"/>
+
                 </Canvas>
 
             </TabItem>
@@ -217,6 +221,7 @@
 
                     <Button x:Name="btn_beenden1" Content="Programm beenden " FontSize="20" Height="40" RenderTransformOrigin="-0.274,-0.251" Background="White" IsDefault="True" Margin="600,500,296,21" Grid.Column="3" Click="btn_beenden_ClickInnen" FontFamily="Calibri Light"/>
                     <Button Content="Hinweise" Grid.Column="3" HorizontalAlignment="Left" Margin="900,500,0,0" VerticalAlignment="Top" Click="Btn_ClickHinweiseInnen" />
+                    <Image Height="197" Canvas.Left="916" Stretch="Fill" Source="/hsp_4.jpg" Canvas.Top="10" Width="368" RenderTransformOrigin="0.457,0.739"/>
 
                 </Canvas>
             </TabItem>
