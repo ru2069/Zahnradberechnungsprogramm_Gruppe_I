@@ -6,7 +6,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
 {
      public class Berechnungen
     {
-        //Methoden Geradverzahnung
+        //Berechnungen
         public double Teilkreisdurchmesser_d(double modul, double zähnezahl)
         {
             double d = modul * zähnezahl;
@@ -74,7 +74,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
         }
 
 
-        //Methoden Schrägverzahnung
+        //Berechnungen Schrägverzahnung
         public double normalteilung_pn(double kreiszahl, double modul)
         {
             double pn = kreiszahl * modul;

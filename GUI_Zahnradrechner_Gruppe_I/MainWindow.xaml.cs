@@ -217,6 +217,8 @@ namespace GUI_Zahnradrechner_Gruppe_I
             }
         }
 
+
+        //Berechnungen
         private Data BerechnungenGeradeAußen(Data dat)
         {
             //If-Abfragen Korrekte Eingaben
@@ -473,6 +475,7 @@ namespace GUI_Zahnradrechner_Gruppe_I
         }
 
 
+        //Material
         public double material;
         public void cmb_materialwahl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -504,7 +507,9 @@ namespace GUI_Zahnradrechner_Gruppe_I
             }
         }
 
-        private void btn_neu_Click(object sender, RoutedEventArgs e) //Neu bontton (Aussenverzahung)
+
+        //ResetButtons
+        private void btn_neu_Click(object sender, RoutedEventArgs e)
         {
             txb_modul_außen.Text = "";
             txb_breite_außen.Text = "";
@@ -528,10 +533,9 @@ namespace GUI_Zahnradrechner_Gruppe_I
             txb_breite_außen.Background = Brushes.White;
             txb_schraegungswinkel.Background = Brushes.White;
             txb_zaehnezahl_außen.Background = Brushes.White;
-
         }
 
-        private void botton_neu_Click(object sender, RoutedEventArgs e)  // Neu botton (Inennverzahung)
+        private void botton_neu_Click(object sender, RoutedEventArgs e)
         {
             txb_modul_innen.Text = "";
             txb_zaehnezahl_innen.Text = "";
@@ -552,6 +556,8 @@ namespace GUI_Zahnradrechner_Gruppe_I
 
         }
 
+
+        //Info + Hinweis Buttons
         private void Btn_ClickInfo(object sender, RoutedEventArgs e)
         {
             Window1 Infowindow1 = new Window1();
@@ -568,6 +574,8 @@ namespace GUI_Zahnradrechner_Gruppe_I
             MessageBox.Show("Der Kopfspielfaktor ist mit 0,167 belegt.");
         }
 
+
+        //Ausblendung Schrägungswinkel
         private void rdbtn_gerade_Checked(object sender, RoutedEventArgs e)
         {
             lbl_schraegungswinkel.Visibility = Visibility.Hidden;
@@ -575,6 +583,12 @@ namespace GUI_Zahnradrechner_Gruppe_I
         }
 
         private void rdbtn_gerade_Unchecked(object sender, RoutedEventArgs e)
+        {
+            lbl_schraegungswinkel.Visibility = Visibility.Visible;
+            txb_schraegungswinkel.Visibility = Visibility.Visible;
+        }
+
+        private void rdbtn_schräg_Checked(object sender, RoutedEventArgs e)
         {
             lbl_schraegungswinkel.Visibility = Visibility.Visible;
             txb_schraegungswinkel.Visibility = Visibility.Visible;
