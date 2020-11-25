@@ -16,24 +16,24 @@
 
                     <!-- Eingabe Grid -->
 
-                    <Grid Height="250" Width="400" Background="#FF6BA3DA">
+                    <Grid Height="300" Width="400" Background="#FF6BA3DA">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="111*"/>
                             <ColumnDefinition Width="89*"/>
                         </Grid.ColumnDefinitions>
 
                         <Label          x:Name="lbl_eingabe"    Content="Eingabe:" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Calibri Light"/>
-                        <Label          x:Name="lbl_modul"      Content="Modul:" HorizontalAlignment="Left" Margin="0,52,0,172" FontFamily="Calibri Light"/>
-                        <TextBox        x:Name="txb_modul_außen"        TextWrapping="Wrap" Width="150" Margin="100,52,150,172" Height="25" SelectionBrush="White" Grid.ColumnSpan="2" FontFamily="Calibri Light"/>
-                        <Label          x:Name="lbl_zaenezahl"  Content="Zähnezahl:" HorizontalAlignment="Left" Margin="0,95,0,130" FontFamily="Calibri Light"/>
-                        <TextBox        x:Name="txb_zaehnezahl_außen"   TextWrapping="Wrap" Width="150" Margin="100,95,150,130" Height="25" Grid.ColumnSpan="2" FontFamily="Calibri Light"/>
-                        <Label          x:Name="lbl_verzahnung" Content="Verzahnung:" HorizontalAlignment="Left" Margin="0,140,0,80" Width="90" FontFamily="Calibri Light"/>
-                        <RadioButton    x:Name="rdbtn_gerade"           RenderTransformOrigin="0.333,4.891" Margin="95,150,107,80" Checked="rdbtn_gerade_Checked" Unchecked="rdbtn_gerade_Unchecked"/>
-                        <Label          x:Name="lbl_gerade"     Content="Gerade" HorizontalAlignment="Left" Margin="110,140,0,80" Width="90" FontFamily="Calibri Light"/>
-                        <RadioButton    x:Name="rdbtn_schräg"           Margin="190,150,12,80" Width="20"/>
-                        <Label          x:Name="lbl_schräg"     Content="Schräg" Margin="210,140,130,80" Grid.ColumnSpan="2" FontFamily="Calibri Light"/>
-                        <Label          x:Name="lbl_breite"     Content="Breite:" HorizontalAlignment="Left" Margin="0,180,0,0" VerticalAlignment="Top" FontFamily="Calibri Light"/>
-                        <TextBox        x:Name="txb_breite_außen"       HorizontalAlignment="Left" Margin="100,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="25" Grid.ColumnSpan="2" FontFamily="Calibri Light"/>
+                        <Label          x:Name="lbl_modul"      Content="Modul:" HorizontalAlignment="Left" Margin="0,54,0,170" FontFamily="Calibri Light"/>
+                        <TextBox        x:Name="txb_modul_außen"        TextWrapping="Wrap" Width="150" Margin="100,55,0,0" Height="25" SelectionBrush="White" Grid.ColumnSpan="2" FontFamily="Calibri Light" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                        <Label          x:Name="lbl_zaenezahl"  Content="Zähnezahl:" HorizontalAlignment="Left" Margin="0,100,0,125" FontFamily="Calibri Light"/>
+                        <TextBox        x:Name="txb_zaehnezahl_außen"   TextWrapping="Wrap" Width="150" Margin="100,100,150,0" Height="25" Grid.ColumnSpan="2" FontFamily="Calibri Light" VerticalAlignment="Top"/>
+                        <Label          x:Name="lbl_verzahnung" Content="Verzahnung:" HorizontalAlignment="Left" Margin="0,210,0,10" Width="90" FontFamily="Calibri Light"/>
+                        <RadioButton    x:Name="rdbtn_gerade"           RenderTransformOrigin="0.333,4.891" Margin="102,220,100,10" Checked="rdbtn_gerade_Checked" Unchecked="rdbtn_gerade_Unchecked"/>
+                        <Label          x:Name="lbl_gerade"     Content="Gerade" HorizontalAlignment="Left" Margin="122,210,0,10" Width="90" FontFamily="Calibri Light"/>
+                        <RadioButton    x:Name="rdbtn_schräg"           Margin="205,220,175,10" Width="20" Grid.ColumnSpan="2"/>
+                        <Label          x:Name="lbl_schräg"     Content="Schräg" Margin="0,210,118,10" FontFamily="Calibri Light" RenderTransformOrigin="0.817,3.239" Grid.Column="1"/>
+                        <Label          x:Name="lbl_breite"     Content="Breite:" HorizontalAlignment="Left" Margin="0,143,0,0" VerticalAlignment="Top" FontFamily="Calibri Light" RenderTransformOrigin="-0.152,0.616"/>
+                        <TextBox        x:Name="txb_breite_außen"       HorizontalAlignment="Left" Margin="100,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="25" Grid.ColumnSpan="2" FontFamily="Calibri Light"/>
 
                     </Grid>
 
@@ -45,7 +45,7 @@
                     <!-- Materialwahl + Rundung -->
 
                     <Grid Height="170" Width="400" Canvas.Top="300" Background="#FF9DB3E4">
-                        <ComboBox       x:Name="cmb_materialwahl" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="120" FontFamily="Calibri Light" SelectionChanged="cmb_materialwahl_SelectionChanged">
+                        <ComboBox       x:Name="cmb_materialwahl" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="120" FontFamily="Calibri Light" SelectionChanged="cmb_materialwahl_SelectionChanged">
                             <ComboBoxItem IsSelected="True" FontFamily="Calibri Light">Vergütungsstahl</ComboBoxItem>
                             <ComboBoxItem FontFamily="Calibri Light">Nichtrostender Stahl</ComboBoxItem>
                             <ComboBoxItem FontFamily="Calibri Light">Kunststoff</ComboBoxItem>
@@ -53,17 +53,23 @@
                             <ComboBoxItem FontFamily="Calibri Light">Messing</ComboBoxItem>
                         </ComboBox>
 
-                        <Label Margin="178,0,10,115" FontFamily="Calibri Light">
+                        <Label Margin="178,10,0,0" FontFamily="Calibri Light" Height="56" VerticalAlignment="Top" HorizontalAlignment="Left" Width="212">
                             <Label.Content>
                                 <AccessText TextWrapping="Wrap" Text="Auf wie viele Stellen nach dem Komma gerundet werden?"/>
                             </Label.Content>
                         </Label>
-                        <ComboBox x:Name="cmb_rundung" HorizontalAlignment="Left" Margin="215,85,0,0" VerticalAlignment="Top" Width="120" FontFamily="Calibri Light">
+
+                        <ComboBox x:Name="cmb_rundung" HorizontalAlignment="Left" Margin="178,85,0,0" VerticalAlignment="Top" Width="120" FontFamily="Calibri Light">
                             <ComboBoxItem IsSelected="True">0</ComboBoxItem>
                             <ComboBoxItem>1</ComboBoxItem>
                             <ComboBoxItem>2</ComboBoxItem>
                             <ComboBoxItem>3</ComboBoxItem>
                         </ComboBox>
+                        <Label Margin="10,7,0,0" FontFamily="Calibri Light">
+                            <Label.Content>
+                                <AccessText TextWrapping="Wrap" Text="Bitte wählen Sie unten ihr Material" Height="42" Width="159"/>
+                            </Label.Content>
+                        </Label>
 
 
 
@@ -128,7 +134,7 @@
             </TabItem>
             <TabItem Header="Innenverzahnung" FontFamily="Corbel Light" FontSize="16">
                 <Canvas Background="#FFD8D8D8" HorizontalAlignment="Stretch" Width="1294" VerticalAlignment="Stretch">
-                    
+
 
                     <Grid Height="250" Width="400" Background="#FF6BA3DA" Margin="0,0,943,348" Grid.ColumnSpan="4">
                         <Grid.ColumnDefinitions>
@@ -136,12 +142,12 @@
                             <ColumnDefinition Width="333*"/>
                         </Grid.ColumnDefinitions>
                         <Label      x:Name="lbl_eingabe_innen" Content="Eingabe" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Calibri Light" Grid.ColumnSpan="2"/>
-                        <TextBox    x:Name="txb_modul_innen" TextWrapping="Wrap" Width="150" Margin="32,53,150,172" Height="25" SelectionBrush="White" FontFamily="Calibri Light" Grid.Column="1"/>
-                        <Label      x:Name="lbl_modul_innen" Content="Modul:" HorizontalAlignment="Left" Margin="0,52,0,172" FontFamily="Calibri Light"/>
-                        <Label      x:Name="lbl_zaehnezahl" Content="Zähnezahl:" HorizontalAlignment="Left" Margin="0,95,0,130" FontFamily="Calibri Light" Grid.ColumnSpan="2"/>
-                        <TextBox    x:Name="txb_zaehnezahl_innen" TextWrapping="Wrap" Width="150" Margin="32,95,150,130" Height="25" FontFamily="Calibri Light" Grid.Column="1"/>
-                        <Label      x:Name="lbl_breite_innen" Content="Breite:" HorizontalAlignment="Left" Margin="0,180,0,0" VerticalAlignment="Top" FontFamily="Calibri Light"/>
-                        <TextBox    x:Name="txb_breite_innen" HorizontalAlignment="Left" Margin="32,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="25" FontFamily="Calibri Light" Grid.Column="1"/>
+                        <TextBox    x:Name="txb_modul_innen" TextWrapping="Wrap" Width="150" Margin="100,55,0,0" Height="25" SelectionBrush="White" Grid.ColumnSpan="2" FontFamily="Calibri Light" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                        <Label      x:Name="lbl_modul_innen" Content="Modul:" HorizontalAlignment="Left" Margin="0,54,0,170" FontFamily="Calibri Light"/>
+                        <Label      x:Name="lbl_zaehnezahl" Content="Zähnezahl:" HorizontalAlignment="Left" Margin="0,100,0,125" FontFamily="Calibri Light" Width="122" Grid.ColumnSpan="2"/>
+                        <TextBox    x:Name="txb_zaehnezahl_innen" TextWrapping="Wrap" Width="150" Margin="100,100,150,0" Height="25" Grid.ColumnSpan="2" FontFamily="Calibri Light" VerticalAlignment="Top"/>
+                        <Label      x:Name="lbl_breite_innen" Content="Breite:" HorizontalAlignment="Left" Margin="0,143,0,0" VerticalAlignment="Top" FontFamily="Calibri Light"/>
+                        <TextBox    x:Name="txb_breite_innen" HorizontalAlignment="Left" Margin="100,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="25" Grid.ColumnSpan="2" FontFamily="Calibri Light"/>
                     </Grid>
 
 
@@ -149,16 +155,23 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="309*"/>
                             <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="89*"/>
+                            <ColumnDefinition Width="64*"/>
+                            <ColumnDefinition Width="25*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Label VerticalAlignment="Top" Width="384" Height="29"  FontFamily="Calibri Light">
+                        <Label Margin="178,10,0,0" FontFamily="Calibri Light" Height="65" VerticalAlignment="Top" HorizontalAlignment="Left" Width="212" Grid.ColumnSpan="4">
                             <Label.Content>
-                                <AccessText TextWrapping="Wrap" Text="Auf wie viele Stellen nach dem Komma gerundet werden?" Width="326"/>
+                                <AccessText TextWrapping="Wrap" Text="Auf wie viele Stellen nach dem Komma soll gerundet werden?" Width="202" Height="67"/>
                             </Label.Content>
                         </Label>
 
-                        <ComboBox HorizontalAlignment="Left" Margin="47,59,0,0" VerticalAlignment="Top" Width="120" FontFamily="Calibri Light">
+                        <Label Margin="10,7,0,0" FontFamily="Calibri Light">
+                            <Label.Content>
+                                <AccessText TextWrapping="Wrap" Text="Bitte wählen Sie unten ihr Material" Height="42" Width="159"/>
+                            </Label.Content>
+                        </Label>
+
+                        <ComboBox HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Width="120" FontFamily="Calibri Light" Height="26">
                             <ComboBoxItem IsSelected="True">Vergütungsstahl</ComboBoxItem>
                             <ComboBoxItem>Nichtrostender Stahl</ComboBoxItem>
                             <ComboBoxItem>Kunststoff</ComboBoxItem>
@@ -166,7 +179,7 @@
                             <ComboBoxItem>Messing</ComboBoxItem>
 
                         </ComboBox>
-                        <ComboBox x:Name="cmb_rundung_innen" FontFamily="Calibri Light" Margin="0,107,16,0" HorizontalAlignment="Right" Width="120" Height="26" VerticalAlignment="Top" Grid.ColumnSpan="3">
+                        <ComboBox x:Name="cmb_rundung_innen" FontFamily="Calibri Light" Margin="0,88,11,0" HorizontalAlignment="Right" Width="120" Height="26" VerticalAlignment="Top">
                             <ComboBoxItem IsSelected="True">0</ComboBoxItem>
                             <ComboBoxItem>1</ComboBoxItem>
                             <ComboBoxItem>2</ComboBoxItem>
@@ -184,21 +197,21 @@
                         <Label x:Name="label_kopfspiel1" Content="Kopfspiel" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
                         <Label x:Name="label_kopfkreisduchmesser1" Content="Kopfkreisduchmesser" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
                         <Label x:Name="label_fußkreisduchmesser1" Content="Fußkreisdurchmesser" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
-                        <Label x:Name="label_zahnhoehe1" Content="zahnhoehe" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
-                        <Label x:Name="label_zahnkopfhoehe1" Content="zahnkopfhoehe" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
-                        <Label x:Name="label_zahnfußhoehe1" Content="zahnfußhoehe" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
+                        <Label x:Name="label_zahnhoehe1" Content="Zahnhöhe" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
+                        <Label x:Name="label_zahnkopfhoehe1" Content="Zahnkopfhöhe" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
+                        <Label x:Name="label_zahnfußhoehe1" Content="Zahnfußhöhe" FontWeight="Bold" Height="30" FontFamily="Calibri Light"/>
                     </StackPanel>
 
 
                     <StackPanel  Height="500" Width="200" Margin="700,0,296,88" Background="#FF93CADA" Grid.Column="3">
-                        <TextBox x:Name="txb_teilkreisdurchmesser1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
-                        <TextBox x:Name="txb_teilung1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
-                        <TextBox x:Name="txb_kopfspiel1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
-                        <TextBox x:Name="txb_kopfkreisdurchmesser1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
-                        <TextBox x:Name="txb_fußkreisdurchmesser1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
-                        <TextBox x:Name="txb_zahnhoehe1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
-                        <TextBox x:Name="txb_zahnkopfhoehe1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
-                        <TextBox x:Name="txb_zahnfußhoehe1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" IsTabStop="False" FontFamily="Calibri Light"/>
+                        <TextBlock x:Name="txb_teilkreisdurchmesser1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False"  FontFamily="Calibri Light"/>
+                        <TextBlock x:Name="txb_teilung1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False"  FontFamily="Calibri Light"/>
+                        <TextBlock x:Name="txb_kopfspiel1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" FontFamily="Calibri Light"/>
+                        <TextBlock x:Name="txb_kopfkreisdurchmesser1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" FontFamily="Calibri Light"/>
+                        <TextBlock x:Name="txb_fußkreisdurchmesser1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" FontFamily="Calibri Light"/>
+                        <TextBlock x:Name="txb_zahnhoehe1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False"  FontFamily="Calibri Light"/>
+                        <TextBlock x:Name="txb_zahnkopfhoehe1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False"  FontFamily="Calibri Light"/>
+                        <TextBlock x:Name="txb_zahnfußhoehe1" FontWeight="Bold" Background="White" Height="30" AllowDrop="False" Focusable="False" FontFamily="Calibri Light"/>
                     </StackPanel>
 
 
